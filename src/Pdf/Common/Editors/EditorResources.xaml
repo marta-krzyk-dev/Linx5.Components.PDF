@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+										xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+										xmlns:editors="clr-namespace:Twenty57.Linx.Components.Pdf.Editors"
+										x:Class="Twenty57.Linx.Components.Pdf.Editors.EditorResources">
+
+	<DataTemplate x:Key="CertificateInlineEditorTemplate">
+		<editors:CertificateInlineEditor />
+	</DataTemplate>
+
+</ResourceDictionary>

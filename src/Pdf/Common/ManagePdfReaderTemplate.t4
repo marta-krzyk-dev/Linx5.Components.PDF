@@ -1,0 +1,69 @@
+﻿<#+
+void AssignPdfReader(string readerPropertyName, AuthenticationType authenticationType, string filePropertyName, string passwordPropertyName,
+	Twenty57.Linx.Components.Pdf.CertificateSource certificateSource, string certificateFilePathPropertyName, string certificateFilePasswordPropertyName, 
+	Twenty57.Linx.Components.Pdf.StoredCertificate certificate,	string contextPropertyName)
+{
+#>
+if (string.IsNullOrEmpty(<#= filePropertyName #>))
+	throw new ArgumentNullException("<#= filePropertyName #>");
+if (!System.IO.File.Exists(<#= filePropertyName #>))
+	throw new System.IO.FileNotFoundException(string.Format("File [{0}] does not exist.", <#= filePropertyName #>));
+
+<#= contextPropertyName #>.Log(string.Format("Opening file [{0}].", <#= filePropertyName #>));
+<#+
+	if (authenticationType == AuthenticationType.None)
+	{
+#>
+<#= readerPropertyName #> = new iTextSharp.text.pdf.PdfReader(<#= filePropertyName #>);
+<#+
+	}
+	else if (authenticationType == AuthenticationType.Password)
+	{
+#>
+<#= readerPropertyName #> = new iTextSharp.text.pdf.PdfReader(<#= filePropertyName #>, System.Text.Encoding.UTF8.GetBytes(<#= passwordPropertyName #>));
+<#+
+	}
+	else if (authenticationType == AuthenticationType.Certificate)
+	{
+		string certificatePropertyName = "inputCertificate";
+#>
+System.Security.Cryptography.X509Certificates.X509Certificate2 <#= certificatePropertyName #> = null;
+<#+ AssignCertificateProperty(certificatePropertyName, certificateSource, certificateFilePathPropertyName, certificateFilePasswordPropertyName, certificate); #>
+if (!inputCertificate.HasPrivateKey)
+	throw new NotSupportedException("Certificate must have a private key.");
+
+Org.BouncyCastle.X509.X509Certificate inputBouncyCertficate = Org.BouncyCastle.Security.DotNetUtilities.FromX509Certificate(inputCertificate);
+Org.BouncyCastle.Crypto.AsymmetricCipherKeyPair inputKeyPair = Org.BouncyCastle.Security.DotNetUtilities.GetKeyPair(inputCertificate.PrivateKey);
+<#= readerPropertyName #> = new iTextSharp.text.pdf.PdfReader(<#= filePropertyName #>, inputBouncyCertficate, inputKeyPair.Private);
+<#+
+	}
+}
+#>
+
+<#+
+void DisposePdfReader(string readerPropertyName)
+{
+#>
+if (<#= readerPropertyName #> != null)
+	<#= readerPropertyName #>.Dispose();
+<#+
+}
+#>
+
+<#+
+void AssignCertificateProperty(string certificatePropertyName, Twenty57.Linx.Components.Pdf.CertificateSource certificateSource, 
+	string certificateFilePathPropertyName, string certificateFilePasswordPropertyName, 
+	Twenty57.Linx.Components.Pdf.StoredCertificate storedCertificatePropertyName)
+{
+#>
+<#+	if (certificateSource == Twenty57.Linx.Components.Pdf.CertificateSource.File)	{ #>
+<#= certificatePropertyName #> = new System.Security.Cryptography.X509Certificates.X509Certificate2(<#= certificateFilePathPropertyName #>, <#= certificateFilePasswordPropertyName #>, System.Security.Cryptography.X509Certificates.X509KeyStorageFlags.Exportable);
+<#+ } else if (certificateSource == Twenty57.Linx.Components.Pdf.CertificateSource.Store) { #>
+<#= certificatePropertyName #> = new Twenty57.Linx.Components.Pdf.StoredCertificate(
+	<#= Twenty57.Linx.Plugin.Common.CodeGeneration.CSharpUtilities.EnumAsString(storedCertificatePropertyName.StoreLocation) #>, 
+	<#= Twenty57.Linx.Plugin.Common.CodeGeneration.CSharpUtilities.EnumAsString(storedCertificatePropertyName.StoreName) #>, 
+	"<#= storedCertificatePropertyName.ThumbPrint #>").GetCertificate();
+<#+	} #>
+<#+
+}
+#>

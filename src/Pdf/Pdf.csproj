@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1040F0FD-573F-48F4-A4ED-2802D9D0740C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Twenty57.Linx.Components.Pdf</RootNamespace>
+    <AssemblyName>Twenty57.Linx.Components.Pdf</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Twenty57.Linx.Plugin.Common, Version=14.0.7.200, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.14.0.7.200\lib\net45\Twenty57.Linx.Plugin.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Twenty57.Linx.Plugin.UI, Version=14.0.7.200, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.UI.14.0.7.200\lib\net45\Twenty57.Linx.Plugin.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AuthenticationType.cs" />
+    <Compile Include="Common\Validators\CertificateAuthenticationValidator.cs" />
+    <Compile Include="Extensions\FunctionDataExtensions.cs" />
+    <Compile Include="Extensions\PropertyCollectionExtensions.cs" />
+    <Compile Include="Helpers\VisibleDependency.cs" />
+    <Compile Include="PdfOperations\Changes.cs" />
+    <Compile Include="PdfOperations\Constants.cs" />
+    <Compile Include="PdfOperations\Encryption.cs" />
+    <Compile Include="Interfaces\ITemplate.cs" />
+    <Compile Include="PdfOperations\Operation.cs" />
+    <Compile Include="PdfOperations\Printing.cs" />
+    <Compile Include="PdfOperations\Runtime\ParentsAnnotationPdfReader.cs" />
+    <Compile Include="PdfOperations\PdfOperationsCodeGenerator.cs" />
+    <Compile Include="PdfOperations\PdfOperationsDesigner.cs" />
+    <Compile Include="PdfOperations\Templates\AddWatermarkTemplate.cs">
+      <DependentUpon>AddWatermarkTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="PdfOperations\Templates\ProtectTemplate.cs">
+      <DependentUpon>ProtectTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="PdfOperations\Templates\ConcatenateTemplate.cs">
+      <DependentUpon>ConcatenateTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="PdfOperations\Templates\SignTemplate.cs">
+      <DependentUpon>SignTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="PdfOperations\Templates\ProtectTemplateData.cs" />
+    <Compile Include="PdfOperations\Templates\ConcatenateTemplateData.cs" />
+    <Compile Include="PdfOperations\Templates\SignTemplateData.cs" />
+    <Compile Include="PdfOperations\Templates\SplitTemplate.cs">
+      <DependentUpon>SplitTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="PdfOperations\Templates\AddWatermarkTemplateData.cs" />
+    <Compile Include="PdfOperations\Templates\SplitTemplateData.cs" />
+    <Compile Include="PdfOperations\PdfOperationsProvider.cs" />
+    <Compile Include="PdfOperations\Templates\FillFormTemplate.cs">
+      <DependentUpon>FillFormTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="PdfOperations\Templates\FillFormTemplateData.cs" />
+    <Compile Include="PdfOperations\SignaturePosition.cs" />
+    <Compile Include="PdfOperations\WatermarkPosition.cs" />
+    <Compile Include="ReadPdf\Constants.cs" />
+    <Compile Include="ReadPdf\ReadPdfProvider.cs" />
+    <Compile Include="ReadPdf\ReadPdfCodeGenerator.cs" />
+    <Compile Include="ReadPdf\ReadPdfDesigner.cs" />
+    <Compile Include="ReadPdf\FormExtraction.cs" />
+    <Compile Include="ReadPdf\Templates\ReadTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReadTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReadPdf\Templates\ReadPdfTemplateData.cs" />
+    <Compile Include="ReadPdf\TextSplit.cs" />
+    <Compile Include="Common\CertificateSource.cs" />
+    <Compile Include="Common\StoredCertificate.cs" />
+    <Compile Include="ReadPdf\Validators\PdfHasFieldsValidator.cs" />
+    <Compile Include="Common\Validators\StoredCertificateValidator.cs" />
+    <Compile Include="Common\Editors\CertificateEditor.cs" />
+    <Compile Include="Common\Editors\CertificateInlineEditor.xaml.cs">
+      <DependentUpon>CertificateInlineEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Editors\EditorResources.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Common\Editors\CertificateInlineEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Editors\EditorResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="PdfOperationsProvider.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="ReadPdfProvider.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\ManagePdfReaderTemplate.t4" />
+    <Content Include="PdfOperations\Templates\AddWatermarkTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AddWatermarkTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="PdfOperations\Templates\ProtectTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ProtectTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="PdfOperations\Templates\ConcatenateTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ConcatenateTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="PdfOperations\Templates\SignTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SignTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="PdfOperations\Templates\SplitTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SplitTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="PdfOperations\Templates\FillFormTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FillFormTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReadPdf\Templates\ReadTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ReadTemplate.cs</LastGenOutput>
+      <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
+&lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

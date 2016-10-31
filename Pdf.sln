@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F45CFD3-EACD-475E-8062-AF1E24C09C35}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{301CE77F-251D-4573-BDB3-E7E9D90431FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C7616A4D-6EFE-4402-836C-6A229B06DB15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdf", "src\Pdf\Pdf.csproj", "{1040F0FD-573F-48F4-A4ED-2802D9D0740C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pdf.Tests", "tests\Pdf.Tests\Pdf.Tests.csproj", "{883D16A3-577F-4234-9FF7-52CB412677EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1040F0FD-573F-48F4-A4ED-2802D9D0740C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1040F0FD-573F-48F4-A4ED-2802D9D0740C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1040F0FD-573F-48F4-A4ED-2802D9D0740C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1040F0FD-573F-48F4-A4ED-2802D9D0740C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{883D16A3-577F-4234-9FF7-52CB412677EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{883D16A3-577F-4234-9FF7-52CB412677EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{883D16A3-577F-4234-9FF7-52CB412677EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{883D16A3-577F-4234-9FF7-52CB412677EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1040F0FD-573F-48F4-A4ED-2802D9D0740C} = {301CE77F-251D-4573-BDB3-E7E9D90431FC}
+		{883D16A3-577F-4234-9FF7-52CB412677EE} = {C7616A4D-6EFE-4402-836C-6A229B06DB15}
+	EndGlobalSection
+EndGlobal

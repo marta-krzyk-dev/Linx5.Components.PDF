@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Twenty57.Linx.Components.Pdf.Editors.CertificateInlineEditor"
+						 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+						 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+						 mc:Ignorable="d" 
+						 xmlns:pe="clr-namespace:System.Activities.Presentation.PropertyEditing;assembly=System.Activities.Presentation"
+						 xmlns:uiEditors="clr-namespace:Twenty57.Linx.Plugin.UI.Editors;assembly=Twenty57.Linx.Plugin.UI"
+						 d:DesignHeight="20" d:DesignWidth="300">
+	<DockPanel LastChildFill="True">
+		<pe:EditModeSwitchButton Name="EditButton" 
+														 TargetEditMode="Dialog" 
+														 DockPanel.Dock="Right" 
+														 Command="uiEditors:PropertyEditor.EditValue" 
+														 CommandParameter="{Binding}" Width="20" HorizontalAlignment="Right">...</pe:EditModeSwitchButton>
+		<Label Content="{Binding Value}"></Label>
+	</DockPanel>
+</UserControl>

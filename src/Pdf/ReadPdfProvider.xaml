@@ -1,0 +1,29 @@
+﻿<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+	<Canvas Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Canvas.RenderTransform>
+			<TranslateTransform X="1" Y="0"/>
+		</Canvas.RenderTransform>
+		<Canvas.Resources/>
+		<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Fill="#000000">
+			<Path.Data>
+				<PathGeometry Figures="M33.358 42.007V42H22.042v14.146h11.316l2.83-2.829v-8.451L33.358 42.007z M24.871 53.317v-2.83v-2.829v-2.829h8.482  l0.004 8.488H24.871z" FillRule="NonZero"/>
+			</Path.Data>
+		</Path>
+		<Polygon xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Points="49.45,45.183 49.45,42.354 38.133,42.354 38.133,56.5 40.963,56.5 40.963,53.671 40.963,50.842 46.621,50.842   46.621,48.012 40.963,48.012 40.963,45.183 " FillRule="NonZero" Fill="#000000"/>
+		<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Fill="#000000">
+			<Path.Data>
+				<PathGeometry Figures="M8.072 42.354v2.722v0.523v3.121v2.829V56.5h2.829v-5.658h9.902V48.72v-3.121v-1.414v-1.831H8.072z M17.975 48.012h-7.073  v-2.829h7.073V48.012z" FillRule="NonZero"/>
+			</Path.Data>
+		</Path>
+		<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Fill="#000000">
+			<Path.Data>
+				<PathGeometry Figures="M39 28h4V16h5.392l11.251 11.334l2.828-2.87L54.048 16H63V0H39V28z M43 4h16v8H43V4z" FillRule="NonZero"/>
+			</Path.Data>
+		</Path>
+		<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Fill="#000000">
+			<Path.Data>
+				<PathGeometry Figures="M52 60H4V24h20V4h12V0H20.442L0 19.49V64h56V28h-4V60z M5.482 20L20 5.745V20H5.482z" FillRule="NonZero"/>
+			</Path.Data>
+		</Path>
+	</Canvas>
+</Viewbox>

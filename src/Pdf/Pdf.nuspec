@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+		<id>$id$</id>
+		<title>Pdf</title>
+		<version>$version$</version>
+		<authors>$author$</authors>
+		<description>A collection of functions for creating and modifying PDF documents.
+
+Functions in package:
+ReadPdf - Reads text, signatures and form data from a PDF document.
+PdfOperations - Provides the following operations for modifying PDF documents:
+                - Digitally signing documents
+                - Splitting and concatenating documents
+                - Adding watermarks
+                - Adding or removing document protection
+                - Filling in forms
+		</description>
+		<tags>pdf read sign concatenate split watermark protect form</tags>
+		<language>en-US</language>
+	</metadata>
+</package>

@@ -1,0 +1,35 @@
+﻿<#@ template language="C#" visibility="internal" #>
+
+if (string.IsNullOrEmpty(<#= OutputFilePathParameterName #>))
+	throw new ArgumentNullException("<#= OutputFilePathParameterName #>");
+
+var inputReaders = new System.Collections.Generic.List<iTextSharp.text.pdf.PdfReader>();
+try
+{
+	<#= ContextParameterName #>.Log(string.Format("Concatenating files to [{0}].", <#= OutputFilePathParameterName #>));
+	using (var outputStream = new System.IO.FileStream(<#= OutputFilePathParameterName #>, System.IO.FileMode.Create))
+	using (var document = new iTextSharp.text.Document())
+	using (var pdfCopy = new iTextSharp.text.pdf.PdfCopy(document, outputStream))
+	{
+		pdfCopy.SetMergeFields();
+		document.Open();
+		foreach (string inputFile in <#= InputFilesParameterName #>)
+		{
+			if (!System.IO.File.Exists(inputFile))
+				throw new System.IO.FileNotFoundException(string.Format("File [{0}] does not exist.", inputFile));
+
+			<#= ContextParameterName #>.Log(string.Format("Adding file [{0}].", inputFile));
+			var inputReader = new Twenty57.Linx.Components.Pdf.PdfOperations.Runtime.ParentsAnnotationPdfReader(inputFile);
+			inputReaders.Add(inputReader);
+			pdfCopy.AddDocument(inputReader);
+			string javascript = inputReader.JavaScript;
+			if (!string.IsNullOrEmpty(javascript))
+				pdfCopy.AddJavaScript(javascript);
+		}
+	}
+}
+finally
+{
+	foreach (iTextSharp.text.pdf.PdfReader inputReader in inputReaders)
+		inputReader.Dispose();
+}

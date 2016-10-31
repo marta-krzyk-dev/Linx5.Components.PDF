@@ -1,0 +1,140 @@
+﻿<#@ template language="C#" visibility="internal" #>
+<#@ include file="..\..\Common\ManagePdfReaderTemplate.t4"#>
+<# 
+	string readerPropertyName = "reader";
+	string outputPropertyName = "output"; 
+#>
+
+iTextSharp.text.pdf.PdfReader <#= readerPropertyName #> = null;
+try
+{
+<# 
+AssignPdfReader(readerPropertyName, AuthenticationType, PdfFilePathParameterName, PdfPasswordParameterName, 
+	CertificateSource, CertificateFilePathParameterName, CertificateFilePasswordParameterName, Certificate, ContextParameterName); 
+#>
+
+<# if (HasOutput) { #>
+	var <#= outputPropertyName #> = new <#= OutputTypeName #>();
+<# ReadTextValues(readerPropertyName, outputPropertyName); #>
+<# ReadFormDataValues(readerPropertyName, outputPropertyName); #>
+<# ReadSignatureValues(readerPropertyName, outputPropertyName); #>
+	return output;
+<# } #>
+}
+finally
+{
+<# DisposePdfReader(readerPropertyName); #>
+}
+
+<#+
+private void ReadTextValues(string readerPropertyName, string outputPropertyName)
+{
+	if (!ReadText) { return; }
+#>
+<#= ContextParameterName #>.Log(string.Format("Start reading text of [{0}].", <#= PdfFilePathParameterName #>));
+var pageList = new System.Collections.Generic.List<string>();
+for (int index = 1; index <= <#= readerPropertyName #>.NumberOfPages; index++)
+{
+	pageList.Add(iTextSharp.text.pdf.parser.PdfTextExtractor.GetTextFromPage(<#= readerPropertyName #>, index));
+}
+<#+ if (TextSplit == TextSplit.Never) { #>
+<#= outputPropertyName #>.<#= OutputTextPropertyName #> = string.Join(Environment.NewLine, pageList);
+<#+ } else if (TextSplit == TextSplit.Page) { #>
+<#= outputPropertyName #>.<#= OutputTextPropertyName #> = pageList;
+<#+ } #>
+<#= ContextParameterName #>.Log(string.Format("Finished reading text of [{0}].", <#= PdfFilePathParameterName #>));
+<#+
+}
+#>
+
+<#+
+private void ReadFormDataValues(string readerPropertyName, string outputPropertyName)
+{
+	if (!ReadFormData) { return; }
+#>
+<#= ContextParameterName #>.Log(string.Format("Start reading form data of [{0}].", <#= PdfFilePathParameterName #>));
+iTextSharp.text.pdf.AcroFields form = <#= readerPropertyName #>.AcroFields;
+<#+ if (FormExtraction == FormExtraction.List) { #>
+<#= outputPropertyName #>.<#= OutputFormDataListPropertyName #> = form.Fields.Keys.ToDictionary(key => key, key => form.GetField(key)).ToList();
+<#+ } else if (FormExtraction == FormExtraction.CustomType || FormExtraction == FormExtraction.Infer) { #>
+var result = Activator.CreateInstance<<#= OutputFormDataTypeName #>>();
+System.Collections.Generic.Dictionary<string, string> fields = form.Fields.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => form.GetField(key));
+foreach (System.Reflection.PropertyInfo property in typeof(<#= OutputFormDataTypeName #>).GetProperties())
+{
+	if (!fields.ContainsKey(property.Name))
+		throw new Exception(string.Format("Could not find a form field named [{0}]", property.Name));
+
+	string fieldValue = fields[property.Name];
+	if (property.PropertyType.IsAssignableFrom(fieldValue.GetType()))
+		property.SetValue(result, fieldValue);
+	else
+	{
+		System.ComponentModel.TypeConverter typeConverter = System.ComponentModel.TypeDescriptor.GetConverter(property.PropertyType);
+		if (typeConverter == null || !typeConverter.CanConvertFrom(fieldValue.GetType()))
+			throw new Exception(string.Format("Could not convert form field [{0}] with value [{1}] to type [{2}].", 
+				property.Name, fieldValue, property.PropertyType.Name));
+			
+		property.SetValue(result, typeConverter.ConvertFrom(fieldValue));
+	}
+}
+<#= outputPropertyName #>.<#= OutputFormDataPropertyName #> = result;
+<#+ } #>
+<#= ContextParameterName #>.Log(string.Format("Finished reading textform data of [{0}].", <#= PdfFilePathParameterName #>));
+<#+
+}
+#>
+
+<#+
+private void ReadSignatureValues(string readerPropertyName, string outputPropertyName)
+{
+	if (!ReadSignature) { return;	}
+#>
+<#= ContextParameterName #>.Log(string.Format("Start reading signature of [{0}].", <#= PdfFilePathParameterName #>));
+iTextSharp.text.pdf.AcroFields fields = <#= readerPropertyName #>.AcroFields;
+var signatures = new <#=  OutputSignaturesTypeName #>();
+signatures.<#= OutputAllSignaturesPropertyName #> = new System.Collections.Generic.List<<#= OutputLatestSignatureTypeName #>>(); 
+foreach (string name in fields.GetSignatureNames())
+{
+	iTextSharp.text.pdf.security.PdfPKCS7 pk = fields.VerifySignature(name);
+
+	var signature = new <#= OutputLatestSignatureTypeName #>();
+	signature.<#= OutputSignedByName #> = pk.SignName ?? iTextSharp.text.pdf.security.CertificateInfo.GetSubjectFields(pk.SigningCertificate).GetField("CN");
+	signature.<#= OutputSignedAtName #> = pk.Location;
+	signature.<#= OutputReasonName #> = pk.Reason;
+	signature.<#= OutputSignedOnName #> = pk.SignDate;
+	signature.<#= OutputUnmodifiedName #> = pk.Verify();
+	signature.<#= OutputSignedRevisionName #> = pk.SigningInfoVersion;
+	signature.<#= OutputIsLatestRevisionName #> = (pk.SigningInfoVersion == fields.TotalRevisions);
+
+	var certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(Org.BouncyCastle.Security.DotNetUtilities.ToX509Certificate(pk.SigningCertificate));
+	var chain = new System.Security.Cryptography.X509Certificates.X509Chain();
+	chain.Build(certificate);
+	signature.<#= OutputVerifiedName #> = certificate.Verify();
+	signature.<#= OutputVerificationMessageName #> = string.Join(", ", chain.ChainStatus.Select(cs => cs.StatusInformation).Where(si => !string.IsNullOrEmpty(si)).ToArray());
+
+	signatures.<#= OutputAllSignaturesPropertyName #>.Add(signature);
+}
+
+signatures.<#= OutputIsSignedPropertyName #> = signatures.<#= OutputAllSignaturesPropertyName #>.Any();
+if (signatures.<#= OutputIsSignedPropertyName #>)
+	signatures.<#= OutputLatestSignaturePropertyName #> = signatures.<#= OutputAllSignaturesPropertyName #>.OrderByDescending(sig => sig.SignedOn).FirstOrDefault();
+else
+{
+	var signature = new <#= OutputLatestSignatureTypeName #>();
+	signature.<#= OutputSignedByName #> = string.Empty;
+	signature.<#= OutputSignedAtName #> = string.Empty;
+	signature.<#= OutputReasonName #> = string.Empty;
+	signature.<#= OutputSignedOnName #> = DateTime.MinValue;
+	signature.<#= OutputUnmodifiedName #> = true;
+	signature.<#= OutputSignedRevisionName #> = 0;
+	signature.<#= OutputIsLatestRevisionName #> = true;
+	signature.<#= OutputVerifiedName #> = false;
+	signature.<#= OutputVerificationMessageName #> = "No certificate found.";
+	signatures.<#= OutputLatestSignaturePropertyName #> = signature;
+}
+
+<#= outputPropertyName #>.<#= OutputSignaturesPropertyName #> = signatures;
+<#= ContextParameterName #>.Log(string.Format("Finished reading signature of [{0}].", <#= PdfFilePathParameterName #>));
+<#+
+}
+#>

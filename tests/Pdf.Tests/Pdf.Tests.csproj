@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{883D16A3-577F-4234-9FF7-52CB412677EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Twenty57.Linx.Components.Pdf.Tests</RootNamespace>
+    <AssemblyName>Twenty57.Linx.Components.Pdf.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Twenty57.Linx.Plugin.Common, Version=14.0.7.200, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.14.0.7.200\lib\net45\Twenty57.Linx.Plugin.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Twenty57.Linx.Plugin.TestKit, Version=14.0.7.200, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.TestKit.14.0.7.200\lib\net45\Twenty57.Linx.Plugin.TestKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\FileAuthentication.cs" />
+    <Compile Include="Common\PdfComparer.cs" />
+    <Compile Include="Common\TestPdfBase.cs" />
+    <Compile Include="Extensions\FunctionDesignerExtensions.cs" />
+    <Compile Include="Extensions\TypePropertyExtensions.cs" />
+    <Compile Include="Common\AuthenticationManager.cs" />
+    <Compile Include="Helpers\ProviderHelpers.cs" />
+    <Compile Include="Helpers\ResourceHelpers.cs" />
+    <Compile Include="PdfOperations\TestPdfOperations.cs" />
+    <Compile Include="PdfOperations\TestPdfOperationsAddWatermark.cs" />
+    <Compile Include="PdfOperations\TestPdfOperationsConcatenate.cs" />
+    <Compile Include="PdfOperations\TestPdfOperationsFillForm.cs" />
+    <Compile Include="PdfOperations\TestPdfOperationsProtect.cs" />
+    <Compile Include="PdfOperations\TestPdfOperationsSign.cs" />
+    <Compile Include="PdfOperations\TestPdfOperationsSplit.cs" />
+    <Compile Include="ReadPdf\TestReadPdf.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\Resources\John Smith.pfx" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="ReadPdf\Resources\Blank.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\InferFields.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\Text.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\Signature.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\FormData.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\Concatenate1.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\Concatenate2.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\FillForm.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\Watermark.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\Protect.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\Split.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\Sign.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\Overlay.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Pdf\Pdf.csproj">
+      <Project>{1040f0fd-573f-48f4-a4ed-2802d9d0740c}</Project>
+      <Name>Pdf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PdfOperations\Resources\Sign_Image.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
