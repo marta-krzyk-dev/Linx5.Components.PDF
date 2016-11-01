@@ -157,37 +157,35 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Common\ManagePdfReaderTemplate.t4" />
-    <Content Include="PdfOperations\Templates\AddWatermarkTemplate.tt">
+    <None Include="Common\ManagePdfReaderTemplate.t4" />
+    <None Include="PdfOperations\Templates\AddWatermarkTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AddWatermarkTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="PdfOperations\Templates\ProtectTemplate.tt">
+    </None>
+    <None Include="PdfOperations\Templates\ProtectTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ProtectTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="PdfOperations\Templates\ConcatenateTemplate.tt">
+    </None>
+    <None Include="PdfOperations\Templates\ConcatenateTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConcatenateTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="PdfOperations\Templates\SignTemplate.tt">
+    </None>
+    <None Include="PdfOperations\Templates\SignTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SignTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="PdfOperations\Templates\SplitTemplate.tt">
+    </None>
+    <None Include="PdfOperations\Templates\SplitTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SplitTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="PdfOperations\Templates\FillFormTemplate.tt">
+    </None>
+    <None Include="PdfOperations\Templates\FillFormTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>FillFormTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="ReadPdf\Templates\ReadTemplate.tt">
+    </None>
+    <None Include="ReadPdf\Templates\ReadTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ReadTemplate.cs</LastGenOutput>
-      <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
-&lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
