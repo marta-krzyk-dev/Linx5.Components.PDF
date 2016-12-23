@@ -60,9 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AuthenticationType.cs" />
+    <Compile Include="Common\TypeResolver.cs" />
     <Compile Include="Common\Validators\CertificateAuthenticationValidator.cs" />
     <Compile Include="Extensions\FunctionDataExtensions.cs" />
     <Compile Include="Extensions\PropertyCollectionExtensions.cs" />
+    <Compile Include="Extensions\SerializationInfoExtensions.cs" />
     <Compile Include="Helpers\VisibleDependency.cs" />
     <Compile Include="PdfOperations\Changes.cs" />
     <Compile Include="PdfOperations\Constants.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="ReadPdf\ReadPdfCodeGenerator.cs" />
     <Compile Include="ReadPdf\ReadPdfDesigner.cs" />
     <Compile Include="ReadPdf\FormExtraction.cs" />
+    <Compile Include="ReadPdf\ReadPdfUpdater.cs" />
     <Compile Include="ReadPdf\Templates\ReadTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

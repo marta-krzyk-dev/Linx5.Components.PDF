@@ -18,6 +18,8 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 		public ReadPdfDesigner(IDesignerContext context)
 			: base(context)
 		{
+			Version = ReadPdfUpdater.Instance.CurrentVersion;
+
 			InitializeProperties();
 			BuildOutput();
 		}

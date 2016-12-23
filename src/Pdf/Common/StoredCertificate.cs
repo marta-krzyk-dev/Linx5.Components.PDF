@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Security.Cryptography.X509Certificates;
+using Twenty57.Linx.Components.Pdf.Extensions;
 
 namespace Twenty57.Linx.Components.Pdf
 {
@@ -32,9 +33,12 @@ namespace Twenty57.Linx.Components.Pdf
 
 		protected StoredCertificate(SerializationInfo info, StreamingContext context)
 		{
-			StoreLocation = (StoreLocation)info.GetValue("storeLocation", typeof(StoreLocation));
-			StoreName = (StoreName)info.GetValue("storeName", typeof(StoreName));
-			ThumbPrint = info.GetString("thumbPrint");
+			StoreLocation storeLocation;
+			StoreName storeName;
+			string thumbPrint;
+			StoreLocation = (info.TryGetValue("StoreLocation", out storeLocation)) ? storeLocation : (StoreLocation)info.GetValue("storeLocation", typeof(StoreLocation));
+			StoreName = (info.TryGetValue("StoreName", out storeName)) ? storeName : (StoreName)info.GetValue("storeName", typeof(StoreName));
+			ThumbPrint = (info.TryGetValue("ThumbPrint", out thumbPrint)) ? thumbPrint : info.GetString("thumbPrint");
 		}
 
 		public StoreLocation StoreLocation { get; }
