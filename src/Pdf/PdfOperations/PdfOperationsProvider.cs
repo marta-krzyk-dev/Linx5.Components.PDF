@@ -23,5 +23,7 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations
 		public override FunctionDesigner CreateDesigner(IFunctionData data, IDesignerContext context) => new PdfOperationsDesigner(data, context);
 
 		public override FunctionCodeGenerator CreateCodeGenerator(IFunctionData data) => new PdfOperationsCodeGenerator(data);
+
+		public override IFunctionData UpdateToLatestVersion(IFunctionData data) => PdfOperationsUpdater.Instance.Update(data);
 	}
 }

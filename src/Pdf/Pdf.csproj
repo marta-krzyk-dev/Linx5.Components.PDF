@@ -70,8 +70,14 @@
     <Compile Include="PdfOperations\Constants.cs" />
     <Compile Include="PdfOperations\Encryption.cs" />
     <Compile Include="Interfaces\ITemplate.cs" />
+    <Compile Include="PdfOperations\Obsolete\Encryption.cs" />
+    <Compile Include="PdfOperations\Obsolete\Operation.cs" />
+    <Compile Include="PdfOperations\Obsolete\Permissions.cs" />
+    <Compile Include="PdfOperations\Obsolete\Protection.cs" />
+    <Compile Include="PdfOperations\Obsolete\SplitOutput.cs" />
     <Compile Include="PdfOperations\Operation.cs" />
     <Compile Include="PdfOperations\Printing.cs" />
+    <Compile Include="PdfOperations\PdfOperationsUpdater.cs" />
     <Compile Include="PdfOperations\Runtime\ParentsAnnotationPdfReader.cs" />
     <Compile Include="PdfOperations\PdfOperationsCodeGenerator.cs" />
     <Compile Include="PdfOperations\PdfOperationsDesigner.cs" />

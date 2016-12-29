@@ -15,6 +15,8 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations
 		public PdfOperationsDesigner(IDesignerContext context)
 			: base(context)
 		{
+			Version = PdfOperationsUpdater.Instance.CurrentVersion;
+
 			InitializeProperties();
 			BuildOutput();
 		}
