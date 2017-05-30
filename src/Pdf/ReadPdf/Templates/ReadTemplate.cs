@@ -15,7 +15,7 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+    #line 1 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     internal partial class ReadTemplate : ReadTemplateBase
     {
@@ -26,7 +26,7 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf.Templates
         public virtual string TransformText()
         {
             
-            #line 3 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 3 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  
 	string readerPropertyName = "reader";
 	string outputPropertyName = "output"; 
@@ -36,14 +36,14 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf.Templates
             #line hidden
             this.Write("\r\niTextSharp.text.pdf.PdfReader ");
             
-            #line 8 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 8 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
             
             #line default
             #line hidden
-            this.Write(" = null;\r\ntry\r\n{\r\n");
+            this.Write(" = null;\r\n\r\ntry\r\n{\r\n");
             
-            #line 11 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 12 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  
 AssignPdfReader(readerPropertyName, AuthenticationType, PdfFilePathParameterName, PdfPasswordParameterName, 
 	CertificateSource, CertificateFilePathParameterName, CertificateFilePasswordParameterName, Certificate, ContextParameterName); 
@@ -53,54 +53,54 @@ AssignPdfReader(readerPropertyName, AuthenticationType, PdfFilePathParameterName
             #line hidden
             this.Write("\r\n");
             
-            #line 16 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 17 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  if (HasOutput) { 
             
             #line default
             #line hidden
             this.Write("\tvar ");
             
-            #line 17 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 18 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(outputPropertyName));
             
             #line default
             #line hidden
             this.Write(" = new ");
             
-            #line 17 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 18 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputTypeName));
             
             #line default
             #line hidden
             this.Write("();\r\n");
             
-            #line 18 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 19 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  ReadTextValues(readerPropertyName, outputPropertyName); 
             
             #line default
             #line hidden
             
-            #line 19 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 20 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  ReadFormDataValues(readerPropertyName, outputPropertyName); 
             
             #line default
             #line hidden
             
-            #line 20 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 21 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  ReadSignatureValues(readerPropertyName, outputPropertyName); 
             
             #line default
             #line hidden
             this.Write("\treturn output;\r\n");
             
-            #line 22 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 23 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("}\r\nfinally\r\n{\r\n");
             
-            #line 26 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+            #line 27 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  DisposePdfReader(readerPropertyName); 
             
             #line default
@@ -109,7 +109,7 @@ AssignPdfReader(readerPropertyName, AuthenticationType, PdfFilePathParameterName
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 29 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 30 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 
 private void ReadTextValues(string readerPropertyName, string outputPropertyName)
 {
@@ -119,28 +119,28 @@ private void ReadTextValues(string readerPropertyName, string outputPropertyName
         #line default
         #line hidden
         
-        #line 34 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 35 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
 
         
         #line default
         #line hidden
         
-        #line 34 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 35 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".Log(string.Format(\"Start reading text of [{0}].\", ");
 
         
         #line default
         #line hidden
         
-        #line 34 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 35 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(PdfFilePathParameterName));
 
         
         #line default
         #line hidden
         
-        #line 34 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 35 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("));\r\nvar pageList = new System.Collections.Generic.List<string>();\r\nfor (int inde" +
         "x = 1; index <= ");
 
@@ -148,14 +148,14 @@ this.Write("));\r\nvar pageList = new System.Collections.Generic.List<string>();
         #line default
         #line hidden
         
-        #line 36 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 37 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 36 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 37 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".NumberOfPages; index++)\r\n{\r\n\tpageList.Add(iTextSharp.text.pdf.parser.PdfTextExtr" +
         "actor.GetTextFromPage(");
 
@@ -163,123 +163,123 @@ this.Write(".NumberOfPages; index++)\r\n{\r\n\tpageList.Add(iTextSharp.text.pdf.
         #line default
         #line hidden
         
-        #line 38 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 39 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 38 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 39 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(", index));\r\n}\r\n");
 
         
         #line default
         #line hidden
         
-        #line 40 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 41 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  if (TextSplit == TextSplit.Never) { 
         
         #line default
         #line hidden
         
-        #line 41 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 42 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(outputPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 41 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 42 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".");
 
         
         #line default
         #line hidden
         
-        #line 41 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 42 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputTextPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 41 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 42 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = string.Join(Environment.NewLine, pageList);\r\n");
 
         
         #line default
         #line hidden
         
-        #line 42 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 43 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  } else if (TextSplit == TextSplit.Page) { 
         
         #line default
         #line hidden
         
-        #line 43 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 44 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(outputPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 43 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 44 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".");
 
         
         #line default
         #line hidden
         
-        #line 43 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 44 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputTextPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 43 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 44 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = pageList;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 44 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 45 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  } 
         
         #line default
         #line hidden
         
-        #line 45 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 46 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
 
         
         #line default
         #line hidden
         
-        #line 45 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 46 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".Log(string.Format(\"Finished reading text of [{0}].\", ");
 
         
         #line default
         #line hidden
         
-        #line 45 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 46 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(PdfFilePathParameterName));
 
         
         #line default
         #line hidden
         
-        #line 45 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 46 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("));\r\n");
 
         
         #line default
         #line hidden
         
-        #line 46 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 47 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 
 }
 
@@ -287,7 +287,7 @@ this.Write("));\r\n");
         #line default
         #line hidden
         
-        #line 50 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 51 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 
 private void ReadFormDataValues(string readerPropertyName, string outputPropertyName)
 {
@@ -297,76 +297,127 @@ private void ReadFormDataValues(string readerPropertyName, string outputProperty
         #line default
         #line hidden
         
-        #line 55 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 56 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
 
         
         #line default
         #line hidden
         
-        #line 55 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 56 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".Log(string.Format(\"Start reading form data of [{0}].\", ");
 
         
         #line default
         #line hidden
         
-        #line 55 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 56 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(PdfFilePathParameterName));
 
         
         #line default
         #line hidden
         
-        #line 55 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 56 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("));\r\niTextSharp.text.pdf.AcroFields form = ");
 
         
         #line default
         #line hidden
         
-        #line 56 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 57 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 56 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
-this.Write(".AcroFields;\r\n");
+        #line 57 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(".AcroFields;\r\nbool isXfaForm = form.Xfa.XfaPresent;\r\n\r\n");
 
         
         #line default
         #line hidden
         
-        #line 57 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 60 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  if (FormExtraction == FormExtraction.List) { 
         
         #line default
         #line hidden
         
-        #line 58 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 60 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write("\tif (isXfaForm)\r\n\t{\r\n\t\tiTextSharp.text.pdf.XfaForm xfaForm = new iTextSharp.text." +
+        "pdf.XfaForm(");
+
+        
+        #line default
+        #line hidden
+        
+        #line 63 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 63 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(");\r\n\t\t");
+
+        
+        #line default
+        #line hidden
+        
+        #line 64 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(outputPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 58 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 64 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".");
 
         
         #line default
         #line hidden
         
-        #line 58 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 64 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputFormDataListPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 58 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 64 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(" = xfaForm.DatasetsSom.Name2Node.ToDictionary(field => field.Key, field => field." +
+        "Value.InnerText).ToList();\r\n\t}\r\n\telse\r\n\t");
+
+        
+        #line default
+        #line hidden
+        
+        #line 67 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(outputPropertyName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 67 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(".");
+
+        
+        #line default
+        #line hidden
+        
+        #line 67 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(OutputFormDataListPropertyName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 67 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = form.Fields.Keys.ToDictionary(key => key, key => form.GetField(key)).ToList();" +
         "\r\n");
 
@@ -374,44 +425,63 @@ this.Write(" = form.Fields.Keys.ToDictionary(key => key, key => form.GetField(ke
         #line default
         #line hidden
         
-        #line 59 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 68 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  } else if (FormExtraction == FormExtraction.CustomType || FormExtraction == FormExtraction.Infer) { 
         
         #line default
         #line hidden
         
-        #line 59 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 68 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("var result = Activator.CreateInstance<");
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 69 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputFormDataTypeName));
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
-this.Write(">();\r\nSystem.Collections.Generic.Dictionary<string, string> fields = form.Fields." +
-        "Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), ke" +
-        "y => form.GetField(key));\r\nforeach (System.Reflection.PropertyInfo property in t" +
-        "ypeof(");
+        #line 69 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(">();\r\nSystem.Collections.Generic.Dictionary<string, string> fields = new Dictiona" +
+        "ry<string,string>();\r\nif (isXfaForm)\r\n{\r\n\tiTextSharp.text.pdf.XfaForm xfaForm = " +
+        "new iTextSharp.text.pdf.XfaForm(");
 
         
         #line default
         #line hidden
         
-        #line 62 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 73 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
+
+        
+        #line default
+        #line hidden
+        
+        #line 73 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+this.Write(@");
+	fields = xfaForm.DatasetsSom.Name2Node.ToDictionary(field => Twenty57.Linx.Plugin.Common.Names.GetValidName(field.Key), field => field.Value.InnerText);
+}
+else
+	fields = form.Fields.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => form.GetField(key));
+
+foreach (System.Reflection.PropertyInfo property in typeof(");
+
+        
+        #line default
+        #line hidden
+        
+        #line 79 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputFormDataTypeName));
 
         
         #line default
         #line hidden
         
-        #line 62 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 79 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(@").GetProperties())
 {
 	if (!fields.ContainsKey(property.Name))
@@ -436,69 +506,69 @@ this.Write(@").GetProperties())
         #line default
         #line hidden
         
-        #line 80 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 97 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(outputPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 80 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 97 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".");
 
         
         #line default
         #line hidden
         
-        #line 80 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 97 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputFormDataPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 80 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 97 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = result;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 81 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 98 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
  } 
         
         #line default
         #line hidden
         
-        #line 82 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 99 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
 
         
         #line default
         #line hidden
         
-        #line 82 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 99 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".Log(string.Format(\"Finished reading textform data of [{0}].\", ");
 
         
         #line default
         #line hidden
         
-        #line 82 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 99 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(PdfFilePathParameterName));
 
         
         #line default
         #line hidden
         
-        #line 82 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 99 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("));\r\n");
 
         
         #line default
         #line hidden
         
-        #line 83 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 100 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 
 }
 
@@ -506,7 +576,7 @@ this.Write("));\r\n");
         #line default
         #line hidden
         
-        #line 87 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 104 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 
 private void ReadSignatureValues(string readerPropertyName, string outputPropertyName)
 {
@@ -516,84 +586,84 @@ private void ReadSignatureValues(string readerPropertyName, string outputPropert
         #line default
         #line hidden
         
-        #line 92 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 109 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
 
         
         #line default
         #line hidden
         
-        #line 92 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 109 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".Log(string.Format(\"Start reading signature of [{0}].\", ");
 
         
         #line default
         #line hidden
         
-        #line 92 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 109 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(PdfFilePathParameterName));
 
         
         #line default
         #line hidden
         
-        #line 92 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 109 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("));\r\niTextSharp.text.pdf.AcroFields fields = ");
 
         
         #line default
         #line hidden
         
-        #line 93 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 110 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 93 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 110 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".AcroFields;\r\nvar signatures = new ");
 
         
         #line default
         #line hidden
         
-        #line 94 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 111 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignaturesTypeName));
 
         
         #line default
         #line hidden
         
-        #line 94 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 111 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("();\r\nsignatures.");
 
         
         #line default
         #line hidden
         
-        #line 95 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 112 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputAllSignaturesPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 95 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 112 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = new System.Collections.Generic.List<");
 
         
         #line default
         #line hidden
         
-        #line 95 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 112 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputLatestSignatureTypeName));
 
         
         #line default
         #line hidden
         
-        #line 95 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 112 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(">(); \r\nforeach (string name in fields.GetSignatureNames())\r\n{\r\n\tiTextSharp.text.p" +
         "df.security.PdfPKCS7 pk = fields.VerifySignature(name);\r\n\r\n\tvar signature = new " +
         "");
@@ -602,28 +672,28 @@ this.Write(">(); \r\nforeach (string name in fields.GetSignatureNames())\r\n{\r\
         #line default
         #line hidden
         
-        #line 100 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 117 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputLatestSignatureTypeName));
 
         
         #line default
         #line hidden
         
-        #line 100 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 117 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("();\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 101 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 118 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignedByName));
 
         
         #line default
         #line hidden
         
-        #line 101 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 118 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = pk.SignName ?? iTextSharp.text.pdf.security.CertificateInfo.GetSubjectFields(p" +
         "k.SigningCertificate).GetField(\"CN\");\r\n\tsignature.");
 
@@ -631,84 +701,84 @@ this.Write(" = pk.SignName ?? iTextSharp.text.pdf.security.CertificateInfo.GetSu
         #line default
         #line hidden
         
-        #line 102 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 119 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignedAtName));
 
         
         #line default
         #line hidden
         
-        #line 102 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 119 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = pk.Location;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 103 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 120 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputReasonName));
 
         
         #line default
         #line hidden
         
-        #line 103 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 120 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = pk.Reason;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 104 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 121 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignedOnName));
 
         
         #line default
         #line hidden
         
-        #line 104 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 121 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = pk.SignDate;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 105 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 122 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputUnmodifiedName));
 
         
         #line default
         #line hidden
         
-        #line 105 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 122 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = pk.Verify();\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 106 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 123 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignedRevisionName));
 
         
         #line default
         #line hidden
         
-        #line 106 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 123 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = pk.SigningInfoVersion;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 107 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 124 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputIsLatestRevisionName));
 
         
         #line default
         #line hidden
         
-        #line 107 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 124 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(@" = (pk.SigningInfoVersion == fields.TotalRevisions);
 
 	var certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(Org.BouncyCastle.Security.DotNetUtilities.ToX509Certificate(pk.SigningCertificate));
@@ -720,28 +790,28 @@ this.Write(@" = (pk.SigningInfoVersion == fields.TotalRevisions);
         #line default
         #line hidden
         
-        #line 112 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 129 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputVerifiedName));
 
         
         #line default
         #line hidden
         
-        #line 112 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 129 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = certificate.Verify();\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 113 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 130 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputVerificationMessageName));
 
         
         #line default
         #line hidden
         
-        #line 113 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 130 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = string.Join(\", \", chain.ChainStatus.Select(cs => cs.StatusInformation).Where(s" +
         "i => !string.IsNullOrEmpty(si)).ToArray());\r\n\r\n\tsignatures.");
 
@@ -749,84 +819,84 @@ this.Write(" = string.Join(\", \", chain.ChainStatus.Select(cs => cs.StatusInfor
         #line default
         #line hidden
         
-        #line 115 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 132 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputAllSignaturesPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 115 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 132 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".Add(signature);\r\n}\r\n\r\nsignatures.");
 
         
         #line default
         #line hidden
         
-        #line 118 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 135 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputIsSignedPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 118 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 135 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = signatures.");
 
         
         #line default
         #line hidden
         
-        #line 118 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 135 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputAllSignaturesPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 118 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 135 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".Any();\r\nif (signatures.");
 
         
         #line default
         #line hidden
         
-        #line 119 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 136 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputIsSignedPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 119 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 136 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(")\r\n\tsignatures.");
 
         
         #line default
         #line hidden
         
-        #line 120 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 137 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputLatestSignaturePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 120 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 137 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = signatures.");
 
         
         #line default
         #line hidden
         
-        #line 120 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 137 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputAllSignaturesPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 120 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 137 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".OrderByDescending(sig => sig.SignedOn).FirstOrDefault();\r\nelse\r\n{\r\n\tvar signatur" +
         "e = new ");
 
@@ -834,217 +904,217 @@ this.Write(".OrderByDescending(sig => sig.SignedOn).FirstOrDefault();\r\nelse\r\
         #line default
         #line hidden
         
-        #line 123 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 140 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputLatestSignatureTypeName));
 
         
         #line default
         #line hidden
         
-        #line 123 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 140 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("();\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 124 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 141 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignedByName));
 
         
         #line default
         #line hidden
         
-        #line 124 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 141 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = string.Empty;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 125 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 142 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignedAtName));
 
         
         #line default
         #line hidden
         
-        #line 125 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 142 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = string.Empty;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 126 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 143 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputReasonName));
 
         
         #line default
         #line hidden
         
-        #line 126 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 143 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = string.Empty;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 127 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 144 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignedOnName));
 
         
         #line default
         #line hidden
         
-        #line 127 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 144 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = DateTime.MinValue;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 128 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 145 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputUnmodifiedName));
 
         
         #line default
         #line hidden
         
-        #line 128 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 145 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = true;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 129 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 146 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignedRevisionName));
 
         
         #line default
         #line hidden
         
-        #line 129 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 146 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = 0;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 130 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 147 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputIsLatestRevisionName));
 
         
         #line default
         #line hidden
         
-        #line 130 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 147 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = true;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 131 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 148 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputVerifiedName));
 
         
         #line default
         #line hidden
         
-        #line 131 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 148 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = false;\r\n\tsignature.");
 
         
         #line default
         #line hidden
         
-        #line 132 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 149 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputVerificationMessageName));
 
         
         #line default
         #line hidden
         
-        #line 132 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 149 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = \"No certificate found.\";\r\n\tsignatures.");
 
         
         #line default
         #line hidden
         
-        #line 133 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 150 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputLatestSignaturePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 133 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 150 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = signature;\r\n}\r\n\r\n");
 
         
         #line default
         #line hidden
         
-        #line 136 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 153 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(outputPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 136 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 153 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".");
 
         
         #line default
         #line hidden
         
-        #line 136 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 153 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(OutputSignaturesPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 136 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 153 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(" = signatures;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 137 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 154 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
 
         
         #line default
         #line hidden
         
-        #line 137 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 154 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(".Log(string.Format(\"Finished reading signature of [{0}].\", ");
 
         
         #line default
         #line hidden
         
-        #line 137 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 154 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(PdfFilePathParameterName));
 
         
         #line default
         #line hidden
         
-        #line 137 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 154 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 this.Write("));\r\n");
 
         
         #line default
         #line hidden
         
-        #line 138 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
+        #line 155 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\ReadTemplate.tt"
 
 }
 
@@ -1052,7 +1122,7 @@ this.Write("));\r\n");
         #line default
         #line hidden
         
-        #line 1 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 1 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 void AssignPdfReader(string readerPropertyName, AuthenticationType authenticationType, string filePropertyName, string passwordPropertyName,
 	Twenty57.Linx.Components.Pdf.CertificateSource certificateSource, string certificateFilePathPropertyName, string certificateFilePasswordPropertyName, 
@@ -1063,49 +1133,49 @@ void AssignPdfReader(string readerPropertyName, AuthenticationType authenticatio
         #line default
         #line hidden
         
-        #line 6 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 6 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("if (string.IsNullOrEmpty(");
 
         
         #line default
         #line hidden
         
-        #line 7 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 7 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 7 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 7 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("))\r\n\tthrow new ArgumentNullException(\"");
 
         
         #line default
         #line hidden
         
-        #line 8 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 8 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 8 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 8 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("\");\r\nif (!System.IO.File.Exists(");
 
         
         #line default
         #line hidden
         
-        #line 9 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 9 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 9 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 9 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("))\r\n\tthrow new System.IO.FileNotFoundException(string.Format(\"File [{0}] does not" +
         " exist.\", ");
 
@@ -1113,49 +1183,49 @@ this.Write("))\r\n\tthrow new System.IO.FileNotFoundException(string.Format(\"Fi
         #line default
         #line hidden
         
-        #line 10 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 10 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 10 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 10 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("));\r\n\r\n");
 
         
         #line default
         #line hidden
         
-        #line 12 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 12 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(contextPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 12 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 12 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(".Log(string.Format(\"Opening file [{0}].\", ");
 
         
         #line default
         #line hidden
         
-        #line 12 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 12 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 12 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 12 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("));\r\n");
 
         
         #line default
         #line hidden
         
-        #line 13 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 13 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 	if (authenticationType == AuthenticationType.None)
 	{
@@ -1164,35 +1234,35 @@ this.Write("));\r\n");
         #line default
         #line hidden
         
-        #line 17 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 17 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 17 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 17 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new iTextSharp.text.pdf.PdfReader(");
 
         
         #line default
         #line hidden
         
-        #line 17 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 17 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 17 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 17 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(");\r\n");
 
         
         #line default
         #line hidden
         
-        #line 18 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 18 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 	}
 	else if (authenticationType == AuthenticationType.Password)
@@ -1202,49 +1272,49 @@ this.Write(");\r\n");
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new iTextSharp.text.pdf.PdfReader(");
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", System.Text.Encoding.UTF8.GetBytes(");
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(passwordPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("));\r\n");
 
         
         #line default
         #line hidden
         
-        #line 24 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 24 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 	}
 	else if (authenticationType == AuthenticationType.Certificate)
@@ -1255,34 +1325,34 @@ this.Write("));\r\n");
         #line default
         #line hidden
         
-        #line 29 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 29 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("System.Security.Cryptography.X509Certificates.X509Certificate2 ");
 
         
         #line default
         #line hidden
         
-        #line 30 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 30 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificatePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 30 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 30 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = null;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 31 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 31 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
  AssignCertificateProperty(certificatePropertyName, certificateSource, certificateFilePathPropertyName, certificateFilePasswordPropertyName, certificate); 
         
         #line default
         #line hidden
         
-        #line 31 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 31 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(@"if (!inputCertificate.HasPrivateKey)
 	throw new NotSupportedException(""Certificate must have a private key."");
 
@@ -1294,35 +1364,35 @@ Org.BouncyCastle.Crypto.AsymmetricCipherKeyPair inputKeyPair = Org.BouncyCastle.
         #line default
         #line hidden
         
-        #line 37 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 37 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 37 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 37 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new iTextSharp.text.pdf.PdfReader(");
 
         
         #line default
         #line hidden
         
-        #line 37 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 37 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 37 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 37 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", inputBouncyCertficate, inputKeyPair.Private);\r\n");
 
         
         #line default
         #line hidden
         
-        #line 38 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 38 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 	}
 }
@@ -1331,7 +1401,7 @@ this.Write(", inputBouncyCertficate, inputKeyPair.Private);\r\n");
         #line default
         #line hidden
         
-        #line 43 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 43 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 void DisposePdfReader(string readerPropertyName)
 {
@@ -1340,42 +1410,42 @@ void DisposePdfReader(string readerPropertyName)
         #line default
         #line hidden
         
-        #line 46 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 46 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("if (");
 
         
         #line default
         #line hidden
         
-        #line 47 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 47 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 47 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 47 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" != null)\r\n\t");
 
         
         #line default
         #line hidden
         
-        #line 48 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 48 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 48 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 48 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(".Dispose();\r\n");
 
         
         #line default
         #line hidden
         
-        #line 49 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 49 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 }
 
@@ -1383,7 +1453,7 @@ this.Write(".Dispose();\r\n");
         #line default
         #line hidden
         
-        #line 53 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 53 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 void AssignCertificateProperty(string certificatePropertyName, Twenty57.Linx.Components.Pdf.CertificateSource certificateSource, 
 	string certificateFilePathPropertyName, string certificateFilePasswordPropertyName, 
@@ -1394,48 +1464,48 @@ void AssignCertificateProperty(string certificatePropertyName, Twenty57.Linx.Com
         #line default
         #line hidden
         
-        #line 59 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 59 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 	if (certificateSource == Twenty57.Linx.Components.Pdf.CertificateSource.File)	{ 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificatePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new System.Security.Cryptography.X509Certificates.X509Certificate2(");
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificateFilePathPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", ");
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificateFilePasswordPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", System.Security.Cryptography.X509Certificates.X509KeyStorageFlags.Exportable);\r" +
         "\n");
 
@@ -1443,75 +1513,75 @@ this.Write(", System.Security.Cryptography.X509Certificates.X509KeyStorageFlags.
         #line default
         #line hidden
         
-        #line 61 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 61 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
  } else if (certificateSource == Twenty57.Linx.Components.Pdf.CertificateSource.Store) { 
         
         #line default
         #line hidden
         
-        #line 62 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 62 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificatePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 62 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 62 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new Twenty57.Linx.Components.Pdf.StoredCertificate(\r\n\t");
 
         
         #line default
         #line hidden
         
-        #line 63 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 63 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(Twenty57.Linx.Plugin.Common.CodeGeneration.CSharpUtilities.EnumAsString(storedCertificatePropertyName.StoreLocation)));
 
         
         #line default
         #line hidden
         
-        #line 63 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 63 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", \r\n\t");
 
         
         #line default
         #line hidden
         
-        #line 64 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 64 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(Twenty57.Linx.Plugin.Common.CodeGeneration.CSharpUtilities.EnumAsString(storedCertificatePropertyName.StoreName)));
 
         
         #line default
         #line hidden
         
-        #line 64 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 64 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", \r\n\t\"");
 
         
         #line default
         #line hidden
         
-        #line 65 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 65 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(storedCertificatePropertyName.ThumbPrint));
 
         
         #line default
         #line hidden
         
-        #line 65 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 65 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("\").GetCertificate();\r\n");
 
         
         #line default
         #line hidden
         
-        #line 66 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 66 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 	} 
         
         #line default
         #line hidden
         
-        #line 67 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 67 "C:\HG\linx5-components-pdf\src\Pdf\ReadPdf\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 }
 

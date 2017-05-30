@@ -200,7 +200,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		}
 
 		[Test]
-		public void ReadFormDataWithCustomTypeOutput()
+		public void ReadAcroFormDataWithCustomTypeOutput()
 		{
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormData.pdf", this.inputDirectory);
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
@@ -227,7 +227,34 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		}
 
 		[Test]
-		public void ReadFormDataWithInferredOutput()
+		public void ReadXfaFormDataWithCustomTypeOutput()
+		{
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormDataXFA.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
+			designer.Properties[PropertyNames.ReadFormData].Value = true;
+
+			ITypeReference dataType = TypeReference.CreateGeneratedType(
+				new TypeProperty("form1_910_93_46FullName_910_93", typeof(string)),
+				new TypeProperty("form1_910_93_46Surname_910_93", typeof(string)),
+				new TypeProperty("form1_910_93_46Email_910_93", typeof(string)),
+				new TypeProperty("form1_910_93_46EmailMe_910_93", typeof(string)));
+
+			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.CustomType;
+			designer.Properties[PropertyNames.FormDataType].Value = dataType;
+
+			var tester = new FunctionTester<ReadPdfProvider>();
+			tester.CustomTypes.Add(dataType);
+			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
+
+			Assert.AreEqual("John", result.Value.FormData.form1_910_93_46FullName_910_93);
+			Assert.AreEqual("Doe", result.Value.FormData.form1_910_93_46Surname_910_93);
+			Assert.AreEqual("jdoe@digiata.com", result.Value.FormData.form1_910_93_46Email_910_93);
+			Assert.AreEqual("1", result.Value.FormData.form1_910_93_46EmailMe_910_93);
+		}
+
+		[Test]
+		public void ReadAcroFormDataWithInferredOutput()
 		{
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormData.pdf", this.inputDirectory);
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
@@ -248,7 +275,28 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		}
 
 		[Test]
-		public void ReadFormDataWithListOutput()
+		public void ReadXfaFormDataWithInferredOutput()
+		{
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormDataXFA.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
+			designer.Properties[PropertyNames.ReadFormData].Value = true;
+
+			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.Infer;
+			string inferFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.InferFieldsXFA.pdf", this.inputDirectory);
+			designer.Properties[PropertyNames.SamplePdf].Value = inferFilePath;
+
+			var tester = new FunctionTester<ReadPdfProvider>();
+			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
+
+			Assert.AreEqual("John", result.Value.FormData.form1_910_93_46FullName_910_93);
+			Assert.AreEqual("Doe", result.Value.FormData.form1_910_93_46Surname_910_93);
+			Assert.AreEqual("jdoe@digiata.com", result.Value.FormData.form1_910_93_46Email_910_93);
+			Assert.AreEqual("1", result.Value.FormData.form1_910_93_46EmailMe_910_93);
+		}
+
+		[Test]
+		public void ReadAcroFormDataWithListOutput()
 		{
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormData.pdf", this.inputDirectory);
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
@@ -273,6 +321,37 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			item = dataList[3];
 			Assert.AreEqual("AcceptTCs", item.Key);
 			Assert.AreEqual("Yes", item.Value);
+		}
+
+		[Test]
+		public void ReadXfaFormDataWithListOutput()
+		{
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormDataXFA.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
+			designer.Properties[PropertyNames.ReadFormData].Value = true;
+			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.List;
+
+			var tester = new FunctionTester<ReadPdfProvider>();
+			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
+
+			List<KeyValuePair<string, string>> dataList = result.Value.FormDataList;
+			Assert.AreEqual(5, dataList.Count);
+			KeyValuePair<string, string> item = dataList[0];
+			Assert.AreEqual("form1[0].FullName[0]", item.Key);
+			Assert.AreEqual("John", item.Value);
+			item = dataList[1];
+			Assert.AreEqual("form1[0].Surname[0]", item.Key);
+			Assert.AreEqual("Doe", item.Value);
+			item = dataList[2];
+			Assert.AreEqual("form1[0].EmailMe[0]", item.Key);
+			Assert.AreEqual("1", item.Value);
+			item = dataList[3];
+			Assert.AreEqual("form1[0].Email[0]", item.Key);
+			Assert.AreEqual("jdoe@digiata.com", item.Value);
+			item = dataList[4];
+			Assert.AreEqual("form1[0]", item.Key);
+			Assert.AreEqual("JohnDoe1jdoe@digiata.com", item.Value);
 		}
 
 		[Test]

@@ -76,11 +76,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Common\Resources\John Smith.pfx" />
     <None Include="packages.config" />
-    <EmbeddedResource Include="ReadPdf\Resources\Blank.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\InferFields.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\Text.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\Signature.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\FormData.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\Concatenate1.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\Concatenate2.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\FillForm.pdf" />
@@ -89,6 +84,13 @@
     <EmbeddedResource Include="PdfOperations\Resources\Split.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\Sign.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\Overlay.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\Blank.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\FormData.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\FormDataXFA.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\InferFields.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\InferFieldsXFA.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\Signature.pdf" />
+    <EmbeddedResource Include="ReadPdf\Resources\Text.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Pdf\Pdf.csproj">

@@ -228,7 +228,10 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 
 			using (var reader = new PdfReader(pdfFile))
 			{
-				return reader.AcroFields.Fields.Keys.ToList();
+				if (reader.AcroFields.Xfa.XfaPresent)
+					return reader.AcroFields.Xfa.DatasetsSom.Name2Node.Keys.ToList();
+				else
+					return reader.AcroFields.Fields.Keys.ToList();
 			}
 		}
 	}
