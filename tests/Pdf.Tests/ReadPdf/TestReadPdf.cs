@@ -371,13 +371,13 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			Assert.IsTrue(result.Value.Signatures.IsSigned);
-			AssertSignature(result.Value.Signatures.LatestSignature, false, "I moderated the doc", "Office location 2", "Jane Doe", new DateTime(2016, 8, 8, 17, 12, 57), true, 1,
+			AssertSignature(result.Value.Signatures.LatestSignature, false, "I moderated the doc", "Office location 2", "Jane Doe", new DateTime(2016, 8, 8, 15, 12, 57, DateTimeKind.Utc), true, 1,
 				"A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.\r\n", false);
 			dynamic allSignatures = result.Value.Signatures.AllSignatures;
 			Assert.AreEqual(2, allSignatures.Count);
-			AssertSignature(allSignatures[0], false, "I created the doc", "Office location 1", "John Smith", new DateTime(2016, 8, 8, 17, 12, 14), true, 1,
+			AssertSignature(allSignatures[0], false, "I created the doc", "Office location 1", "John Smith", new DateTime(2016, 8, 8, 15, 12, 14, DateTimeKind.Utc), true, 1,
 				string.Empty, true);
-			AssertSignature(allSignatures[1], false, "I moderated the doc", "Office location 2", "Jane Doe", new DateTime(2016, 8, 8, 17, 12, 57), true, 1,
+			AssertSignature(allSignatures[1], false, "I moderated the doc", "Office location 2", "Jane Doe", new DateTime(2016, 8, 8, 15, 12, 57, DateTimeKind.Utc), true, 1,
 				"A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.\r\n", false);
 
 			store.Open(OpenFlags.ReadWrite);
@@ -426,7 +426,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			Assert.AreEqual(expectedReason, actualSignature.Reason);
 			Assert.AreEqual(expectedSignedAt, actualSignature.SignedAt);
 			Assert.AreEqual(expectedSignedBy, actualSignature.SignedBy);
-			Assert.AreEqual(expectedSignedOn, actualSignature.SignedOn);
+			Assert.AreEqual(expectedSignedOn, actualSignature.SignedOn.ToUniversalTime());
 			Assert.AreEqual(expectedUnmodified, actualSignature.Unmodified);
 			Assert.AreEqual(expectedSignedRevision, actualSignature.SignedRevision);
 			Assert.AreEqual(expectedVerificationMessage, actualSignature.VerificationMessage);
