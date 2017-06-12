@@ -20,6 +20,10 @@ try
 
 			<#= ContextParameterName #>.Log(string.Format("Adding file [{0}].", inputFile));
 			var inputReader = new Twenty57.Linx.Components.Pdf.PdfOperations.Runtime.ParentsAnnotationPdfReader(inputFile);
+
+			if (inputReader.AcroFields.Xfa.XfaPresent)
+				throw new NotSupportedException("The Concatenate function cannot be used on an Xfa document.");	
+		
 			inputReaders.Add(inputReader);
 			pdfCopy.AddDocument(inputReader);
 			string javascript = inputReader.JavaScript;

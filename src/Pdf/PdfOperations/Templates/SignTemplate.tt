@@ -38,19 +38,23 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
 			.Select(ce => Org.BouncyCastle.Security.DotNetUtilities.FromX509Certificate(ce.Certificate))
 			.ToArray();
 
-<# if (SignPlacement == Twenty57.Linx.Components.Pdf.PdfOperations.SignaturePosition.Hidden) { #>
-		<#= appearancePropertyName #>.SetVisibleSignature(new iTextSharp.text.Rectangle(0, 0, 0, 0), 1, null);
-<# } else if (SignPlacement == Twenty57.Linx.Components.Pdf.PdfOperations.SignaturePosition.FormField) { #>
-		<#= appearancePropertyName #>.SetVisibleSignature(<#= SignFieldNameParameterName #>);
-<# } else if (SignPlacement == Twenty57.Linx.Components.Pdf.PdfOperations.SignaturePosition.OnPage) { #>
-		<#= appearancePropertyName #>.SetVisibleSignature(
-			new iTextSharp.text.Rectangle(
-				iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionXParameterName #>),
-				iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionYParameterName #>),
-				iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionXParameterName #> + <#= SignWidthParameterName #>),
-				iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionYParameterName #> - <#= SignHeightParameterName #>)),
-			<#= SignPageParameterName #>, null);
-<# } #>
+		<# if (SignPlacement == Twenty57.Linx.Components.Pdf.PdfOperations.SignaturePosition.Hidden) { #>
+				<#= appearancePropertyName #>.SetVisibleSignature(new iTextSharp.text.Rectangle(0, 0, 0, 0), 1, null);
+		<# } else if (SignPlacement == Twenty57.Linx.Components.Pdf.PdfOperations.SignaturePosition.FormField) { #>
+				if (<#= readerPropertyName #>.AcroFields.Fields.Keys.Contains(<#= SignFieldNameParameterName #>))
+					<#= appearancePropertyName #>.SetVisibleSignature(<#= SignFieldNameParameterName #>);
+				else if (<#= readerPropertyName #>.AcroFields.Xfa.XfaPresent)				
+					throw new NotSupportedException("Field Signatures are not supported for XFA documents.");
+		<# } else if (SignPlacement == Twenty57.Linx.Components.Pdf.PdfOperations.SignaturePosition.OnPage) { #>
+				<#= appearancePropertyName #>.SetVisibleSignature(
+					new iTextSharp.text.Rectangle(
+						iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionXParameterName #>),
+						iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionYParameterName #>),
+						iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionXParameterName #> + <#= SignWidthParameterName #>),
+						iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionYParameterName #> - <#= SignHeightParameterName #>)),
+					<#= SignPageParameterName #>, null);
+		<# } #>
+
 		iTextSharp.text.pdf.security.MakeSignature.SignDetached(<#= appearancePropertyName #>, externalSignature, bouncyCertChain, null, null, null, 0, iTextSharp.text.pdf.security.CryptoStandard.CMS);
 	}
 }

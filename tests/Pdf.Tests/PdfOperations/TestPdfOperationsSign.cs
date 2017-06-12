@@ -29,10 +29,13 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 				FileAuthentication.CertificateStore*/)] FileAuthentication inputAuth,
 			[Values(
 				FileAuthentication.CertificateFile,
-				FileAuthentication.CertificateStore)] FileAuthentication signAuth)
+				FileAuthentication.CertificateStore)] FileAuthentication signAuth,
+			[Values(
+				"Sign.pdf",
+				"SignXFA.pdf")] string fileName)
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Sign.pdf", this.inputDirectory);
-			string outputFilePath = Path.Combine(this.outputDirectory, "Sign.pdf");
+			string inputFilePath = ResourceHelpers.WriteResourceToFile($"Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.{fileName}", this.inputDirectory);
+			string outputFilePath = Path.Combine(this.outputDirectory, fileName);
 			this.lockDocument = !this.lockDocument;
 
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
@@ -48,8 +51,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 		}
 
 		[Test]
-		[Combinatorial]
-		public void SignWithPageSignature()
+		public void SignAcroWithPageSignature()
 		{
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Sign.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Sign.pdf");
@@ -80,8 +82,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 		}
 
 		[Test]
-		[Combinatorial]
-		public void SignWithFieldSignature()
+		public void SignAcroWithFieldSignature()
 		{
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Sign.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Sign.pdf");
@@ -100,6 +101,37 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			PdfComparer.AssertFieldSignature(outputFilePath, FileAuthentication.None, this.authenticationManager, fieldName, signName, signLocation, signReason, this.lockDocument);
+		}
+
+		[Test]
+		public void SignXFAWithPageSignature()
+		{
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.SignXFA.pdf", this.inputDirectory);
+			string outputFilePath = Path.Combine(this.outputDirectory, "SignXFA.pdf");
+			int left = 45;
+			int top = 223;
+			int width = 109;
+			int height = 79;
+			int page = 1;
+			this.lockDocument = !this.lockDocument;
+
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
+			ConfigureSignCertificateProperties(designer, FileAuthentication.CertificateFile, this.lockDocument);
+			designer.Properties[PropertyNames.SignPlacement].Value = SignaturePosition.OnPage;
+			designer.Properties[PropertyNames.SignPositionX].Value = left;
+			designer.Properties[PropertyNames.SignPositionY].Value = top;
+			designer.Properties[PropertyNames.SignWidth].Value = width;
+			designer.Properties[PropertyNames.SignHeight].Value = height;
+			designer.Properties[PropertyNames.SignPage].Value = page;
+			designer.Properties[PropertyNames.SignBackgroundImage].Value = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Sign_Image.png", this.inputDirectory);
+			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+
+			var tester = new FunctionTester<PdfOperationsProvider>();
+			tester.Execute(designer.GetProperties(), designer.GetParameters());
+
+			PdfComparer.AssertPageSignature(outputFilePath, FileAuthentication.None, this.authenticationManager, signName, signLocation, signReason, this.lockDocument,
+				page, Utilities.MillimetersToPoints(left), Utilities.MillimetersToPoints(top), Utilities.MillimetersToPoints(width), Utilities.MillimetersToPoints(height));
 		}
 
 		private void ConfigureSignCertificateProperties(FunctionDesigner designer, FileAuthentication signAuth, bool lockDocument)

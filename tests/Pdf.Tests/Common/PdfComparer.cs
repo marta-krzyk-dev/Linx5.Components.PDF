@@ -54,8 +54,16 @@ namespace Twenty57.Linx.Components.Pdf.Tests
 		{
 			using (var comparer = new PdfComparer(filePath, fileAuth, authenticationManager))
 			{
-				Dictionary<string, string> fieldValues = comparer.pdfReader.AcroFields.Fields.Keys.ToDictionary(key => key, key => comparer.pdfReader.AcroFields.GetField(key));
-				Assert.AreEqual(expectedFieldValues, fieldValues);
+				if (comparer.pdfReader.AcroFields.Xfa.XfaPresent)
+				{
+					Dictionary<string, string> fieldValues = comparer.pdfReader.AcroFields.Xfa.DatasetsSom.Name2Node.ToDictionary(field => field.Key, field => field.Value.InnerText);
+					Assert.AreEqual(expectedFieldValues, fieldValues);
+				}
+				else
+				{
+					Dictionary<string, string> fieldValues = comparer.pdfReader.AcroFields.Fields.Keys.ToDictionary(key => key, key => comparer.pdfReader.AcroFields.GetField(key));
+					Assert.AreEqual(expectedFieldValues, fieldValues);
+				}
 			}
 		}
 

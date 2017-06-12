@@ -91,6 +91,8 @@
     <EmbeddedResource Include="ReadPdf\Resources\InferFieldsXFA.pdf" />
     <EmbeddedResource Include="ReadPdf\Resources\Signature.pdf" />
     <EmbeddedResource Include="ReadPdf\Resources\Text.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\FillFormXFA.pdf" />
+    <EmbeddedResource Include="PdfOperations\Resources\SignXFA.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Pdf\Pdf.csproj">

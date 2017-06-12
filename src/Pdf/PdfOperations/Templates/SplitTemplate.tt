@@ -14,6 +14,8 @@ try
 AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParameterName, InputPasswordParameterName, 
 	InputCertificateSource, InputCertificateFilePathParameterName, InputCertificateFilePasswordParameterName, InputCertificate, ContextParameterName); 
 #>
+	if (<#= readerPropertyName #>.AcroFields.Xfa.XfaPresent)
+		throw new NotSupportedException("The Split function cannot be used on an Xfa document.");
 
 	var output = new <#= OutputTypeName #>();
 	<#= ContextParameterName #>.Log(string.Format("[{0}] contains {1} pages.", <#= InputFilePathParameterName #>, <#= readerPropertyName #>.NumberOfPages));

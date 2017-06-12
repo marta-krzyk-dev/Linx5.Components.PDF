@@ -15,7 +15,7 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
+    #line 1 "C:\HG\linx5-components-pdf\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     internal partial class ConcatenateTemplate : ConcatenateTemplateBase
     {
@@ -27,14 +27,14 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations.Templates
         {
             this.Write("\r\nif (string.IsNullOrEmpty(");
             
-            #line 3 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
+            #line 3 "C:\HG\linx5-components-pdf\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputFilePathParameterName));
             
             #line default
             #line hidden
             this.Write("))\r\n\tthrow new ArgumentNullException(\"");
             
-            #line 4 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
+            #line 4 "C:\HG\linx5-components-pdf\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputFilePathParameterName));
             
             #line default
@@ -42,21 +42,21 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations.Templates
             this.Write("\");\r\n\r\nvar inputReaders = new System.Collections.Generic.List<iTextSharp.text.pdf" +
                     ".PdfReader>();\r\ntry\r\n{\r\n\t");
             
-            #line 9 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
+            #line 9 "C:\HG\linx5-components-pdf\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
             
             #line default
             #line hidden
             this.Write(".Log(string.Format(\"Concatenating files to [{0}].\", ");
             
-            #line 9 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
+            #line 9 "C:\HG\linx5-components-pdf\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputFilePathParameterName));
             
             #line default
             #line hidden
             this.Write("));\r\n\tusing (var outputStream = new System.IO.FileStream(");
             
-            #line 10 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
+            #line 10 "C:\HG\linx5-components-pdf\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputFilePathParameterName));
             
             #line default
@@ -66,21 +66,26 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations.Templates
                     "am))\r\n\t{\r\n\t\tpdfCopy.SetMergeFields();\r\n\t\tdocument.Open();\r\n\t\tforeach (string inp" +
                     "utFile in ");
             
-            #line 16 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
+            #line 16 "C:\HG\linx5-components-pdf\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(InputFilesParameterName));
             
             #line default
             #line hidden
-            this.Write(")\r\n\t\t{\r\n\t\t\tif (!System.IO.File.Exists(inputFile))\r\n\t\t\t\tthrow new System.IO.FileNo" +
-                    "tFoundException(string.Format(\"File [{0}] does not exist.\", inputFile));\r\n\r\n\t\t\t");
+            this.Write(")\r\n\t\t{\r\n\t\t\tSystem.Diagnostics.Debugger.Break();\r\n\r\n\t\t\tif (!System.IO.File.Exists(" +
+                    "inputFile))\r\n\t\t\t\tthrow new System.IO.FileNotFoundException(string.Format(\"File [" +
+                    "{0}] does not exist.\", inputFile));\r\n\r\n\t\t\t");
             
-            #line 21 "D:\Hg\Julian\Linx5 Components\PDF\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
+            #line 23 "C:\HG\linx5-components-pdf\src\Pdf\PdfOperations\Templates\ConcatenateTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
             
             #line default
             #line hidden
             this.Write(@".Log(string.Format(""Adding file [{0}]."", inputFile));
 			var inputReader = new Twenty57.Linx.Components.Pdf.PdfOperations.Runtime.ParentsAnnotationPdfReader(inputFile);
+
+			if (inputReader.AcroFields.Xfa.XfaPresent)
+				throw new NotSupportedException(""The Concatenate function cannot be used on an Xfa document."");	
+		
 			inputReaders.Add(inputReader);
 			pdfCopy.AddDocument(inputReader);
 			string javascript = inputReader.JavaScript;

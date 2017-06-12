@@ -21,8 +21,16 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
 	using (var outputStream = new System.IO.FileStream(<#= OutputFilePathParameterName #>, System.IO.FileMode.Create))
 	using (var pdfStamper = new iTextSharp.text.pdf.PdfStamper(<#= readerPropertyName #>, outputStream, <#= readerPropertyName #>.PdfVersion, true))
 	{
+		bool isXfa = pdfStamper.AcroFields.Xfa.XfaPresent;
 		iTextSharp.text.pdf.AcroFields form = pdfStamper.AcroFields;
-		System.Collections.Generic.Dictionary<string,string> keyMappings = form.Fields.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => key);
+		System.Collections.Generic.Dictionary<string,string> keyMappings;
+
+		if (isXfa)
+			keyMappings = form.Xfa.DatasetsSom.Name2Node.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => key);
+		else
+			keyMappings = form.Fields.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => key);
+
+
 		foreach (System.Reflection.PropertyInfo property in <#= FillFormFormDataParameterName #>.GetType().GetProperties())
 		{
 			object objectValue = property.GetValue(<#= FillFormFormDataParameterName #>);
