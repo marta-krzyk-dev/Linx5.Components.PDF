@@ -16,8 +16,6 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations
 
 		public override string SearchKeywords { get; } = searchKeywords;
 
-		public override string Category { get; } = "Pdf";
-
 		public override FunctionDesigner CreateDesigner(IDesignerContext context) => new PdfOperationsDesigner(context);
 
 		public override FunctionDesigner CreateDesigner(IFunctionData data, IDesignerContext context) => new PdfOperationsDesigner(data, context);
