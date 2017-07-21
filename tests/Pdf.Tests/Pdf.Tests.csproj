@@ -45,12 +45,12 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
-    <Reference Include="Twenty57.Linx.Plugin.Common, Version=16.0.1.226, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.16.0.1.226\lib\net45\Twenty57.Linx.Plugin.Common.dll</HintPath>
+    <Reference Include="Twenty57.Linx.Plugin.Common, Version=16.0.2.228, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.16.0.2.228\lib\net45\Twenty57.Linx.Plugin.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Twenty57.Linx.Plugin.TestKit, Version=16.0.1.226, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.TestKit.16.0.1.226\lib\net45\Twenty57.Linx.Plugin.TestKit.dll</HintPath>
+    <Reference Include="Twenty57.Linx.Plugin.TestKit, Version=16.0.2.228, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.TestKit.16.0.2.228\lib\net45\Twenty57.Linx.Plugin.TestKit.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
