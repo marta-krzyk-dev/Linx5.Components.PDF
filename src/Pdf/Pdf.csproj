@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Twenty57.Linx.Components.Pdf</RootNamespace>
     <AssemblyName>Twenty57.Linx.Components.Pdf</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,10 +32,15 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -48,13 +54,11 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
-    <Reference Include="Twenty57.Linx.Plugin.Common, Version=16.0.2.228, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.16.0.2.228\lib\net45\Twenty57.Linx.Plugin.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Twenty57.Linx.Plugin.Common, Version=17.0.6.250, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.17.0.6.250\lib\net471\Twenty57.Linx.Plugin.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Twenty57.Linx.Plugin.UI, Version=16.0.2.228, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.UI.16.0.2.228\lib\net45\Twenty57.Linx.Plugin.UI.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Twenty57.Linx.Plugin.UI, Version=17.0.6.250, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.UI.17.0.6.250\lib\net471\Twenty57.Linx.Plugin.UI.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -147,9 +151,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Common\Editors\CertificateInlineEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -164,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Common\ManagePdfReaderTemplate.t4" />
+    <None Include="key.snk" />
+    <None Include="packages.config" />
     <None Include="PdfOperations\Templates\AddWatermarkTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AddWatermarkTemplate.cs</LastGenOutput>

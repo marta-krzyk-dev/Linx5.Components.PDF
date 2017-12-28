@@ -400,7 +400,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 
 			Assert.IsFalse(result.Value.Signatures.IsSigned);
 			Assert.AreEqual(0, result.Value.Signatures.AllSignatures.Count);
-			AssertSignature(result.Value.Signatures.LatestSignature, true, string.Empty, string.Empty, string.Empty, DateTime.MinValue, true, 0, "No certificate found.", false);
+			AssertSignature(result.Value.Signatures.LatestSignature, true, string.Empty, string.Empty, string.Empty, DateTime.MinValue.ToUniversalTime(), true, 0, "No certificate found.", false);
 		}
 
 		private void ConfigureInputFileFunctionValues(FunctionDesigner designer, FileAuthentication inputAuth, string inputFilePath)
