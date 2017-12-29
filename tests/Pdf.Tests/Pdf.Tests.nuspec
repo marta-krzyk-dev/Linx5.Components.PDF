@@ -6,8 +6,5 @@
 		<authors>$author$</authors>
 		<description>Twenty57.Linx.Components.Pdf.Tests</description>		
 		<language>en-US</language>
-		<dependencies>
-			<dependency id="Twenty57.Linx.Components.Pdf" version="$version$" />
-		</dependencies>
 	</metadata>
 </package>

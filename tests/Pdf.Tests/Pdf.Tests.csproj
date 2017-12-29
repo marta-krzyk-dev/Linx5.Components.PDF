@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Twenty57.Linx.Components.Pdf.Tests</RootNamespace>
     <AssemblyName>Twenty57.Linx.Components.Pdf.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,26 +33,22 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=5.5.11.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\iTextSharp.5.5.11\lib\itextsharp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
-    <Reference Include="Twenty57.Linx.Plugin.Common, Version=16.0.2.228, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.16.0.2.228\lib\net45\Twenty57.Linx.Plugin.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Twenty57.Linx.Plugin.Common, Version=17.0.6.250, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.17.0.6.250\lib\net471\Twenty57.Linx.Plugin.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Twenty57.Linx.Plugin.TestKit, Version=16.0.2.228, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.TestKit.16.0.2.228\lib\net45\Twenty57.Linx.Plugin.TestKit.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Twenty57.Linx.Plugin.TestKit, Version=17.0.6.250, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.TestKit.17.0.6.250\lib\net471\Twenty57.Linx.Plugin.TestKit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Common\Resources\John Smith.pfx" />
-    <None Include="packages.config" />
     <EmbeddedResource Include="PdfOperations\Resources\Concatenate1.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\Concatenate2.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\FillForm.pdf" />
@@ -105,6 +101,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PdfOperations\Resources\Sign_Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
