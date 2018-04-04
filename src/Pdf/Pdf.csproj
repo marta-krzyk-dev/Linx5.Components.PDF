@@ -39,8 +39,8 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -69,6 +69,16 @@
     <Compile Include="Extensions\FunctionDataExtensions.cs" />
     <Compile Include="Extensions\PropertyCollectionExtensions.cs" />
     <Compile Include="Extensions\SerializationInfoExtensions.cs" />
+    <Compile Include="FillForm\PropertyNames.cs" />
+    <Compile Include="FillForm\FillFormCodeGenerator.cs" />
+    <Compile Include="FillForm\FillFormDesigner.cs" />
+    <Compile Include="FillForm\FillFormProvider.cs" />
+    <Compile Include="FillForm\Templates\FillFormTemplate.cs">
+      <DependentUpon>FillFormTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FillForm\Templates\FillFormTemplateData.cs" />
     <Compile Include="Helpers\VisibleDependency.cs" />
     <Compile Include="PdfOperations\Changes.cs" />
     <Compile Include="PdfOperations\Constants.cs" />
@@ -200,6 +210,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="FillForm\Templates\FillFormTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FillFormTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
