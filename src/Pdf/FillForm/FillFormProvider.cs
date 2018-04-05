@@ -5,6 +5,8 @@ namespace Twenty57.Linx.Components.Pdf.FillForm
 {
 	public class FillFormProvider : FunctionProvider
 	{
+		public const string FormData = "Form data";
+
 		public override string Name { get; } = "FillForm";
 
 		public override string SearchKeywords { get; } = "pdf fill form";

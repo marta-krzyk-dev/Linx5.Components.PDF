@@ -1,9 +1,7 @@
-﻿namespace Twenty57.Linx.Components.Pdf.FillForm
+﻿namespace Twenty57.Linx.Components.Pdf.Common
 {
 	public static class PropertyNames
 	{
-		public const string FillFormFormData = "Form data";
-
 		public const string InputAuthenticationType = "Input authentication type";
 		public const string InputCertificate = "Input certificate";
 		public const string InputCertificateFilePassword = "Input certificate file password";

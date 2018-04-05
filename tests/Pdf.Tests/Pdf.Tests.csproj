@@ -66,12 +66,12 @@
     <Compile Include="PdfOperations\TestPdfOperations.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsAddWatermark.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsConcatenate.cs" />
-    <Compile Include="PdfOperations\TestPdfOperationsProtect.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsSign.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsSplit.cs" />
     <Compile Include="ReadPdf\TestReadPdf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestFillForm.cs" />
+    <Compile Include="PdfOperations\TestChangeProtection.cs" />
+    <Compile Include="PdfOperations\TestFillForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Common\Resources\John Smith.pfx" />

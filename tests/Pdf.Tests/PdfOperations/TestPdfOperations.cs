@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.IO;
-using Twenty57.Linx.Components.Pdf.PdfOperations;
+using Twenty57.Linx.Components.Pdf.Common;
 using Twenty57.Linx.Components.Pdf.Tests.Common;
 using Twenty57.Linx.Plugin.Common;
 
