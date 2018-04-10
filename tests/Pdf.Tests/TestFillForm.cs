@@ -1,16 +1,34 @@
-﻿using NUnit.Framework;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Twenty57.Linx.Components.Pdf.PdfOperations;
+using NUnit.Framework;
+using Twenty57.Linx.Components.Pdf.FillForm;
+using Twenty57.Linx.Components.Pdf.Tests.Common;
 using Twenty57.Linx.Components.Pdf.Tests.Extensions;
 using Twenty57.Linx.Components.Pdf.Tests.Helpers;
 using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.TestKit;
 
-namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
+namespace Twenty57.Linx.Components.Pdf.Tests
 {
-	public partial class TestPdfOperations
+	[TestFixture]
+	public class TestFillForm: TestPdfBase
 	{
+		private string outputDirectory;
+
+		[SetUp]
+		public void Setup()
+		{
+			this.outputDirectory = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+			Directory.CreateDirectory(this.outputDirectory);
+		}
+
+		[TearDown]
+		public void Teardown()
+		{
+			Directory.Delete(this.outputDirectory, true);
+		}
+
 		[Test]
 		public void FillFormAcro(
 		[Values(
@@ -31,13 +49,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 				AcceptTCs = true
 			};
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<FillFormProvider>();
 			ConfigureInputFileFunctionValues(designer, inputAuth, inputFilePath);
-			designer.Properties[PropertyNames.Operation].Value = Operation.FillForm;
 			designer.Properties[PropertyNames.FillFormFormData].Value = formData;
 			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
 
-			var tester = new FunctionTester<PdfOperationsProvider>();
+			var tester = new FunctionTester<FillFormProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			var formValues = new Dictionary<string, string>
@@ -70,13 +87,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 				form1_910_93_46EmailMe_910_93 = true
 			};
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<FillFormProvider>();
 			ConfigureInputFileFunctionValues(designer, inputAuth, inputFilePath);
-			designer.Properties[PropertyNames.Operation].Value = Operation.FillForm;
 			designer.Properties[PropertyNames.FillFormFormData].Value = formData;
 			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
 
-			var tester = new FunctionTester<PdfOperationsProvider>();
+			var tester = new FunctionTester<FillFormProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			var formValues = new Dictionary<string, string>
@@ -88,6 +104,21 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 				{ "form1[0]", "JohnDoeYesJohnDoe@digiata.com" }
 			};
 			PdfComparer.AssertFields(outputFilePath, inputAuth, this.authenticationManager, formValues);
+		}
+
+		private void ConfigureInputFileFunctionValues(FunctionDesigner designer, FileAuthentication inputAuth, string inputFilePath)
+		{
+			ConfigureInputFileFunctionValues(
+				designer,
+				inputAuth,
+				inputFilePath,
+				PropertyNames.InputFilePath,
+				PropertyNames.InputAuthenticationType,
+				PropertyNames.InputPassword,
+				PropertyNames.InputCertificateSource,
+				PropertyNames.InputCertificateFilePath,
+				PropertyNames.InputCertificateFilePassword,
+				PropertyNames.InputCertificate);
 		}
 	}
 }

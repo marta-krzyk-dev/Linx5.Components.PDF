@@ -1,0 +1,50 @@
+﻿<#@ template language="C#" visibility="internal" #>
+<#@ include file="..\..\Common\ManagePdfReaderTemplate.t4"#>
+<# 
+	string readerPropertyName = "reader";
+#>
+
+if (<#= FillFormFormDataParameterName #> == null)
+	throw new ArgumentNullException("<#= FillFormFormDataParameterName #>");
+if (string.IsNullOrEmpty(<#= OutputFilePathParameterName #>))
+	throw new ArgumentNullException("<#= OutputFilePathParameterName #>");
+
+iTextSharp.text.pdf.PdfReader <#= readerPropertyName #> = null;
+try
+{
+<# 
+AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParameterName, InputPasswordParameterName, 
+	InputCertificateSource, InputCertificateFilePathParameterName, InputCertificateFilePasswordParameterName, InputCertificate, ContextParameterName); 
+#>
+
+	<#= ContextParameterName #>.Log(string.Format("Adding form data to [{0}].", <#= OutputFilePathParameterName #>));
+	using (var outputStream = new System.IO.FileStream(<#= OutputFilePathParameterName #>, System.IO.FileMode.Create))
+	using (var pdfStamper = new iTextSharp.text.pdf.PdfStamper(<#= readerPropertyName #>, outputStream, <#= readerPropertyName #>.PdfVersion, true))
+	{
+		bool isXfa = pdfStamper.AcroFields.Xfa.XfaPresent;
+		iTextSharp.text.pdf.AcroFields form = pdfStamper.AcroFields;
+		System.Collections.Generic.Dictionary<string,string> keyMappings;
+
+		if (isXfa)
+			keyMappings = form.Xfa.DatasetsSom.Name2Node.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => key);
+		else
+			keyMappings = form.Fields.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => key);
+
+
+		foreach (System.Reflection.PropertyInfo property in <#= FillFormFormDataParameterName #>.GetType().GetProperties())
+		{
+			object objectValue = property.GetValue(<#= FillFormFormDataParameterName #>);
+			string stringValue = objectValue.ToString();
+			if (property.PropertyType == typeof(bool))
+				stringValue = ((bool)objectValue)? "Yes" : "No";
+
+			string fieldName = keyMappings[property.Name];
+			<#= ContextParameterName #>.Log(string.Format("Setting field [{0}] to [{1}].", fieldName, stringValue));
+			form.SetField(fieldName, stringValue);
+		}
+	}
+}
+finally
+{
+<# DisposePdfReader(readerPropertyName); #>
+}
