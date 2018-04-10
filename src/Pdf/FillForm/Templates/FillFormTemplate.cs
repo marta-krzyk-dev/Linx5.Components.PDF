@@ -15,7 +15,7 @@ namespace Twenty57.Linx.Components.Pdf.FillForm.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+    #line 1 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     internal partial class FillFormTemplate : FillFormTemplateBase
     {
@@ -26,7 +26,7 @@ namespace Twenty57.Linx.Components.Pdf.FillForm.Templates
         public virtual string TransformText()
         {
             
-            #line 3 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 3 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
  
 	string readerPropertyName = "reader";
 
@@ -35,42 +35,42 @@ namespace Twenty57.Linx.Components.Pdf.FillForm.Templates
             #line hidden
             this.Write("\r\nif (");
             
-            #line 7 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 7 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(FillFormFormDataParameterName));
             
             #line default
             #line hidden
             this.Write(" == null)\r\n\tthrow new ArgumentNullException(\"");
             
-            #line 8 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 8 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(FillFormFormDataParameterName));
             
             #line default
             #line hidden
             this.Write("\");\r\nif (string.IsNullOrEmpty(");
             
-            #line 9 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 9 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputFilePathParameterName));
             
             #line default
             #line hidden
             this.Write("))\r\n\tthrow new ArgumentNullException(\"");
             
-            #line 10 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 10 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputFilePathParameterName));
             
             #line default
             #line hidden
             this.Write("\");\r\n\r\niTextSharp.text.pdf.PdfReader ");
             
-            #line 12 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 12 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
             
             #line default
             #line hidden
             this.Write(" = null;\r\ntry\r\n{\r\n");
             
-            #line 15 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 15 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
  
 AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParameterName, InputPasswordParameterName, 
 	InputCertificateSource, InputCertificateFilePathParameterName, InputCertificateFilePasswordParameterName, InputCertificate, ContextParameterName); 
@@ -80,21 +80,21 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
             #line hidden
             this.Write("\r\n\t");
             
-            #line 20 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 20 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
             
             #line default
             #line hidden
             this.Write(".Log(string.Format(\"Adding form data to [{0}].\", ");
             
-            #line 20 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 20 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputFilePathParameterName));
             
             #line default
             #line hidden
             this.Write("));\r\n\tusing (var outputStream = new System.IO.FileStream(");
             
-            #line 21 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 21 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(OutputFilePathParameterName));
             
             #line default
@@ -102,14 +102,14 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
             this.Write(", System.IO.FileMode.Create))\r\n\tusing (var pdfStamper = new iTextSharp.text.pdf.P" +
                     "dfStamper(");
             
-            #line 22 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 22 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
             
             #line default
             #line hidden
             this.Write(", outputStream, ");
             
-            #line 22 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 22 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
             
             #line default
@@ -125,17 +125,16 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
 		else
 			keyMappings = form.Fields.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => key);
 
-
 		foreach (System.Reflection.PropertyInfo property in ");
             
-            #line 34 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 33 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(FillFormFormDataParameterName));
             
             #line default
             #line hidden
             this.Write(".GetType().GetProperties())\r\n\t\t{\r\n\t\t\tobject objectValue = property.GetValue(");
             
-            #line 36 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 35 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(FillFormFormDataParameterName));
             
             #line default
@@ -144,7 +143,7 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
                     " == typeof(bool))\r\n\t\t\t\tstringValue = ((bool)objectValue)? \"Yes\" : \"No\";\r\n\r\n\t\t\tst" +
                     "ring fieldName = keyMappings[property.Name];\r\n\t\t\t");
             
-            #line 42 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 41 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ContextParameterName));
             
             #line default
@@ -152,7 +151,7 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
             this.Write(".Log(string.Format(\"Setting field [{0}] to [{1}].\", fieldName, stringValue));\r\n\t\t" +
                     "\tform.SetField(fieldName, stringValue);\r\n\t\t}\r\n\t}\r\n}\r\nfinally\r\n{\r\n");
             
-            #line 49 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
+            #line 48 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\FillFormTemplate.tt"
  DisposePdfReader(readerPropertyName); 
             
             #line default
@@ -161,7 +160,7 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 1 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 void AssignPdfReader(string readerPropertyName, AuthenticationType authenticationType, string filePropertyName, string passwordPropertyName,
 	Twenty57.Linx.Components.Pdf.CertificateSource certificateSource, string certificateFilePathPropertyName, string certificateFilePasswordPropertyName, 
@@ -172,49 +171,49 @@ void AssignPdfReader(string readerPropertyName, AuthenticationType authenticatio
         #line default
         #line hidden
         
-        #line 6 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 6 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("if (string.IsNullOrEmpty(");
 
         
         #line default
         #line hidden
         
-        #line 7 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 7 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 7 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 7 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("))\r\n\tthrow new ArgumentNullException(\"");
 
         
         #line default
         #line hidden
         
-        #line 8 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 8 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 8 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 8 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("\");\r\nif (!System.IO.File.Exists(");
 
         
         #line default
         #line hidden
         
-        #line 9 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 9 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 9 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 9 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("))\r\n\tthrow new System.IO.FileNotFoundException(string.Format(\"File [{0}] does not" +
         " exist.\", ");
 
@@ -222,49 +221,49 @@ this.Write("))\r\n\tthrow new System.IO.FileNotFoundException(string.Format(\"Fi
         #line default
         #line hidden
         
-        #line 10 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 10 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 10 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 10 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("));\r\n\r\n");
 
         
         #line default
         #line hidden
         
-        #line 12 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 12 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(contextPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 12 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 12 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(".Log(string.Format(\"Opening file [{0}].\", ");
 
         
         #line default
         #line hidden
         
-        #line 12 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 12 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 12 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 12 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("));\r\n");
 
         
         #line default
         #line hidden
         
-        #line 13 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 13 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 	if (authenticationType == AuthenticationType.None)
 	{
@@ -273,35 +272,35 @@ this.Write("));\r\n");
         #line default
         #line hidden
         
-        #line 17 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 17 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 17 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 17 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new iTextSharp.text.pdf.PdfReader(");
 
         
         #line default
         #line hidden
         
-        #line 17 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 17 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 17 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 17 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(");\r\n");
 
         
         #line default
         #line hidden
         
-        #line 18 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 18 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 	}
 	else if (authenticationType == AuthenticationType.Password)
@@ -311,49 +310,49 @@ this.Write(");\r\n");
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new iTextSharp.text.pdf.PdfReader(");
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", System.Text.Encoding.UTF8.GetBytes(");
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(passwordPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 23 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 23 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("));\r\n");
 
         
         #line default
         #line hidden
         
-        #line 24 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 24 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 	}
 	else if (authenticationType == AuthenticationType.Certificate)
@@ -364,34 +363,34 @@ this.Write("));\r\n");
         #line default
         #line hidden
         
-        #line 29 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 29 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("System.Security.Cryptography.X509Certificates.X509Certificate2 ");
 
         
         #line default
         #line hidden
         
-        #line 30 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 30 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificatePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 30 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 30 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = null;\r\n");
 
         
         #line default
         #line hidden
         
-        #line 31 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 31 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
  AssignCertificateProperty(certificatePropertyName, certificateSource, certificateFilePathPropertyName, certificateFilePasswordPropertyName, certificate); 
         
         #line default
         #line hidden
         
-        #line 31 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 31 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(@"if (!inputCertificate.HasPrivateKey)
 	throw new NotSupportedException(""Certificate must have a private key."");
 
@@ -403,35 +402,35 @@ Org.BouncyCastle.Crypto.AsymmetricCipherKeyPair inputKeyPair = Org.BouncyCastle.
         #line default
         #line hidden
         
-        #line 37 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 37 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 37 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 37 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new iTextSharp.text.pdf.PdfReader(");
 
         
         #line default
         #line hidden
         
-        #line 37 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 37 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(filePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 37 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 37 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", inputBouncyCertficate, inputKeyPair.Private);\r\n");
 
         
         #line default
         #line hidden
         
-        #line 38 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 38 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 	}
 }
@@ -440,7 +439,7 @@ this.Write(", inputBouncyCertficate, inputKeyPair.Private);\r\n");
         #line default
         #line hidden
         
-        #line 43 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 43 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 void DisposePdfReader(string readerPropertyName)
 {
@@ -449,42 +448,42 @@ void DisposePdfReader(string readerPropertyName)
         #line default
         #line hidden
         
-        #line 46 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 46 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("if (");
 
         
         #line default
         #line hidden
         
-        #line 47 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 47 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 47 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 47 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" != null)\r\n\t");
 
         
         #line default
         #line hidden
         
-        #line 48 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 48 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(readerPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 48 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 48 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(".Dispose();\r\n");
 
         
         #line default
         #line hidden
         
-        #line 49 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 49 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 }
 
@@ -492,7 +491,7 @@ this.Write(".Dispose();\r\n");
         #line default
         #line hidden
         
-        #line 53 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 53 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 void AssignCertificateProperty(string certificatePropertyName, Twenty57.Linx.Components.Pdf.CertificateSource certificateSource, 
 	string certificateFilePathPropertyName, string certificateFilePasswordPropertyName, 
@@ -503,48 +502,48 @@ void AssignCertificateProperty(string certificatePropertyName, Twenty57.Linx.Com
         #line default
         #line hidden
         
-        #line 59 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 59 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 	if (certificateSource == Twenty57.Linx.Components.Pdf.CertificateSource.File)	{ 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificatePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new System.Security.Cryptography.X509Certificates.X509Certificate2(");
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificateFilePathPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", ");
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificateFilePasswordPropertyName));
 
         
         #line default
         #line hidden
         
-        #line 60 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 60 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", System.Security.Cryptography.X509Certificates.X509KeyStorageFlags.Exportable);\r" +
         "\n");
 
@@ -552,75 +551,75 @@ this.Write(", System.Security.Cryptography.X509Certificates.X509KeyStorageFlags.
         #line default
         #line hidden
         
-        #line 61 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 61 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
  } else if (certificateSource == Twenty57.Linx.Components.Pdf.CertificateSource.Store) { 
         
         #line default
         #line hidden
         
-        #line 62 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 62 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(certificatePropertyName));
 
         
         #line default
         #line hidden
         
-        #line 62 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 62 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(" = new Twenty57.Linx.Components.Pdf.StoredCertificate(\r\n\t");
 
         
         #line default
         #line hidden
         
-        #line 63 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 63 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(Twenty57.Linx.Plugin.Common.CodeGeneration.CSharpUtilities.EnumAsString(storedCertificatePropertyName.StoreLocation)));
 
         
         #line default
         #line hidden
         
-        #line 63 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 63 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", \r\n\t");
 
         
         #line default
         #line hidden
         
-        #line 64 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 64 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(Twenty57.Linx.Plugin.Common.CodeGeneration.CSharpUtilities.EnumAsString(storedCertificatePropertyName.StoreName)));
 
         
         #line default
         #line hidden
         
-        #line 64 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 64 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(", \r\n\t\"");
 
         
         #line default
         #line hidden
         
-        #line 65 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 65 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write(this.ToStringHelper.ToStringWithCulture(storedCertificatePropertyName.ThumbPrint));
 
         
         #line default
         #line hidden
         
-        #line 65 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 65 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 this.Write("\").GetCertificate();\r\n");
 
         
         #line default
         #line hidden
         
-        #line 66 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 66 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 	} 
         
         #line default
         #line hidden
         
-        #line 67 "D:\Hg\Linx5Components\PDF\PDF-2455\Linx5.Components.PDF\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
+        #line 67 "D:\Git\Linx5 Components\PdfRefactor\src\Pdf\FillForm\Templates\..\..\Common\ManagePdfReaderTemplate.t4"
 
 }
 

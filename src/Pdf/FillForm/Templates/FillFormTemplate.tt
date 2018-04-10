@@ -30,7 +30,6 @@ AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParame
 		else
 			keyMappings = form.Fields.Keys.ToDictionary(key => Twenty57.Linx.Plugin.Common.Names.GetValidName(key), key => key);
 
-
 		foreach (System.Reflection.PropertyInfo property in <#= FillFormFormDataParameterName #>.GetType().GetProperties())
 		{
 			object objectValue = property.GetValue(<#= FillFormFormDataParameterName #>);

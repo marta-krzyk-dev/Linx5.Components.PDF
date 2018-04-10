@@ -8,7 +8,7 @@ namespace Twenty57.Linx.Components.Pdf.FillForm
 {
 	internal class FillFormCodeGenerator : FunctionCodeGenerator
 	{
-		public FillFormCodeGenerator(IFunctionData data) : base(data) {	}
+		public FillFormCodeGenerator(IFunctionData data) : base(data) { }
 
 		public override void GenerateCode(IFunctionBuilder functionBuilder)
 		{
@@ -16,7 +16,7 @@ namespace Twenty57.Linx.Components.Pdf.FillForm
 			functionBuilder.AddAssemblyReference(typeof(Uri));
 			functionBuilder.AddAssemblyReference(typeof(PdfReader));
 
-			FillFormTemplate template = new FillFormTemplate();
+			var template = new FillFormTemplate();
 			template.Populate(functionBuilder, FunctionData);
 			functionBuilder.AddCode(template.TransformText());
 		}

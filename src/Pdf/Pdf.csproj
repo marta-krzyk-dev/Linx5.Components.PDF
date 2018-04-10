@@ -69,7 +69,7 @@
     <Compile Include="Extensions\FunctionDataExtensions.cs" />
     <Compile Include="Extensions\PropertyCollectionExtensions.cs" />
     <Compile Include="Extensions\SerializationInfoExtensions.cs" />
-    <Compile Include="FillForm\PropertyNames.cs" />
+    <Compile Include="FillForm\Constants.cs" />
     <Compile Include="FillForm\FillFormCodeGenerator.cs" />
     <Compile Include="FillForm\FillFormDesigner.cs" />
     <Compile Include="FillForm\FillFormProvider.cs" />

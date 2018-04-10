@@ -61,6 +61,7 @@
     <Compile Include="Extensions\FunctionDesignerExtensions.cs" />
     <Compile Include="Extensions\TypePropertyExtensions.cs" />
     <Compile Include="Common\AuthenticationManager.cs" />
+    <Compile Include="FillForm\TestFillForm.cs" />
     <Compile Include="Helpers\ProviderHelpers.cs" />
     <Compile Include="Helpers\ResourceHelpers.cs" />
     <Compile Include="PdfOperations\TestPdfOperations.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="PdfOperations\TestPdfOperationsSplit.cs" />
     <Compile Include="ReadPdf\TestReadPdf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestFillForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Common\Resources\John Smith.pfx" />
@@ -106,8 +106,11 @@
     <EmbeddedResource Include="PdfOperations\Resources\Sign_Image.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FillForm\Resources\FillForm.pdf" />
+    <EmbeddedResource Include="FillForm\Resources\FillFormXFA.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

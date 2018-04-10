@@ -12,14 +12,15 @@ namespace Twenty57.Linx.Components.Pdf.FillForm
 {
 	internal class FillFormDesigner : FunctionDesigner
 	{
-		public FillFormDesigner(IDesignerContext context) : base(context)
+		public FillFormDesigner(IDesignerContext context)
+			: base(context)
 		{
 			InitializeProperties();
 		}
 
-		public FillFormDesigner(IFunctionData data, IDesignerContext context) : base(data, context)
-		{
-		}
+		public FillFormDesigner(IFunctionData data, IDesignerContext context)
+			: base(data, context)
+		{ }
 
 		public override IFunctionData GetFunctionData()
 		{
@@ -64,7 +65,7 @@ namespace Twenty57.Linx.Components.Pdf.FillForm
 			inputPDFFilePathProperty.Editor = typeof(FilePathEditor);
 			inputPDFFilePathProperty.Validations.Add(new RequiredValidator());
 
-			VisibleDependency certVisibleDependency = new VisibleDependency(() => Properties.PropertyValueEquals(PropertyNames.InputAuthenticationType, 
+			VisibleDependency certVisibleDependency = new VisibleDependency(() => Properties.PropertyValueEquals(PropertyNames.InputAuthenticationType,
 				AuthenticationType.Certificate));
 			Action applyVisibility = () =>
 			{
@@ -77,7 +78,7 @@ namespace Twenty57.Linx.Components.Pdf.FillForm
 				certVisibleDependency.Refresh();
 			};
 
-			Property authenticationTypeProperty = Properties.AddOrRetrieve(PropertyNames.InputAuthenticationType, typeof(AuthenticationType), 
+			Property authenticationTypeProperty = Properties.AddOrRetrieve(PropertyNames.InputAuthenticationType, typeof(AuthenticationType),
 				ValueUseOption.DesignTime, AuthenticationType.None);
 			authenticationTypeProperty.Order = propertyOrder++;
 			authenticationTypeProperty.Description = "Authentication type required to open the PDF file.";

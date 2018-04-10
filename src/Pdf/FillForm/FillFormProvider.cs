@@ -1,5 +1,4 @@
-﻿using System;
-using Twenty57.Linx.Plugin.Common;
+﻿using Twenty57.Linx.Plugin.Common;
 
 namespace Twenty57.Linx.Components.Pdf.FillForm
 {

@@ -9,10 +9,10 @@ using Twenty57.Linx.Components.Pdf.Tests.Helpers;
 using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.TestKit;
 
-namespace Twenty57.Linx.Components.Pdf.Tests
+namespace Twenty57.Linx.Components.Pdf.Tests.FillForm
 {
 	[TestFixture]
-	public class TestFillForm: TestPdfBase
+	public class TestFillForm : TestPdfBase
 	{
 		private string outputDirectory;
 
@@ -38,7 +38,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests
 				FileAuthentication.CertificateFile,
 				FileAuthentication.CertificateStore*/)] FileAuthentication inputAuth)
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.FillForm.pdf", this.inputDirectory);
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.FillForm.Resources.FillForm.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Fill.pdf");
 
 			var formData = new
@@ -76,7 +76,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests
 				FileAuthentication.CertificateFile,
 				FileAuthentication.CertificateStore*/)] FileAuthentication inputAuth)
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.FillFormXFA.pdf", this.inputDirectory);
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.FillForm.Resources.FillFormXFA.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "FillXfa.pdf");
 
 			var formData = new
