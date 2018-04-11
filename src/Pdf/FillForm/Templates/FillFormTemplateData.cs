@@ -1,4 +1,5 @@
-﻿using Twenty57.Linx.Components.Pdf.Extensions;
+﻿using Twenty57.Linx.Components.Pdf.Common;
+using Twenty57.Linx.Components.Pdf.Extensions;
 using Twenty57.Linx.Components.Pdf.Interfaces;
 using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.Common.CodeGeneration;
@@ -32,7 +33,7 @@ namespace Twenty57.Linx.Components.Pdf.FillForm.Templates
 			InputCertificateFilePathParameterName = functionBuilder.GetParamName(PropertyNames.InputCertificateFilePath);
 			InputCertificateFilePasswordParameterName = functionBuilder.GetParamName(PropertyNames.InputCertificateFilePassword);
 
-			FillFormFormDataParameterName = functionBuilder.GetParamName(PropertyNames.FillFormFormData);
+			FillFormFormDataParameterName = functionBuilder.GetParamName(FillFormProvider.FormData);
 
 			OutputFilePathParameterName = functionBuilder.GetParamName(PropertyNames.OutputFilePath);
 			ContextParameterName = functionBuilder.ContextParamName;

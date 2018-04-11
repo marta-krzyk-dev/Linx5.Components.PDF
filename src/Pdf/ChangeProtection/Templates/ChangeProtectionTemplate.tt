@@ -1,0 +1,97 @@
+﻿<#@ template language="C#" visibility="internal" #>
+<#@ include file="..\..\Common\ManagePdfReaderTemplate.t4"#>
+<# 
+	string readerPropertyName = "reader";
+	string stamperPropertyName = "stamper";
+	string protectCertificatePropertyName = "protectCertificate";
+	string permissionsPropertyName = "permissions";
+#>
+
+if (string.IsNullOrEmpty(<#= OutputFilePathParameterName #>))
+	throw new ArgumentNullException("<#= OutputFilePathParameterName #>");
+
+iTextSharp.text.pdf.PdfReader <#= readerPropertyName #> = null;
+try
+{
+<# 
+AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParameterName, InputPasswordParameterName, 
+	InputCertificateSource, InputCertificateFilePathParameterName, InputCertificateFilePasswordParameterName, InputCertificate, ContextParameterName); 
+#>
+
+	<#= ContextParameterName #>.Log(string.Format("Protecting [{0}].", <#= OutputFilePathParameterName #>));
+	using (var outputStream = new System.IO.FileStream(<#= OutputFilePathParameterName #>, System.IO.FileMode.Create))
+	using (var <#= stamperPropertyName #> = new iTextSharp.text.pdf.PdfStamper(<#= readerPropertyName #>, outputStream))
+	{
+		<# AddProtection(stamperPropertyName, permissionsPropertyName, protectCertificatePropertyName); #>
+	}
+}
+finally
+{
+<# DisposePdfReader(readerPropertyName); #>
+}
+
+<#+
+private void AddProtection(string stamperPropertyName, string permissionsPropertyName, string protectCertificatePropertyName)
+{
+	if (ProtectProtection == AuthenticationType.None) { return; }
+#>
+int encryptionType = <#= (int)ProtectEncryption #>;
+<#+ if (ProtectDontEncryptMetadata) { #>
+encryptionType |= iTextSharp.text.pdf.PdfWriter.DO_NOT_ENCRYPT_METADATA;
+<#+ } #>
+int <#= permissionsPropertyName #>;
+<#+ AssignDocumentRestrictions(permissionsPropertyName); #>
+
+<#+ if (ProtectProtection == AuthenticationType.Certificate) { #>
+System.Security.Cryptography.X509Certificates.X509Certificate2 <#= protectCertificatePropertyName #>;
+<#+ AssignCertificateProperty(protectCertificatePropertyName, ProtectCertificateSource, ProtectCertificateFilePathParameterName, ProtectCertificateFilePasswordParameterName, ProtectCertificate); #>
+<#= stamperPropertyName #>.SetEncryption(
+		new System.Collections.Generic.List<System.Security.Cryptography.X509Certificates.X509Certificate>{ <#= protectCertificatePropertyName #> }
+			.Select(cert => Org.BouncyCastle.Security.DotNetUtilities.FromX509Certificate(cert)).ToArray(),
+		new int[] { permissions },
+		encryptionType);
+<#+ } else if (ProtectProtection == AuthenticationType.Password) { #>
+string permissionsPassword;
+	<#+ if (ProtectAddDocumentRestrictions) { #>
+permissionsPassword = <#= ProtectPermissionsPasswordParameterName #>;
+	<#+ } else { #>
+permissionsPassword = <#= ProtectDocumentOpenPasswordParameterName #>;
+	<#+ } #>
+<#= stamperPropertyName #>.SetEncryption(
+	encryptionType,
+	<#= ProtectDocumentOpenPasswordParameterName #>,
+	permissionsPassword,
+	permissions);
+<#+ } #>
+<#+
+}
+#>
+
+<#+ 
+private void AssignDocumentRestrictions(string permissionsPropertyName)
+{
+#>
+<#+ if (ProtectAddDocumentRestrictions) { #>
+<#= permissionsPropertyName #> = 0;
+<#= permissionsPropertyName #> |= <#= (int)ProtectAllowPrinting #>;
+<#= permissionsPropertyName #> |= <#= (int)ProtectAllowChanges #>;
+	<#+ if (ProtectAllowCopying) { #>
+<#= permissionsPropertyName #> |= iTextSharp.text.pdf.PdfWriter.ALLOW_COPY;
+	<#+	} #>
+	<#+ if (ProtectAllowScreenReaders) { #>
+<#= permissionsPropertyName #> |= iTextSharp.text.pdf.PdfWriter.ALLOW_SCREENREADERS;
+	<#+	} #>
+<#+ } else { #>
+<#= permissionsPropertyName #> = 
+	iTextSharp.text.pdf.PdfWriter.ALLOW_ASSEMBLY |
+	iTextSharp.text.pdf.PdfWriter.ALLOW_COPY |
+	iTextSharp.text.pdf.PdfWriter.ALLOW_DEGRADED_PRINTING |
+	iTextSharp.text.pdf.PdfWriter.ALLOW_FILL_IN |
+	iTextSharp.text.pdf.PdfWriter.ALLOW_MODIFY_ANNOTATIONS |
+	iTextSharp.text.pdf.PdfWriter.ALLOW_MODIFY_CONTENTS |
+	iTextSharp.text.pdf.PdfWriter.ALLOW_PRINTING |
+	iTextSharp.text.pdf.PdfWriter.ALLOW_SCREENREADERS;
+<#+	} #>
+<#+
+}
+#>

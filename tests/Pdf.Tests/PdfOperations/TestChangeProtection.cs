@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.IO;
+using NUnit.Framework;
+using Twenty57.Linx.Components.Pdf.ChangeProtection;
 using Twenty57.Linx.Components.Pdf.PdfOperations;
 using Twenty57.Linx.Components.Pdf.Tests.Extensions;
 using Twenty57.Linx.Components.Pdf.Tests.Helpers;
@@ -24,12 +25,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Protect.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Protect.pdf");
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, inputAuth, inputFilePath);
 			ConfigureProtectFunctionValues(designer, FileAuthentication.None, Encryption.AES128, false);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
-			var tester = new FunctionTester<PdfOperationsProvider>();
+			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			PdfComparer.AssertText(outputFilePath, FileAuthentication.None, this.authenticationManager, "Text on page 1", null);
@@ -45,12 +46,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Protect.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Protect.pdf");
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
-			var tester = new FunctionTester<PdfOperationsProvider>();
+			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			PdfComparer.AssertProtectionAllRights(outputFilePath, protectAuth, this.authenticationManager, true, true);
@@ -72,12 +73,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Protect.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Protect.pdf");
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true, true, printing: printing);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
-			var tester = new FunctionTester<PdfOperationsProvider>();
+			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			bool allowDegradedPrinting = false;
@@ -128,12 +129,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Protect.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Protect.pdf");
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true, true, changes: changes);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
-			var tester = new FunctionTester<PdfOperationsProvider>();
+			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			bool allowAssembly = false;
@@ -193,12 +194,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Protect.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Protect.pdf");
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true, true, allowCopy: allowCopy);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
-			var tester = new FunctionTester<PdfOperationsProvider>();
+			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			PdfComparer.AssertProtection(outputFilePath, protectAuth, this.authenticationManager, true, true,
@@ -228,12 +229,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.PdfOperations.Resources.Protect.pdf", this.inputDirectory);
 			string outputFilePath = Path.Combine(this.outputDirectory, "Protect.pdf");
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<PdfOperationsProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true, true, allowScreenReaders: allowScreenReaders);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
-			var tester = new FunctionTester<PdfOperationsProvider>();
+			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			PdfComparer.AssertProtection(outputFilePath, protectAuth, this.authenticationManager, true, true,
@@ -251,39 +252,37 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 		private void ConfigureProtectFunctionValues(FunctionDesigner designer, FileAuthentication protectAuth, Encryption encryption, bool dontEncryptMetadata,
 			bool addDocumentRestrictions = false, Printing printing = Printing.None, Changes changes = Changes.None, bool allowCopy = false, bool allowScreenReaders = false)
 		{
-			designer.Properties[PropertyNames.Operation].Value = Operation.Protect;
-
 			switch (protectAuth)
 			{
 				case FileAuthentication.None:
-					designer.Properties[PropertyNames.ProtectProtection].Value = AuthenticationType.None;
+					designer.Properties[ChangeProtectionProvider.Protection].Value = AuthenticationType.None;
 					return;
 				case FileAuthentication.Password:
-					designer.Properties[PropertyNames.ProtectProtection].Value = AuthenticationType.Password;
-					designer.Properties[PropertyNames.ProtectDocumentOpenPassword].Value = this.authenticationManager.Password;
-					designer.Properties[PropertyNames.ProtectPermissionsPassword].Value = permissionsPassword;
+					designer.Properties[ChangeProtectionProvider.Protection].Value = AuthenticationType.Password;
+					designer.Properties[ChangeProtectionProvider.DocumentOpenPassword].Value = this.authenticationManager.Password;
+					designer.Properties[ChangeProtectionProvider.PermissionsPassword].Value = permissionsPassword;
 					break;
 				case FileAuthentication.CertificateFile:
-					designer.Properties[PropertyNames.ProtectProtection].Value = AuthenticationType.Certificate;
-					designer.Properties[PropertyNames.ProtectCertificateSource].Value = CertificateSource.File;
-					designer.Properties[PropertyNames.ProtectCertificateFilePath].Value = this.authenticationManager.CertificateFilePath;
-					designer.Properties[PropertyNames.ProtectCertificateFilePassword].Value = this.authenticationManager.CertificateFilePassword;
+					designer.Properties[ChangeProtectionProvider.Protection].Value = AuthenticationType.Certificate;
+					designer.Properties[ChangeProtectionProvider.CertificateSource].Value = CertificateSource.File;
+					designer.Properties[ChangeProtectionProvider.CertificateFilePath].Value = this.authenticationManager.CertificateFilePath;
+					designer.Properties[ChangeProtectionProvider.CertificateFilePassword].Value = this.authenticationManager.CertificateFilePassword;
 					break;
 				case FileAuthentication.CertificateStore:
-					designer.Properties[PropertyNames.ProtectProtection].Value = AuthenticationType.Certificate;
-					designer.Properties[PropertyNames.ProtectCertificateSource].Value = CertificateSource.Store;
-					designer.Properties[PropertyNames.ProtectCertificate].Value = this.authenticationManager.StoredCertificate;
+					designer.Properties[ChangeProtectionProvider.Protection].Value = AuthenticationType.Certificate;
+					designer.Properties[ChangeProtectionProvider.CertificateSource].Value = CertificateSource.Store;
+					designer.Properties[ChangeProtectionProvider.Certificate].Value = this.authenticationManager.StoredCertificate;
 					break;
 			}
 
-			designer.Properties[PropertyNames.ProtectEncryption].Value = encryption;
-			designer.Properties[PropertyNames.ProtectDontEncryptMetadata].Value = dontEncryptMetadata;
+			designer.Properties[ChangeProtectionProvider.Encryption].Value = encryption;
+			designer.Properties[ChangeProtectionProvider.DontEncryptMetadata].Value = dontEncryptMetadata;
 
-			designer.Properties[PropertyNames.ProtectAddDocumentRestrictions].Value = addDocumentRestrictions;
-			designer.Properties[PropertyNames.ProtectAllowPrinting].Value = printing;
-			designer.Properties[PropertyNames.ProtectAllowChanges].Value = changes;
-			designer.Properties[PropertyNames.ProtectAllowCopying].Value = allowCopy;
-			designer.Properties[PropertyNames.ProtectAllowScreenReaders].Value = allowScreenReaders;
+			designer.Properties[ChangeProtectionProvider.AddDocumentRestrictions].Value = addDocumentRestrictions;
+			designer.Properties[ChangeProtectionProvider.AllowPrinting].Value = printing;
+			designer.Properties[ChangeProtectionProvider.AllowChanges].Value = changes;
+			designer.Properties[ChangeProtectionProvider.AllowCopying].Value = allowCopy;
+			designer.Properties[ChangeProtectionProvider.AllowScreenReaders].Value = allowScreenReaders;
 		}
 	}
 }
