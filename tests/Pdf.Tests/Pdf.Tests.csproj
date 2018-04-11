@@ -67,6 +67,7 @@
     <Compile Include="PdfOperations\TestPdfOperations.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsAddWatermark.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsConcatenate.cs" />
+    <Compile Include="PdfOperations\TestPdfOperationsFillForm.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsProtect.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsSign.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsSplit.cs" />
