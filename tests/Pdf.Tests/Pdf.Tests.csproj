@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeProtection\TestChangeProtection.cs" />
     <Compile Include="Common\FileAuthentication.cs" />
     <Compile Include="Common\PdfComparer.cs" />
     <Compile Include="Common\TestPdfBase.cs" />
@@ -68,13 +69,11 @@
     <Compile Include="PdfOperations\TestPdfOperationsAddWatermark.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsConcatenate.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsFillForm.cs" />
+    <Compile Include="PdfOperations\TestPdfOperationsProtect.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsSign.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsSplit.cs" />
     <Compile Include="ReadPdf\TestReadPdf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-     <Compile Include="PdfOperations\TestChangeProtection.cs" />
-
-    <Compile Include="PdfOperations\TestFillForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Common\Resources\John Smith.pfx" />
@@ -111,6 +110,7 @@
   <ItemGroup>
     <EmbeddedResource Include="FillForm\Resources\FillForm.pdf" />
     <EmbeddedResource Include="FillForm\Resources\FillFormXFA.pdf" />
+    <EmbeddedResource Include="ChangeProtection\Resources\Protect.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

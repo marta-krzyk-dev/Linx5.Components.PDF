@@ -66,6 +66,10 @@
     <Compile Include="ChangeProtection\ChangeProtectionCodeGenerator.cs" />
     <Compile Include="ChangeProtection\ChangeProtectionDesigner.cs" />
     <Compile Include="ChangeProtection\ChangeProtectionProvider.cs" />
+    <Compile Include="ChangeProtection\Changes.cs" />
+    <Compile Include="ChangeProtection\Constants.cs" />
+    <Compile Include="ChangeProtection\Encryption.cs" />
+    <Compile Include="ChangeProtection\Printing.cs" />
     <Compile Include="ChangeProtection\Templates\ChangeProtectionTemplate.cs">
       <DependentUpon>ChangeProtectionTemplate.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -73,8 +77,8 @@
     </Compile>
     <Compile Include="ChangeProtection\Templates\ChangeProtectionTemplateData.cs" />
     <Compile Include="Common\AuthenticationType.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\PdfDesigner.cs" />
-    <Compile Include="Common\PropertyNames.cs" />
     <Compile Include="Common\TypeResolver.cs" />
     <Compile Include="Common\Validators\CertificateAuthenticationValidator.cs" />
     <Compile Include="Extensions\FunctionDataExtensions.cs" />

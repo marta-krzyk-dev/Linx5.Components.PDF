@@ -61,16 +61,16 @@ namespace Twenty57.Linx.Components.Pdf.Common
 
 			VisibleDependency certVisibleDependency = new VisibleDependency(() => Properties.PropertyValueEquals(PropertyNames.InputAuthenticationType,
 				AuthenticationType.Certificate));
-			Action applyVisibility = () =>
+			void applyVisibility()
 			{
 				AuthenticationType authenticationTypeValue = Properties[PropertyNames.InputAuthenticationType].GetValue<AuthenticationType>();
 				Properties[PropertyNames.InputPassword].IsVisible = authenticationTypeValue == AuthenticationType.Password;
-			};
-			EventHandler updateVisibility = (sender, args) =>
+			}
+			void updateVisibility(object sender, EventArgs args)
 			{
 				applyVisibility();
 				certVisibleDependency.Refresh();
-			};
+			}
 
 			Property authenticationTypeProperty = Properties.AddOrRetrieve(PropertyNames.InputAuthenticationType, typeof(AuthenticationType),
 				ValueUseOption.DesignTime, AuthenticationType.None);

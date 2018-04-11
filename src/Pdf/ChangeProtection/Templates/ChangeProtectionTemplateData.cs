@@ -1,6 +1,5 @@
 ﻿using Twenty57.Linx.Components.Pdf.Extensions;
 using Twenty57.Linx.Components.Pdf.Interfaces;
-using Twenty57.Linx.Components.Pdf.PdfOperations;
 using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.Common.CodeGeneration;
 
@@ -41,26 +40,26 @@ namespace Twenty57.Linx.Components.Pdf.ChangeProtection.Templates
 			InputAuthenticationType = functionData.TryGetPropertyValue(PropertyNames.InputAuthenticationType, AuthenticationType.None);
 			InputCertificateSource = functionData.TryGetPropertyValue(PropertyNames.InputCertificateSource, CertificateSource.File);
 			InputCertificate = functionData.TryGetPropertyValue<StoredCertificate>(PropertyNames.InputCertificate, null);
-			ProtectProtection = functionData.TryGetPropertyValue(PropertyNames.ProtectProtection, AuthenticationType.None);
-			ProtectCertificateSource = functionData.TryGetPropertyValue(PropertyNames.ProtectCertificateSource, CertificateSource.File);
-			ProtectCertificate = functionData.TryGetPropertyValue<StoredCertificate>(PropertyNames.ProtectCertificate, null);
-			ProtectAddDocumentRestrictions = functionData.TryGetPropertyValue(PropertyNames.ProtectAddDocumentRestrictions, false);
-			ProtectAllowPrinting = functionData.TryGetPropertyValue(PropertyNames.ProtectAllowPrinting, Printing.None);
-			ProtectAllowChanges = functionData.TryGetPropertyValue(PropertyNames.ProtectAllowChanges, Changes.None);
-			ProtectAllowCopying = functionData.TryGetPropertyValue(PropertyNames.ProtectAllowCopying, false);
-			ProtectAllowScreenReaders = functionData.TryGetPropertyValue(PropertyNames.ProtectAllowScreenReaders, false);
-			ProtectEncryption = functionData.TryGetPropertyValue(PropertyNames.ProtectEncryption, Encryption.AES128);
-			ProtectDontEncryptMetadata = functionData.TryGetPropertyValue(PropertyNames.ProtectDontEncryptMetadata, false);
+			ProtectProtection = functionData.TryGetPropertyValue(PropertyNames.Protection, AuthenticationType.None);
+			ProtectCertificateSource = functionData.TryGetPropertyValue(PropertyNames.CertificateSource, CertificateSource.File);
+			ProtectCertificate = functionData.TryGetPropertyValue<StoredCertificate>(PropertyNames.Certificate, null);
+			ProtectAddDocumentRestrictions = functionData.TryGetPropertyValue(PropertyNames.AddDocumentRestrictions, false);
+			ProtectAllowPrinting = functionData.TryGetPropertyValue(PropertyNames.AllowPrinting, Printing.None);
+			ProtectAllowChanges = functionData.TryGetPropertyValue(PropertyNames.AllowChanges, Changes.None);
+			ProtectAllowCopying = functionData.TryGetPropertyValue(PropertyNames.AllowCopying, false);
+			ProtectAllowScreenReaders = functionData.TryGetPropertyValue(PropertyNames.AllowScreenReaders, false);
+			ProtectEncryption = functionData.TryGetPropertyValue(PropertyNames.Encryption, Encryption.AES128);
+			ProtectDontEncryptMetadata = functionData.TryGetPropertyValue(PropertyNames.DontEncryptMetadata, false);
 
 			InputFilePathParameterName = functionBuilder.GetParamName(PropertyNames.InputFilePath);
 			InputPasswordParameterName = functionBuilder.GetParamName(PropertyNames.InputPassword);
 			InputCertificateFilePathParameterName = functionBuilder.GetParamName(PropertyNames.InputCertificateFilePath);
 			InputCertificateFilePasswordParameterName = functionBuilder.GetParamName(PropertyNames.InputCertificateFilePassword);
 
-			ProtectDocumentOpenPasswordParameterName = functionBuilder.GetParamName(PropertyNames.ProtectDocumentOpenPassword);
-			ProtectPermissionsPasswordParameterName = functionBuilder.GetParamName(PropertyNames.ProtectPermissionsPassword);
-			ProtectCertificateFilePathParameterName = functionBuilder.GetParamName(PropertyNames.ProtectCertificateFilePath);
-			ProtectCertificateFilePasswordParameterName = functionBuilder.GetParamName(PropertyNames.ProtectCertificateFilePassword);
+			ProtectDocumentOpenPasswordParameterName = functionBuilder.GetParamName(PropertyNames.DocumentOpenPassword);
+			ProtectPermissionsPasswordParameterName = functionBuilder.GetParamName(PropertyNames.PermissionsPassword);
+			ProtectCertificateFilePathParameterName = functionBuilder.GetParamName(PropertyNames.CertificateFilePath);
+			ProtectCertificateFilePasswordParameterName = functionBuilder.GetParamName(PropertyNames.CertificateFilePassword);
 
 			OutputFilePathParameterName = functionBuilder.GetParamName(PropertyNames.OutputFilePath);
 			ContextParameterName = functionBuilder.ContextParamName;
