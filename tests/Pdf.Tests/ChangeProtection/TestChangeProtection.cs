@@ -44,7 +44,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ChangeProtection
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, inputAuth, inputFilePath);
 			ConfigureProtectFunctionValues(designer, FileAuthentication.None, Encryption.AES128, false);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
 			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
@@ -65,7 +65,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ChangeProtection
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
 			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
@@ -92,7 +92,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ChangeProtection
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true, true, printing: printing);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
 			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
@@ -148,7 +148,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ChangeProtection
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true, true, changes: changes);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
 			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
@@ -213,7 +213,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ChangeProtection
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true, true, allowCopy: allowCopy);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
 			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
@@ -248,7 +248,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ChangeProtection
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ChangeProtectionProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			ConfigureProtectFunctionValues(designer, protectAuth, Encryption.AES256, true, true, allowScreenReaders: allowScreenReaders);
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
 			var tester = new FunctionTester<ChangeProtectionProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
@@ -271,13 +271,13 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ChangeProtection
 				designer,
 				inputAuth,
 				inputFilePath,
-				PropertyNames.InputFilePath,
-				PropertyNames.InputAuthenticationType,
-				PropertyNames.InputPassword,
-				PropertyNames.InputCertificateSource,
-				PropertyNames.InputCertificateFilePath,
-				PropertyNames.InputCertificateFilePassword,
-				PropertyNames.InputCertificate);
+				Pdf.Common.PropertyNames.InputFilePath,
+				Pdf.Common.PropertyNames.InputAuthenticationType,
+				Pdf.Common.PropertyNames.InputPassword,
+				Pdf.Common.PropertyNames.InputCertificateSource,
+				Pdf.Common.PropertyNames.InputCertificateFilePath,
+				Pdf.Common.PropertyNames.InputCertificateFilePassword,
+				Pdf.Common.PropertyNames.InputCertificate);
 		}
 
 		private void ConfigureProtectFunctionValues(FunctionDesigner designer, FileAuthentication protectAuth, Encryption encryption, bool dontEncryptMetadata,

@@ -37,9 +37,9 @@ namespace Twenty57.Linx.Components.Pdf.ChangeProtection.Templates
 
 		public void Populate(IFunctionBuilder functionBuilder, IFunctionData functionData)
 		{
-			InputAuthenticationType = functionData.TryGetPropertyValue(PropertyNames.InputAuthenticationType, AuthenticationType.None);
-			InputCertificateSource = functionData.TryGetPropertyValue(PropertyNames.InputCertificateSource, CertificateSource.File);
-			InputCertificate = functionData.TryGetPropertyValue<StoredCertificate>(PropertyNames.InputCertificate, null);
+			InputAuthenticationType = functionData.TryGetPropertyValue(Common.PropertyNames.InputAuthenticationType, AuthenticationType.None);
+			InputCertificateSource = functionData.TryGetPropertyValue(Common.PropertyNames.InputCertificateSource, CertificateSource.File);
+			InputCertificate = functionData.TryGetPropertyValue<StoredCertificate>(Common.PropertyNames.InputCertificate, null);
 			ProtectProtection = functionData.TryGetPropertyValue(PropertyNames.Protection, AuthenticationType.None);
 			ProtectCertificateSource = functionData.TryGetPropertyValue(PropertyNames.CertificateSource, CertificateSource.File);
 			ProtectCertificate = functionData.TryGetPropertyValue<StoredCertificate>(PropertyNames.Certificate, null);
@@ -51,17 +51,17 @@ namespace Twenty57.Linx.Components.Pdf.ChangeProtection.Templates
 			ProtectEncryption = functionData.TryGetPropertyValue(PropertyNames.Encryption, Encryption.AES128);
 			ProtectDontEncryptMetadata = functionData.TryGetPropertyValue(PropertyNames.DontEncryptMetadata, false);
 
-			InputFilePathParameterName = functionBuilder.GetParamName(PropertyNames.InputFilePath);
-			InputPasswordParameterName = functionBuilder.GetParamName(PropertyNames.InputPassword);
-			InputCertificateFilePathParameterName = functionBuilder.GetParamName(PropertyNames.InputCertificateFilePath);
-			InputCertificateFilePasswordParameterName = functionBuilder.GetParamName(PropertyNames.InputCertificateFilePassword);
+			InputFilePathParameterName = functionBuilder.GetParamName(Common.PropertyNames.InputFilePath);
+			InputPasswordParameterName = functionBuilder.GetParamName(Common.PropertyNames.InputPassword);
+			InputCertificateFilePathParameterName = functionBuilder.GetParamName(Common.PropertyNames.InputCertificateFilePath);
+			InputCertificateFilePasswordParameterName = functionBuilder.GetParamName(Common.PropertyNames.InputCertificateFilePassword);
 
 			ProtectDocumentOpenPasswordParameterName = functionBuilder.GetParamName(PropertyNames.DocumentOpenPassword);
 			ProtectPermissionsPasswordParameterName = functionBuilder.GetParamName(PropertyNames.PermissionsPassword);
 			ProtectCertificateFilePathParameterName = functionBuilder.GetParamName(PropertyNames.CertificateFilePath);
 			ProtectCertificateFilePasswordParameterName = functionBuilder.GetParamName(PropertyNames.CertificateFilePassword);
 
-			OutputFilePathParameterName = functionBuilder.GetParamName(PropertyNames.OutputFilePath);
+			OutputFilePathParameterName = functionBuilder.GetParamName(Common.PropertyNames.OutputFilePath);
 			ContextParameterName = functionBuilder.ContextParamName;
 		}
 	}

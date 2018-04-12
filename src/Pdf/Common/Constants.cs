@@ -1,6 +1,6 @@
 ﻿namespace Twenty57.Linx.Components.Pdf.Common
 {
-	internal static class PropertyNames
+	public static class PropertyNames
 	{
 		public const string InputAuthenticationType = "Input authentication type";
 		public const string InputCertificate = "Input certificate";

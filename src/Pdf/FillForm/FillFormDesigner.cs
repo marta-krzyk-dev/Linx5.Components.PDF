@@ -26,7 +26,7 @@ namespace Twenty57.Linx.Components.Pdf.FillForm
 
 		private void InitializeProperties()
 		{
-			Property formData = Properties.AddOrRetrieve(FillFormProvider.FormData, typeof(object), ValueUseOption.RuntimeRead, null);
+			Property formData = Properties.AddOrRetrieve(PropertyNames.FillFormFormData, typeof(object), ValueUseOption.RuntimeRead, null);
 			formData.Order = propertyOrder++;
 			formData.Description = "A custom object that contains the form data to insert.";
 			formData.Validations.Add(new RequiredValidator());
