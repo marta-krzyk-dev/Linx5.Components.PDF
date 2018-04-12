@@ -47,11 +47,11 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
-    <Reference Include="Twenty57.Linx.Plugin.Common, Version=17.0.6.250, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.17.0.6.250\lib\net471\Twenty57.Linx.Plugin.Common.dll</HintPath>
+    <Reference Include="Twenty57.Linx.Plugin.Common, Version=17.0.10.259, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.17.0.10.259\lib\net471\Twenty57.Linx.Plugin.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Twenty57.Linx.Plugin.TestKit, Version=17.0.6.250, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.TestKit.17.0.6.250\lib\net471\Twenty57.Linx.Plugin.TestKit.dll</HintPath>
+    <Reference Include="Twenty57.Linx.Plugin.TestKit, Version=17.0.10.259, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.TestKit.17.0.10.259\lib\net471\Twenty57.Linx.Plugin.TestKit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

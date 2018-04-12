@@ -257,7 +257,7 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations
 			Property page = Properties.AddOrRetrieve(PropertyNames.SignPage, typeof(int), ValueUseOption.RuntimeRead, 1);
 			page.Order = propertyOrder++;
 			page.Description = "Page on which to include the visible signature.";
-			page.Validations.Add(new RangeValidator(1, int.MaxValue));
+			page.Validations.Add(new RangeValidator<int>(1, int.MaxValue));
 
 			applyVisibility(visibleDependency.Visible);
 		}
