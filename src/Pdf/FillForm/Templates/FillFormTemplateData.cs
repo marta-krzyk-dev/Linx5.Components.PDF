@@ -23,18 +23,18 @@ namespace Twenty57.Linx.Components.Pdf.FillForm.Templates
 
 		public void Populate(IFunctionBuilder functionBuilder, IFunctionData functionData)
 		{
-			InputAuthenticationType = functionData.TryGetPropertyValue(PropertyNames.InputAuthenticationType, AuthenticationType.None);
-			InputCertificateSource = functionData.TryGetPropertyValue(PropertyNames.InputCertificateSource, CertificateSource.File);
-			InputCertificate = functionData.TryGetPropertyValue<StoredCertificate>(PropertyNames.InputCertificate, null);
+			InputAuthenticationType = functionData.TryGetPropertyValue(Common.PropertyNames.InputAuthenticationType, AuthenticationType.None);
+			InputCertificateSource = functionData.TryGetPropertyValue(Common.PropertyNames.InputCertificateSource, CertificateSource.File);
+			InputCertificate = functionData.TryGetPropertyValue<StoredCertificate>(Common.PropertyNames.InputCertificate, null);
 
-			InputFilePathParameterName = functionBuilder.GetParamName(PropertyNames.InputFilePath);
-			InputPasswordParameterName = functionBuilder.GetParamName(PropertyNames.InputPassword);
-			InputCertificateFilePathParameterName = functionBuilder.GetParamName(PropertyNames.InputCertificateFilePath);
-			InputCertificateFilePasswordParameterName = functionBuilder.GetParamName(PropertyNames.InputCertificateFilePassword);
+			InputFilePathParameterName = functionBuilder.GetParamName(Common.PropertyNames.InputFilePath);
+			InputPasswordParameterName = functionBuilder.GetParamName(Common.PropertyNames.InputPassword);
+			InputCertificateFilePathParameterName = functionBuilder.GetParamName(Common.PropertyNames.InputCertificateFilePath);
+			InputCertificateFilePasswordParameterName = functionBuilder.GetParamName(Common.PropertyNames.InputCertificateFilePassword);
 
 			FillFormFormDataParameterName = functionBuilder.GetParamName(PropertyNames.FillFormFormData);
 
-			OutputFilePathParameterName = functionBuilder.GetParamName(PropertyNames.OutputFilePath);
+			OutputFilePathParameterName = functionBuilder.GetParamName(Common.PropertyNames.OutputFilePath);
 			ContextParameterName = functionBuilder.ContextParamName;
 		}
 	}

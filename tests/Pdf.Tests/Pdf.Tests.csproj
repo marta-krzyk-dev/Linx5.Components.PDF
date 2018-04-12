@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeProtection\TestChangeProtection.cs" />
     <Compile Include="Common\FileAuthentication.cs" />
     <Compile Include="Common\PdfComparer.cs" />
     <Compile Include="Common\TestPdfBase.cs" />
@@ -109,6 +110,7 @@
   <ItemGroup>
     <EmbeddedResource Include="FillForm\Resources\FillForm.pdf" />
     <EmbeddedResource Include="FillForm\Resources\FillFormXFA.pdf" />
+    <EmbeddedResource Include="ChangeProtection\Resources\Protect.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

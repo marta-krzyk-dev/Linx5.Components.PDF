@@ -52,7 +52,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.FillForm
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<FillFormProvider>();
 			ConfigureInputFileFunctionValues(designer, inputAuth, inputFilePath);
 			designer.Properties[PropertyNames.FillFormFormData].Value = formData;
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
 			var tester = new FunctionTester<FillFormProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
@@ -90,7 +90,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.FillForm
 			FunctionDesigner designer = ProviderHelpers.CreateDesigner<FillFormProvider>();
 			ConfigureInputFileFunctionValues(designer, inputAuth, inputFilePath);
 			designer.Properties[PropertyNames.FillFormFormData].Value = formData;
-			designer.Properties[PropertyNames.OutputFilePath].Value = outputFilePath;
+			designer.Properties[Pdf.Common.PropertyNames.OutputFilePath].Value = outputFilePath;
 
 			var tester = new FunctionTester<FillFormProvider>();
 			tester.Execute(designer.GetProperties(), designer.GetParameters());
@@ -112,13 +112,13 @@ namespace Twenty57.Linx.Components.Pdf.Tests.FillForm
 				designer,
 				inputAuth,
 				inputFilePath,
-				PropertyNames.InputFilePath,
-				PropertyNames.InputAuthenticationType,
-				PropertyNames.InputPassword,
-				PropertyNames.InputCertificateSource,
-				PropertyNames.InputCertificateFilePath,
-				PropertyNames.InputCertificateFilePassword,
-				PropertyNames.InputCertificate);
+				Pdf.Common.PropertyNames.InputFilePath,
+				Pdf.Common.PropertyNames.InputAuthenticationType,
+				Pdf.Common.PropertyNames.InputPassword,
+				Pdf.Common.PropertyNames.InputCertificateSource,
+				Pdf.Common.PropertyNames.InputCertificateFilePath,
+				Pdf.Common.PropertyNames.InputCertificateFilePassword,
+				Pdf.Common.PropertyNames.InputCertificate);
 		}
 	}
 }

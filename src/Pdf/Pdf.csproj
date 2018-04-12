@@ -63,7 +63,22 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeProtection\ChangeProtectionCodeGenerator.cs" />
+    <Compile Include="ChangeProtection\ChangeProtectionDesigner.cs" />
+    <Compile Include="ChangeProtection\ChangeProtectionProvider.cs" />
+    <Compile Include="ChangeProtection\Changes.cs" />
+    <Compile Include="ChangeProtection\Constants.cs" />
+    <Compile Include="ChangeProtection\Encryption.cs" />
+    <Compile Include="ChangeProtection\Printing.cs" />
+    <Compile Include="ChangeProtection\Templates\ChangeProtectionTemplate.cs">
+      <DependentUpon>ChangeProtectionTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ChangeProtection\Templates\ChangeProtectionTemplateData.cs" />
     <Compile Include="Common\AuthenticationType.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\PdfDesigner.cs" />
     <Compile Include="Common\TypeResolver.cs" />
     <Compile Include="Common\Validators\CertificateAuthenticationValidator.cs" />
     <Compile Include="Extensions\FunctionDataExtensions.cs" />
@@ -214,6 +229,12 @@
     <None Include="FillForm\Templates\FillFormTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>FillFormTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChangeProtection\Templates\ChangeProtectionTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ChangeProtectionTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
