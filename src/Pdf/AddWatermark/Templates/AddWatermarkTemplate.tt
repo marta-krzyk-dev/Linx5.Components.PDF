@@ -1,0 +1,95 @@
+﻿<#@ template language="C#" visibility="internal" #>
+<#@ include file="..\..\Common\ManagePdfReaderTemplate.t4"#>
+<# 
+	string readerPropertyName = "reader";
+	string watermarkReaderPropertyName = "watermarkReader";
+	string pageRangePropertyName = "pageRange";
+#>
+
+if (string.IsNullOrEmpty(<#= OutputFilePathParameterName #>))
+	throw new ArgumentNullException("<#= OutputFilePathParameterName #>");
+if (string.IsNullOrEmpty(<#= WatermarkFilePathParameterName #>))
+	throw new ArgumentNullException("<#= WatermarkFilePathParameterName #>");
+
+iTextSharp.text.pdf.PdfReader <#= readerPropertyName #> = null;
+iTextSharp.text.pdf.PdfReader <#= watermarkReaderPropertyName #> = null;
+try
+{
+<# 
+AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParameterName, InputPasswordParameterName, 
+	InputCertificateSource, InputCertificateFilePathParameterName, InputCertificateFilePasswordParameterName, InputCertificate, ContextParameterName);
+
+AssignPdfReader(watermarkReaderPropertyName, WatermarkAuthenticationType, WatermarkFilePathParameterName, WatermarkPasswordParameterName, 
+	WatermarkCertificateSource, WatermarkCertificateFilePathParameterName, WatermarkCertificateFilePasswordParameterName, WatermarkCertificate, ContextParameterName);
+#>
+
+	<#= ContextParameterName #>.Log(string.Format("Adding watermark to [{0}].", <#= OutputFilePathParameterName #>));
+	using (var outputStream = new System.IO.FileStream(<#= OutputFilePathParameterName #>, System.IO.FileMode.Create))
+	using (var pdfStamper = new iTextSharp.text.pdf.PdfStamper(<#= readerPropertyName #>, outputStream, <#= readerPropertyName #>.PdfVersion, true))
+	{
+		iTextSharp.text.pdf.PdfImportedPage watermarkPage = pdfStamper.GetImportedPage(<#= watermarkReaderPropertyName #>, 1);
+
+		System.Collections.Generic.IEnumerable<int> <#= pageRangePropertyName #>;
+		<# SetPageRange(pageRangePropertyName, readerPropertyName); #>
+
+		foreach (int pageNumber in <#= pageRangePropertyName #>.OrderBy(p => p).Distinct())
+		{
+			iTextSharp.text.pdf.PdfContentByte background;
+<# if (WatermarkPosition == WatermarkPosition.Above) { #>
+			background = pdfStamper.GetOverContent(pageNumber);
+<# } else { #>
+			background = pdfStamper.GetUnderContent(pageNumber);
+<# } #>
+			background.AddTemplate(watermarkPage, 0, 0);
+			<#= ContextParameterName #>.Log(string.Format("Watermark applied to page number {0}.", pageNumber));
+		}
+	}
+}
+finally
+{
+<# DisposePdfReader(readerPropertyName); #>
+<# DisposePdfReader(watermarkReaderPropertyName); #>
+}
+
+<#+
+private void SetPageRange(string pageRangePropertyName, string readerPropertyName)
+{
+#>
+if (string.IsNullOrEmpty(<#= WatermarkPagesParameterName #>))
+{
+	<#= pageRangePropertyName #> = System.Linq.Enumerable.Range(1, <#= readerPropertyName #>.NumberOfPages);
+}
+else
+{
+	var rangeRegex = new System.Text.RegularExpressions.Regex(@"^\s*((?<from>\d+)|(?<from>\d+)(?<sep>(-|\.\.))(?<to>\d+)|(?<sep>(-|\.\.))(?<to>\d+)|(?<from>\d+)(?<sep>(-|\.\.)))\s*$");
+	string[] rangeParts = <#= WatermarkPagesParameterName #>.Split(new char[] { ' ', ';', ',' }, StringSplitOptions.RemoveEmptyEntries);
+	var pages = new System.Collections.Generic.List<int>();
+	foreach (string rangePart in rangeParts)
+	{
+		System.Text.RegularExpressions.Match rangeMatch = rangeRegex.Match(rangePart);
+		if (rangeMatch.Success)
+		{
+			System.Text.RegularExpressions.Group fromGroup = rangeMatch.Groups["from"];
+			System.Text.RegularExpressions.Group toGroup = rangeMatch.Groups["to"];
+			System.Text.RegularExpressions.Group sepGroup = rangeMatch.Groups["sep"];
+
+			if (sepGroup.Success)
+			{
+				int from = 1;
+				int to = <#= readerPropertyName #>.NumberOfPages;
+				if (fromGroup.Success)
+					from = int.Parse(fromGroup.Value);
+				if (toGroup.Success)
+					to = int.Parse(toGroup.Value);
+				for (int page = from; page <= to; page++)
+					pages.Add(page);
+			}
+			else
+				pages.Add(int.Parse(fromGroup.Value));
+		}
+	}
+	<#= pageRangePropertyName #> = pages;
+}
+<#+
+}
+#>
