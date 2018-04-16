@@ -5,6 +5,5 @@
 		<version>$version$</version>
 		<authors>$author$</authors>
 		<description>Twenty57.Linx.Components.Pdf.Tests</description>		
-		<language>en-US</language>
 	</metadata>
 </package>
