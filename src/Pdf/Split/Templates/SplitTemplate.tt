@@ -1,0 +1,55 @@
+﻿<#@ template language="C#" visibility="internal" #>
+<#@ include file="..\..\Common\ManagePdfReaderTemplate.t4"#>
+<# 
+	string readerPropertyName = "reader";
+#>
+
+if (string.IsNullOrEmpty(<#= OutputFilePathParameterName #>))
+	throw new ArgumentNullException("<#= OutputFilePathParameterName #>");
+
+iTextSharp.text.pdf.PdfReader <#= readerPropertyName #> = null;
+try
+{
+<# 
+AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParameterName, InputPasswordParameterName, 
+	InputCertificateSource, InputCertificateFilePathParameterName, InputCertificateFilePasswordParameterName, InputCertificate, ContextParameterName); 
+#>
+	if (<#= readerPropertyName #>.AcroFields.Xfa.XfaPresent)
+		throw new NotSupportedException("The Split function cannot be used on an Xfa document.");
+
+	var output = new <#= OutputTypeName #>();
+	<#= ContextParameterName #>.Log(string.Format("[{0}] contains {1} pages.", <#= InputFilePathParameterName #>, <#= readerPropertyName #>.NumberOfPages));
+	output.<#= OutputNumberOfPagesPropertyName #> = <#= readerPropertyName #>.NumberOfPages;
+
+	var pageFilePaths = new System.Collections.Generic.List<string>();
+	for (int pageNumber = 1; pageNumber <= <#= readerPropertyName #>.NumberOfPages; pageNumber++)
+	{
+		string outputFilePath = string.Format("{0}_{1}.pdf", 
+			System.IO.Path.Combine(
+				System.IO.Path.GetDirectoryName(<#= OutputFilePathParameterName #>), System.IO.Path.GetFileNameWithoutExtension(<#= OutputFilePathParameterName #>)), 
+			pageNumber);
+		pageFilePaths.Add(outputFilePath);
+
+		<#= ContextParameterName #>.Log(string.Format("Copying page {0} to [{1}].", pageNumber, outputFilePath));
+
+		using (var outputStream = new System.IO.FileStream(outputFilePath, System.IO.FileMode.Create))
+		using (var document = new iTextSharp.text.Document(<#= readerPropertyName #>.GetPageSizeWithRotation(1)))
+		using (var pdfCopy = new iTextSharp.text.pdf.PdfCopy(document, outputStream))
+		{
+			document.Open();
+			pdfCopy.AddPage(pdfCopy.GetImportedPage(reader, pageNumber));
+		}
+	}
+
+<# if (SplitLoopResults) { #>
+	<#= ExecutionPathOutputParameterName #> = pageFilePaths.Select(p => new Twenty57.Linx.Plugin.Common.CodeGeneration.NextResult("<#= ExecutionPathPageFilesPropertyName #>", p));
+<# } else { #>
+	output.<#= OutputPageFilesPropertyName #> = pageFilePaths;
+<# } #>
+
+	return output;
+}
+finally
+{
+<# DisposePdfReader(readerPropertyName); #>
+}

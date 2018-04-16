@@ -75,6 +75,7 @@
     <Compile Include="PdfOperations\TestPdfOperationsSplit.cs" />
     <Compile Include="ReadPdf\TestReadPdf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Split\TestSplit.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Common\Resources\John Smith.pfx" />
@@ -115,6 +116,7 @@
     <EmbeddedResource Include="AddWatermark\Resources\Watermark.pdf" />
     <EmbeddedResource Include="AddWatermark\Resources\Overlay.pdf" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Split\Resources\Split.pdf" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

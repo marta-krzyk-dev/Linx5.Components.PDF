@@ -185,6 +185,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Split\Constants.cs" />
+    <Compile Include="Split\SplitCodeGenerator.cs" />
+    <Compile Include="Split\SplitDesigner.cs" />
+    <Compile Include="Split\SplitProvider.cs" />
+    <Compile Include="Split\Templates\SplitTemplate.cs">
+      <DependentUpon>SplitTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Split\Templates\SplitTemplateData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Common\Editors\CertificateInlineEditor.xaml">
@@ -251,6 +261,13 @@
     <None Include="AddWatermark\Templates\AddWatermarkTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AddWatermarkTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Split\Templates\SplitTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SplitTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
