@@ -42,11 +42,11 @@ namespace Twenty57.Linx.Components.Pdf.Split
 
 			bool loopResultsValue = Properties[PropertyNames.LoopResults].GetValue<bool>();
 			if (loopResultsValue)
-				ExecutionPaths.Add(PropertyNames.ExecutionPathName, PropertyNames.ExecutionPathName, TypeReference.Create(typeof(string)));
+				ExecutionPaths.Add(ExecutionPathNames.PageFiles, ExecutionPathNames.PageFiles, TypeReference.Create(typeof(string)));
 			else
-				outputBuilder.AddProperty(PropertyNames.OutputPageFiles, TypeReference.CreateList(typeof(string)));
+				outputBuilder.AddProperty(OutputNames.PageFiles, TypeReference.CreateList(typeof(string)));
 
-			outputBuilder.AddProperty(PropertyNames.OutputNumberOfPages, typeof(int));
+			outputBuilder.AddProperty(OutputNames.NumberOfPages, typeof(int));
 			Output = outputBuilder.CreateTypeReference();
 		}
 	}

@@ -45,19 +45,19 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 
 			IEnumerable<ITypeProperty> properties = designer.Output.GetProperties();
 			Assert.AreEqual(2, properties.Count());
-			properties.ElementAt(0).AssertList(PropertyNames.OutputPageFiles, typeof(string));
-			properties.ElementAt(1).AssertCompiled(PropertyNames.OutputNumberOfPages, typeof(int));
+			properties.ElementAt(0).AssertList(OutputNames.PageFiles, typeof(string));
+			properties.ElementAt(1).AssertCompiled(OutputNames.NumberOfPages, typeof(int));
 
 			loopResults.Value = true;
 
 			Assert.AreEqual(1, designer.ExecutionPaths.Count);
 			ExecutionPath executionPath = designer.ExecutionPaths[0];
-			Assert.AreEqual(PropertyNames.ExecutionPathName, executionPath.Name);
+			Assert.AreEqual(ExecutionPathNames.PageFiles, executionPath.Name);
 			Assert.AreEqual(TypeReference.Create(typeof(string)), executionPath.Output);
 
 			properties = designer.Output.GetProperties();
 			Assert.AreEqual(1, properties.Count());
-			properties.ElementAt(0).AssertCompiled(PropertyNames.OutputNumberOfPages, typeof(int));
+			properties.ElementAt(0).AssertCompiled(OutputNames.NumberOfPages, typeof(int));
 		}
 
 		[Test]
@@ -88,11 +88,11 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 			{
 				Assert.AreEqual(2, result.ExecutionPathResult.Count());
 				NextResult nextResult = result.ExecutionPathResult.ElementAt(0);
-				Assert.AreEqual(PropertyNames.ExecutionPathName, nextResult.Name);
+				Assert.AreEqual(ExecutionPathNames.PageFiles, nextResult.Name);
 				AssertOutputFile(nextResult.Value, inputAuth, Path.Combine(this.outputDirectory, "Split_1.pdf"), 1, "1");
 
 				nextResult = result.ExecutionPathResult.ElementAt(1);
-				Assert.AreEqual(PropertyNames.ExecutionPathName, nextResult.Name);
+				Assert.AreEqual(ExecutionPathNames.PageFiles, nextResult.Name);
 				AssertOutputFile(nextResult.Value, inputAuth, Path.Combine(this.outputDirectory, "Split_2.pdf"), 1, "2");
 			}
 			else

@@ -3,9 +3,16 @@
 	public class PropertyNames
 	{
 		public const string LoopResults = "Loop results";
-		public const string ExecutionPathName = "PageFiles";
+	}
 
-		public const string OutputNumberOfPages = "NumberOfPages";
-		public const string OutputPageFiles = "PageFiles";
+	public static class ExecutionPathNames
+	{
+		public const string PageFiles = "PageFiles";
+	}
+
+	public static class OutputNames
+	{
+		public const string NumberOfPages = "NumberOfPages";
+		public const string PageFiles = "PageFiles";
 	}
 }

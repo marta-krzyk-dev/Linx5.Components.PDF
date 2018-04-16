@@ -43,11 +43,11 @@ namespace Twenty57.Linx.Components.Pdf.Split.Templates
 			ContextParameterName = functionBuilder.ContextParamName;
 
 			ExecutionPathOutputParameterName = functionBuilder.ExecutionPathOutParamName;
-			ExecutionPathPageFilesPropertyName = functionBuilder.GetParamName(PropertyNames.ExecutionPathName);
+			ExecutionPathPageFilesPropertyName = functionBuilder.GetParamName(ExecutionPathNames.PageFiles);
 
 			OutputTypeName = functionBuilder.GetTypeName(functionData.Output);
-			OutputNumberOfPagesPropertyName = functionBuilder.GetParamName(PropertyNames.OutputNumberOfPages);
-			OutputPageFilesPropertyName = functionBuilder.GetParamName(PropertyNames.OutputPageFiles);
+			OutputNumberOfPagesPropertyName = functionBuilder.GetParamName(OutputNames.NumberOfPages);
+			OutputPageFilesPropertyName = functionBuilder.GetParamName(OutputNames.PageFiles);
 		}
 	}
 }
