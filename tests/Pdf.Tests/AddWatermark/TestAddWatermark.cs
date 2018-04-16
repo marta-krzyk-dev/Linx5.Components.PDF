@@ -8,7 +8,7 @@ using Twenty57.Linx.Components.Pdf.Tests.Helpers;
 using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.TestKit;
 
-namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
+namespace Twenty57.Linx.Components.Pdf.Tests.AddWatermark
 {
 	public class TestAddWatermark: TestPdfBase
 	{

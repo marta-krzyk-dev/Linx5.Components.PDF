@@ -12,7 +12,7 @@ using Twenty57.Linx.Plugin.Common.CodeGeneration;
 using Twenty57.Linx.Plugin.Common.Types;
 using Twenty57.Linx.Plugin.TestKit;
 
-namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
+namespace Twenty57.Linx.Components.Pdf.Tests.Split
 {
 	[TestFixture]
 	public class TestSplit : TestPdfBase
