@@ -60,6 +60,7 @@
     <Compile Include="Common\FileAuthentication.cs" />
     <Compile Include="Common\PdfComparer.cs" />
     <Compile Include="Common\TestPdfBase.cs" />
+    <Compile Include="Concatenate\TestConcatenate.cs" />
     <Compile Include="Extensions\FunctionDesignerExtensions.cs" />
     <Compile Include="Extensions\TypePropertyExtensions.cs" />
     <Compile Include="Common\AuthenticationManager.cs" />
@@ -115,6 +116,8 @@
     <EmbeddedResource Include="ChangeProtection\Resources\Protect.pdf" />
     <EmbeddedResource Include="AddWatermark\Resources\Watermark.pdf" />
     <EmbeddedResource Include="AddWatermark\Resources\Overlay.pdf" />
+    <EmbeddedResource Include="Concatenate\Resources\Concatenate1.pdf" />
+    <EmbeddedResource Include="Concatenate\Resources\Concatenate2.pdf" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Split\Resources\Split.pdf" />
   </ItemGroup>

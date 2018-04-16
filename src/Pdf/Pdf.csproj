@@ -92,6 +92,16 @@
     <Compile Include="Common\PdfDesigner.cs" />
     <Compile Include="Common\TypeResolver.cs" />
     <Compile Include="Common\Validators\CertificateAuthenticationValidator.cs" />
+    <Compile Include="Concatenate\ConcatenateCodeGenerator.cs" />
+    <Compile Include="Concatenate\ConcatenateDesigner.cs" />
+    <Compile Include="Concatenate\ConcatenateProvider.cs" />
+    <Compile Include="Concatenate\Constants.cs" />
+    <Compile Include="Concatenate\Templates\ConcatenateTemplate.cs">
+      <DependentUpon>ConcatenateTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Concatenate\Templates\ConcatenateTemplateData.cs" />
     <Compile Include="Extensions\FunctionDataExtensions.cs" />
     <Compile Include="Extensions\PropertyCollectionExtensions.cs" />
     <Compile Include="Extensions\SerializationInfoExtensions.cs" />
@@ -268,6 +278,12 @@
     <None Include="Split\Templates\SplitTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SplitTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Concatenate\Templates\ConcatenateTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ConcatenateTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
