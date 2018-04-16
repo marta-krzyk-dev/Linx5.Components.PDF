@@ -1,0 +1,82 @@
+﻿<#@ template language="C#" visibility="internal" #>
+<#@ include file="..\..\Common\ManagePdfReaderTemplate.t4"#>
+<# 
+	string readerPropertyName = "reader";
+	string signCertificatePropertyName = "signCertificate";
+	string appearancePropertyName = "appearance";
+#>
+
+if (string.IsNullOrEmpty(<#= OutputFilePathParameterName #>))
+	throw new ArgumentNullException("<#= OutputFilePathParameterName #>");
+
+System.Security.Cryptography.X509Certificates.X509Certificate2 <#= signCertificatePropertyName #> = null;
+<# AssignCertificateProperty(signCertificatePropertyName, SignCertificateSource, SignCertificateFilePathParameterName, SignCertificateFilePasswordParameterName, SignCertificate); #>
+if (!<#= signCertificatePropertyName #>.HasPrivateKey)
+	throw new NotSupportedException("Signing certificate must have a private key.");
+
+iTextSharp.text.pdf.PdfReader <#= readerPropertyName #> = null;
+try
+{
+<#
+AssignPdfReader(readerPropertyName, InputAuthenticationType, InputFilePathParameterName, InputPasswordParameterName, 
+	InputCertificateSource, InputCertificateFilePathParameterName, InputCertificateFilePasswordParameterName, InputCertificate, ContextParameterName); 
+#>
+
+	<#= ContextParameterName #>.Log(string.Format("Adding signature to [{0}].", <#= OutputFilePathParameterName #>));
+	using (var outputStream = new System.IO.FileStream(<#= OutputFilePathParameterName #>, System.IO.FileMode.Create))
+	using (var pdfStamper = iTextSharp.text.pdf.PdfStamper.CreateSignature(<#= readerPropertyName #>, outputStream, <#= readerPropertyName #>.PdfVersion, null, true))
+	{
+		iTextSharp.text.pdf.PdfSignatureAppearance <#= appearancePropertyName #> = pdfStamper.SignatureAppearance;
+		<# PopulateAppearanceProperty(appearancePropertyName); #>
+
+		var signKeyPair = Org.BouncyCastle.Security.DotNetUtilities.GetKeyPair(<#= signCertificatePropertyName #>.PrivateKey);
+		var externalSignature = new iTextSharp.text.pdf.security.PrivateKeySignature(signKeyPair.Private, "SHA-256");
+		var certChain = new System.Security.Cryptography.X509Certificates.X509Chain();
+		certChain.Build(<#= signCertificatePropertyName #>);
+		Org.BouncyCastle.X509.X509Certificate[] bouncyCertChain = certChain.ChainElements
+			.Cast<System.Security.Cryptography.X509Certificates.X509ChainElement>()
+			.Select(ce => Org.BouncyCastle.Security.DotNetUtilities.FromX509Certificate(ce.Certificate))
+			.ToArray();
+
+		<# if (SignPlacement == Twenty57.Linx.Components.Pdf.Sign.SignaturePosition.Hidden) { #>
+				<#= appearancePropertyName #>.SetVisibleSignature(new iTextSharp.text.Rectangle(0, 0, 0, 0), 1, null);
+		<# } else if (SignPlacement == Twenty57.Linx.Components.Pdf.Sign.SignaturePosition.FormField) { #>
+				if (<#= readerPropertyName #>.AcroFields.Fields.Keys.Contains(<#= SignFieldNameParameterName #>))
+					<#= appearancePropertyName #>.SetVisibleSignature(<#= SignFieldNameParameterName #>);
+				else if (<#= readerPropertyName #>.AcroFields.Xfa.XfaPresent)				
+					throw new NotSupportedException("Field Signatures are not supported for XFA documents.");
+		<# } else if (SignPlacement == Twenty57.Linx.Components.Pdf.Sign.SignaturePosition.OnPage) { #>
+				<#= appearancePropertyName #>.SetVisibleSignature(
+					new iTextSharp.text.Rectangle(
+						iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionXParameterName #>),
+						iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionYParameterName #>),
+						iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionXParameterName #> + <#= SignWidthParameterName #>),
+						iTextSharp.text.Utilities.MillimetersToPoints(<#= SignPositionYParameterName #> - <#= SignHeightParameterName #>)),
+					<#= SignPageParameterName #>, null);
+		<# } #>
+
+		iTextSharp.text.pdf.security.MakeSignature.SignDetached(<#= appearancePropertyName #>, externalSignature, bouncyCertChain, null, null, null, 0, iTextSharp.text.pdf.security.CryptoStandard.CMS);
+	}
+}
+finally
+{
+<# DisposePdfReader(readerPropertyName); #>
+}
+
+<#+
+private void PopulateAppearanceProperty(string appearancePropertyName)
+{
+#>
+<#= appearancePropertyName #>.SignDate = DateTime.Now;
+<#= appearancePropertyName #>.Location = <#= SignSignedAtParameterName #>;
+<#= appearancePropertyName #>.Reason = <#= SignReasonParameterName #>;
+<#+ if (SignLockAfterSigning) { #>
+<#= appearancePropertyName #>.CertificationLevel = iTextSharp.text.pdf.PdfSignatureAppearance.CERTIFIED_NO_CHANGES_ALLOWED;
+<#+ } #>
+<#+ if (SignPlacement != Twenty57.Linx.Components.Pdf.Sign.SignaturePosition.Hidden) { #>
+if (!string.IsNullOrEmpty(<#= SignBackgroundImageParameterName #>))
+	<#= appearancePropertyName #>.Image = iTextSharp.text.Image.GetInstance(<#= SignBackgroundImageParameterName #>);
+<#+ } #>
+<#+
+}
+#>

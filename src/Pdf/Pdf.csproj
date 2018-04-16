@@ -195,6 +195,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sign\Constants.cs" />
+    <Compile Include="Sign\SignaturePosition.cs" />
+    <Compile Include="Sign\SignCodeGenerator.cs" />
+    <Compile Include="Sign\SignDesigner.cs" />
+    <Compile Include="Sign\SignProvider.cs" />
+    <Compile Include="Sign\Templates\SignTemplate.cs">
+      <DependentUpon>SignTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Sign\Templates\SignTemplateData.cs" />
     <Compile Include="Split\Constants.cs" />
     <Compile Include="Split\SplitCodeGenerator.cs" />
     <Compile Include="Split\SplitDesigner.cs" />
@@ -284,6 +295,12 @@
     <None Include="Concatenate\Templates\ConcatenateTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ConcatenateTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sign\Templates\SignTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SignTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
