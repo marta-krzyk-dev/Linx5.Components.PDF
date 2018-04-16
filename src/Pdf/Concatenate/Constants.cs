@@ -3,6 +3,5 @@
 	public class PropertyNames
 	{
 		public const string InputFiles = "Input PDF files";
-
 	}
 }

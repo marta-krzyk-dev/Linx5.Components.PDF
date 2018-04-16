@@ -36,13 +36,12 @@ namespace Twenty57.Linx.Components.Pdf.Concatenate
 
 		private void InitializeProperties()
 		{
-			Property inputFiles = Properties.AddOrRetrieve(PropertyNames.InputFiles, 
-				TypeReference.CreateList(typeof(string)), ValueUseOption.RuntimeRead, null);
+			Property inputFiles = Properties.AddOrRetrieve(PropertyNames.InputFiles, TypeReference.CreateList(typeof(string)), ValueUseOption.RuntimeRead, null);
 			inputFiles.Order = 1;
 			inputFiles.Description = "List of PDF files to concatenate.";
 			inputFiles.Validations.Add(new RequiredValidator());
 
-			Property outputFilePath = Properties.AddOrRetrieve(Common.PropertyNames.OutputFilePath, typeof(string), 
+			Property outputFilePath = Properties.AddOrRetrieve(Common.PropertyNames.OutputFilePath, typeof(string),
 				ValueUseOption.RuntimeRead, string.Empty);
 			outputFilePath.Order = 2;
 			outputFilePath.Description = "Path of the PDF file to write to.";
