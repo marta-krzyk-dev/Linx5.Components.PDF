@@ -19,15 +19,19 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 			}
 		}
 
-		public IFunctionData Update(IFunctionData data)
+		public bool TryUpdate(IFunctionData data, IUpdateContext context, out IFunctionData updatedData)
 		{
-			if (data.Version == CurrentVersion)
-				return data;
+			updatedData = data;
+			if (updatedData.Version == CurrentVersion)
+				return false;
 
-			if (string.IsNullOrEmpty(data.Version))
-				return UpdateToVersion1(data);
+			if (string.IsNullOrEmpty(updatedData.Version))
+				updatedData = UpdateToVersion1(updatedData);
 
-			throw new Exception($"Unknown version [{data.Version}] specified.");
+			if (updatedData.Version == CurrentVersion)
+				return true;
+
+			throw new Exception($"Unknown version [{updatedData.Version}] specified.");
 		}
 
 		private IFunctionData UpdateToVersion1(IFunctionData data)

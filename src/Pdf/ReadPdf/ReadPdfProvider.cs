@@ -14,6 +14,6 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 
 		public override FunctionCodeGenerator CreateCodeGenerator(IFunctionData data) => new ReadPdfCodeGenerator(data);
 
-		public override IFunctionData UpdateToLatestVersion(IFunctionData data) => ReadPdfUpdater.Instance.Update(data);
+		public override bool TryUpdateToLatestVersion(IFunctionData data, IUpdateContext context, out IFunctionData updatedData) => ReadPdfUpdater.Instance.TryUpdate(data, context, out updatedData);
 	}
 }

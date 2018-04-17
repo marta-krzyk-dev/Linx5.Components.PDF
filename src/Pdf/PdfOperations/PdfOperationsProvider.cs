@@ -22,6 +22,6 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations
 
 		public override FunctionCodeGenerator CreateCodeGenerator(IFunctionData data) => new PdfOperationsCodeGenerator(data);
 
-		public override IFunctionData UpdateToLatestVersion(IFunctionData data) => PdfOperationsUpdater.Instance.Update(data);
+		public override bool TryUpdateToLatestVersion(IFunctionData data, IUpdateContext context, out IFunctionData updatedData) => PdfOperationsUpdater.Instance.TryUpdate(data, context, out updatedData);
 	}
 }
