@@ -76,6 +76,7 @@
     <Compile Include="PdfOperations\TestPdfOperationsSplit.cs" />
     <Compile Include="ReadPdf\TestReadPdf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sign\TestSign.cs" />
     <Compile Include="Split\TestSplit.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,8 +121,12 @@
     <EmbeddedResource Include="Concatenate\Resources\Concatenate2.pdf" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Split\Resources\Split.pdf" />
+    <EmbeddedResource Include="Sign\Resources\Sign.pdf" />
+    <EmbeddedResource Include="Sign\Resources\SignXFA.pdf" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Sign\Resources\Sign_Image.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
