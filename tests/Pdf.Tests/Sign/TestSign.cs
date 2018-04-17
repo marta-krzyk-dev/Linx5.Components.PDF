@@ -14,6 +14,11 @@ namespace Twenty57.Linx.Components.Pdf.Tests.Sign
 	public class TestSign : TestPdfBase
 	{
 		private string outputDirectory;
+		private bool lockDocument = false;
+
+		private const string signName = "John Smith";
+		private const string signReason = "Make it safe.";
+		private const string signLocation = "At the office.";
 
 		[SetUp]
 		public void Setup()
@@ -27,12 +32,6 @@ namespace Twenty57.Linx.Components.Pdf.Tests.Sign
 		{
 			Directory.Delete(this.outputDirectory, true);
 		}
-
-		private const string signName = "John Smith";
-		private const string signReason = "Make it safe.";
-		private const string signLocation = "At the office.";
-
-		private bool lockDocument = false;
 
 		[Test]
 		[Combinatorial]
