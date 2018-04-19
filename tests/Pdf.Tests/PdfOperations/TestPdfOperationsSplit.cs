@@ -10,6 +10,7 @@ using Twenty57.Linx.Plugin.Common.CodeGeneration;
 using Twenty57.Linx.Plugin.Common.Types;
 using Twenty57.Linx.Plugin.TestKit;
 
+#pragma warning disable 0612
 namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 {
 	public partial class TestPdfOperations
@@ -102,3 +103,4 @@ namespace Twenty57.Linx.Components.Pdf.Tests.PdfOperations
 		}
 	}
 }
+#pragma warning restore 0612

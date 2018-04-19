@@ -3,6 +3,7 @@ using Twenty57.Linx.Plugin.Common;
 
 namespace Twenty57.Linx.Components.Pdf.PdfOperations
 {
+	[Obsolete]
 	public class PdfOperationsProvider : FunctionProvider
 	{
 		private static readonly string searchKeywords;

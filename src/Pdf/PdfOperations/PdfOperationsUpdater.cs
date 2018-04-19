@@ -36,7 +36,9 @@ namespace Twenty57.Linx.Components.Pdf.PdfOperations
 
 		private IFunctionData UpdateToVersion1(IFunctionData data)
 		{
+#pragma warning disable 0612
 			PdfOperationsDesigner designer = new PdfOperationsProvider().CreateDesigner(null) as PdfOperationsDesigner;
+#pragma warning restore 0612
 			Operation operation = UpdateOperationProperties(designer, data);
 			switch (operation)
 			{

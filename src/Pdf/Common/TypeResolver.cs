@@ -18,7 +18,9 @@ namespace Twenty57.Linx.Components.Pdf
 				new TypeMapping("Twenty57.Linx.Components.Pdf.CertificateProperty+Source, Twenty57.Linx.Components.Pdf", typeof(CertificateSource)),
 				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdfShared+TextSplit, Twenty57.Linx.Components.Pdf", typeof(ReadPdf.TextSplit)),
 				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdfShared+FormExtraction, Twenty57.Linx.Components.Pdf", typeof(ReadPdf.FormExtraction)),
+#pragma warning disable 0612
 				new TypeMapping("Twenty57.Linx.Components.Pdf.PdfOperations, Twenty57.Linx.Components.Pdf", typeof(PdfOperations.PdfOperationsProvider)),
+#pragma warning restore 0612
 				new TypeMapping("Twenty57.Linx.Components.Pdf.AddWatermarkShared+Position, Twenty57.Linx.Components.Pdf", typeof(PdfOperations.WatermarkPosition)),
 				new TypeMapping("Twenty57.Linx.Components.Pdf.SignPdfShared+SignaturePosition, Twenty57.Linx.Components.Pdf", typeof(PdfOperations.SignaturePosition)),
 #pragma warning disable 618
