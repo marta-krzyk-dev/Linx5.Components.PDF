@@ -34,9 +34,11 @@ private void ReadTextValues(string readerPropertyName, string outputPropertyName
 #>
 <#= ContextParameterName #>.Log(string.Format("Start reading text of [{0}].", <#= PdfFilePathParameterName #>));
 var pageList = new System.Collections.Generic.List<string>();
+
 for (int index = 1; index <= <#= readerPropertyName #>.NumberOfPages; index++)
-{
-	pageList.Add(iTextSharp.text.pdf.parser.PdfTextExtractor.GetTextFromPage(<#= readerPropertyName #>, index));
+{	
+	var strategy = new Twenty57.Linx.Components.Pdf.ReadPdf.Helpers.TopToBottomTextExtractionStrategy();
+	pageList.Add(iTextSharp.text.pdf.parser.PdfTextExtractor.GetTextFromPage(<#= readerPropertyName #>, index, strategy));
 }
 <#+ if (TextSplit == TextSplit.Never) { #>
 <#= outputPropertyName #>.<#= OutputTextPropertyName #> = string.Join(Environment.NewLine, pageList);

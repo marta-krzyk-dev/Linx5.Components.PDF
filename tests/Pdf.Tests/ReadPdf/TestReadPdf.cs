@@ -191,10 +191,10 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			switch (splitText)
 			{
 				case TextSplit.Never:
-					Assert.AreEqual("Text on page 1\nFooter text on page 1\r\nText on page 2\r\nText on page 3", result.Value.Text);
+					Assert.AreEqual("Text on page 1\r\nFooter text on page 1\r\n\r\nText on page 2\r\n\r\nText on page 3\r\n", result.Value.Text);
 					break;
 				case TextSplit.Page:
-					Assert.AreEqual(new List<string> { "Text on page 1\nFooter text on page 1", "Text on page 2", "Text on page 3" }, result.Value.Text);
+					Assert.AreEqual(new List<string> { "Text on page 1\r\nFooter text on page 1\r\n", "Text on page 2\r\n", "Text on page 3\r\n" }, result.Value.Text);
 					break;
 			}
 		}

@@ -170,6 +170,7 @@
     <Compile Include="PdfOperations\Templates\FillFormTemplateData.cs" />
     <Compile Include="PdfOperations\SignaturePosition.cs" />
     <Compile Include="PdfOperations\WatermarkPosition.cs" />
+    <Compile Include="ReadPdf\Helpers\TopToBottomTextExtractionStrategy.cs" />
     <Compile Include="ReadPdf\Constants.cs" />
     <Compile Include="ReadPdf\ReadPdfProvider.cs" />
     <Compile Include="ReadPdf\ReadPdfCodeGenerator.cs" />
@@ -284,7 +285,6 @@
       <LastGenOutput>AddWatermarkTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Split\Templates\SplitTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
