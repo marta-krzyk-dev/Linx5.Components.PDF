@@ -1,14 +1,14 @@
 ﻿using iTextSharp.text.pdf;
 using System;
-using Twenty57.Linx.Components.Pdf.ReadPdf.Templates;
+using Twenty57.Linx.Components.Pdf.Read.Templates;
 using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.Common.CodeGeneration;
 
-namespace Twenty57.Linx.Components.Pdf.ReadPdf
+namespace Twenty57.Linx.Components.Pdf.Read
 {
-	internal class ReadPdfCodeGenerator : FunctionCodeGenerator
+	internal class ReadCodeGenerator : FunctionCodeGenerator
 	{
-		public ReadPdfCodeGenerator(IFunctionData data)
+		public ReadCodeGenerator(IFunctionData data)
 			: base(data)
 		{ }
 

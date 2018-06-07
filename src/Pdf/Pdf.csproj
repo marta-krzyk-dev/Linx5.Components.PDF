@@ -170,23 +170,23 @@
     <Compile Include="PdfOperations\Templates\FillFormTemplateData.cs" />
     <Compile Include="PdfOperations\SignaturePosition.cs" />
     <Compile Include="PdfOperations\WatermarkPosition.cs" />
-    <Compile Include="ReadPdf\Helpers\TopToBottomTextExtractionStrategy.cs" />
-    <Compile Include="ReadPdf\Constants.cs" />
-    <Compile Include="ReadPdf\ReadPdfProvider.cs" />
-    <Compile Include="ReadPdf\ReadPdfCodeGenerator.cs" />
-    <Compile Include="ReadPdf\ReadPdfDesigner.cs" />
-    <Compile Include="ReadPdf\FormExtraction.cs" />
-    <Compile Include="ReadPdf\ReadPdfUpdater.cs" />
-    <Compile Include="ReadPdf\Templates\ReadTemplate.cs">
+    <Compile Include="Read\Helpers\TopToBottomTextExtractionStrategy.cs" />
+    <Compile Include="Read\Constants.cs" />
+    <Compile Include="Read\ReadProvider.cs" />
+    <Compile Include="Read\ReadCodeGenerator.cs" />
+    <Compile Include="Read\ReadDesigner.cs" />
+    <Compile Include="Read\FormExtraction.cs" />
+    <Compile Include="Read\ReadUpdater.cs" />
+    <Compile Include="Read\Templates\ReadTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReadTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReadPdf\Templates\ReadPdfTemplateData.cs" />
-    <Compile Include="ReadPdf\TextSplit.cs" />
+    <Compile Include="Read\Templates\ReadTemplateData.cs" />
+    <Compile Include="Read\TextSplit.cs" />
     <Compile Include="Common\CertificateSource.cs" />
     <Compile Include="Common\StoredCertificate.cs" />
-    <Compile Include="ReadPdf\Validators\PdfHasFieldsValidator.cs" />
+    <Compile Include="Read\Validators\PdfHasFieldsValidator.cs" />
     <Compile Include="Common\Validators\StoredCertificateValidator.cs" />
     <Compile Include="Common\Editors\CertificateEditor.cs" />
     <Compile Include="Common\Editors\CertificateInlineEditor.xaml.cs">
@@ -259,7 +259,7 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>FillFormTemplate.cs</LastGenOutput>
     </None>
-    <None Include="ReadPdf\Templates\ReadTemplate.tt">
+    <None Include="Read\Templates\ReadTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ReadTemplate.cs</LastGenOutput>
     </None>

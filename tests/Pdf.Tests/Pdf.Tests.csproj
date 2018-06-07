@@ -74,7 +74,7 @@
     <Compile Include="PdfOperations\TestPdfOperationsProtect.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsSign.cs" />
     <Compile Include="PdfOperations\TestPdfOperationsSplit.cs" />
-    <Compile Include="ReadPdf\TestReadPdf.cs" />
+    <Compile Include="Read\TestRead.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sign\TestSign.cs" />
     <Compile Include="Split\TestSplit.cs" />
@@ -89,13 +89,13 @@
     <EmbeddedResource Include="PdfOperations\Resources\Split.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\Sign.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\Overlay.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\Blank.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\FormData.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\FormDataXFA.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\InferFields.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\InferFieldsXFA.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\Signature.pdf" />
-    <EmbeddedResource Include="ReadPdf\Resources\Text.pdf" />
+    <EmbeddedResource Include="Read\Resources\Blank.pdf" />
+    <EmbeddedResource Include="Read\Resources\FormData.pdf" />
+    <EmbeddedResource Include="Read\Resources\FormDataXFA.pdf" />
+    <EmbeddedResource Include="Read\Resources\InferFields.pdf" />
+    <EmbeddedResource Include="Read\Resources\InferFieldsXFA.pdf" />
+    <EmbeddedResource Include="Read\Resources\Signature.pdf" />
+    <EmbeddedResource Include="Read\Resources\Text.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\FillFormXFA.pdf" />
     <EmbeddedResource Include="PdfOperations\Resources\SignXFA.pdf" />
   </ItemGroup>
@@ -119,7 +119,7 @@
     <EmbeddedResource Include="AddWatermark\Resources\Overlay.pdf" />
     <EmbeddedResource Include="Concatenate\Resources\Concatenate1.pdf" />
     <EmbeddedResource Include="Concatenate\Resources\Concatenate2.pdf" />
-    <None Include="app.config" />
+	<None Include="app.config" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Split\Resources\Split.pdf" />
     <EmbeddedResource Include="Sign\Resources\Sign.pdf" />

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
-using Twenty57.Linx.Components.Pdf.ReadPdf;
+using Twenty57.Linx.Components.Pdf.Read;
 using Twenty57.Linx.Components.Pdf.Tests.Common;
 using Twenty57.Linx.Components.Pdf.Tests.Extensions;
 using Twenty57.Linx.Components.Pdf.Tests.Helpers;
@@ -12,15 +12,15 @@ using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.Common.Types;
 using Twenty57.Linx.Plugin.TestKit;
 
-namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
+namespace Twenty57.Linx.Components.Pdf.Tests.Read
 {
 	[TestFixture]
-	public class TestReadPdf : TestPdfBase
+	public class TestRead : TestPdfBase
 	{
 		[Test]
 		public void ValidateReadTextOutputStructure()
 		{
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionDesigner designer = tester.CreateDesigner();
 			Assert.IsNull(designer.Output);
 
@@ -43,7 +43,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ValidateReadFormDataOutputStructure()
 		{
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionDesigner designer = tester.CreateDesigner();
 			Assert.IsNull(designer.Output);
 
@@ -71,14 +71,14 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			properties.ElementAt(0).AssertGenerated(OutputNames.FormData);
 			Assert.AreEqual(0, properties.ElementAt(0).TypeReference.GetProperties().Count());
 
-			string blankPdfFile = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.Blank.pdf", this.inputDirectory);
+			string blankPdfFile = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.Blank.pdf", this.inputDirectory);
 			samplePdf.Value = blankPdfFile;
 			properties = designer.Output.GetProperties();
 			Assert.AreEqual(1, properties.Count());
 			properties.ElementAt(0).AssertGenerated(OutputNames.FormData);
 			Assert.AreEqual(0, properties.ElementAt(0).TypeReference.GetProperties().Count());
 
-			string inferPdfFile = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.InferFields.pdf", this.inputDirectory);
+			string inferPdfFile = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.InferFields.pdf", this.inputDirectory);
 			samplePdf.Value = inferPdfFile;
 			properties = designer.Output.GetProperties();
 			Assert.AreEqual(1, properties.Count());
@@ -97,7 +97,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ValidateReadSignatureOutputStructure()
 		{
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionDesigner designer = tester.CreateDesigner();
 			Assert.IsNull(designer.Output);
 
@@ -132,10 +132,10 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ReadWithNoInputFileSpecified([Values(null, "")] string inputFile)
 		{
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			designer.Properties[PropertyNames.PdfFilePath].Value = inputFile;
 
-			Assert.That(() => new FunctionTester<ReadPdfProvider>().Execute(designer.GetProperties(), designer.GetParameters()),
+			Assert.That(() => new FunctionTester<ReadProvider>().Execute(designer.GetProperties(), designer.GetParameters()),
 				Throws.Exception.TypeOf<ExecuteException>()
 				.With.Property("Message").EqualTo("Value cannot be null.\r\nParameter name: PDF_32file_32path\r\nSee Code and Parameter properties for more information."));
 		}
@@ -146,10 +146,10 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			string invalidFilePath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
 			Assert.IsFalse(File.Exists(invalidFilePath));
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			designer.Properties[PropertyNames.PdfFilePath].Value = invalidFilePath;
 
-			Assert.That(() => new FunctionTester<ReadPdfProvider>().Execute(designer.GetProperties(), designer.GetParameters()),
+			Assert.That(() => new FunctionTester<ReadProvider>().Execute(designer.GetProperties(), designer.GetParameters()),
 				Throws.Exception.TypeOf<ExecuteException>()
 				.With.Property("Message").EqualTo($"File [{invalidFilePath}] does not exist.\r\nSee Code and Parameter properties for more information."));
 		}
@@ -162,14 +162,14 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 				FileAuthentication.CertificateFile,
 				FileAuthentication.CertificateStore)] FileAuthentication inputAuth)
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.Blank.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.Blank.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, inputAuth, inputFilePath);
 			designer.Properties[PropertyNames.ReadText].Value = false;
 			designer.Properties[PropertyNames.ReadFormData].Value = false;
 			designer.Properties[PropertyNames.ReadSignature].Value = false;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			Assert.DoesNotThrow(() => tester.Execute(designer.GetProperties(), designer.GetParameters()));
 		}
 
@@ -179,13 +179,13 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 				TextSplit.Never,
 				TextSplit.Page)] TextSplit splitText)
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.Text.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.Text.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			designer.Properties[PropertyNames.ReadText].Value = true;
 			designer.Properties[PropertyNames.SplitText].Value = splitText;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			switch (splitText)
@@ -202,8 +202,8 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ReadAcroFormDataWithCustomTypeOutput()
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormData.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.FormData.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			designer.Properties[PropertyNames.ReadFormData].Value = true;
 
@@ -216,7 +216,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.CustomType;
 			designer.Properties[PropertyNames.FormDataType].Value = dataType;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			tester.CustomTypes.Add(dataType);
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
@@ -229,8 +229,8 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ReadXfaFormDataWithCustomTypeOutput()
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormDataXFA.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.FormDataXFA.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			designer.Properties[PropertyNames.ReadFormData].Value = true;
 
@@ -243,7 +243,7 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.CustomType;
 			designer.Properties[PropertyNames.FormDataType].Value = dataType;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			tester.CustomTypes.Add(dataType);
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
@@ -256,16 +256,16 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ReadAcroFormDataWithInferredOutput()
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormData.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.FormData.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			designer.Properties[PropertyNames.ReadFormData].Value = true;
 
 			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.Infer;
-			string inferFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormData.pdf", this.inputDirectory);
+			string inferFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.FormData.pdf", this.inputDirectory);
 			designer.Properties[PropertyNames.SamplePdf].Value = inferFilePath;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			Assert.AreEqual("Jeremy", result.Value.FormData.First_32Name);
@@ -277,16 +277,16 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ReadXfaFormDataWithInferredOutput()
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormDataXFA.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.FormDataXFA.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			designer.Properties[PropertyNames.ReadFormData].Value = true;
 
 			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.Infer;
-			string inferFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.InferFieldsXFA.pdf", this.inputDirectory);
+			string inferFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.InferFieldsXFA.pdf", this.inputDirectory);
 			designer.Properties[PropertyNames.SamplePdf].Value = inferFilePath;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			Assert.AreEqual("John", result.Value.FormData.form1_910_93_46FullName_910_93);
@@ -298,13 +298,13 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ReadAcroFormDataWithListOutput()
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormData.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.FormData.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			designer.Properties[PropertyNames.ReadFormData].Value = true;
 			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.List;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			List<KeyValuePair<string, string>> dataList = result.Value.FormDataList;
@@ -326,13 +326,13 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ReadXfaFormDataWithListOutput()
 		{
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.FormDataXFA.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.FormDataXFA.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			designer.Properties[PropertyNames.ReadFormData].Value = true;
 			designer.Properties[PropertyNames.ReturnFormDataAs].Value = FormExtraction.List;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			List<KeyValuePair<string, string>> dataList = result.Value.FormDataList;
@@ -362,12 +362,12 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 			store.Add(this.authenticationManager.Certificate);
 			store.Close();
 
-			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.Signature.pdf", this.inputDirectory);
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			string inputFilePath = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.Signature.pdf", this.inputDirectory);
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			ConfigureInputFileFunctionValues(designer, FileAuthentication.None, inputFilePath);
 			designer.Properties[PropertyNames.ReadSignature].Value = true;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			Assert.IsTrue(result.Value.Signatures.IsSigned);
@@ -388,14 +388,14 @@ namespace Twenty57.Linx.Components.Pdf.Tests.ReadPdf
 		[Test]
 		public void ReadSignatureWithUnsignedDocument()
 		{
-			string blankPdfFile = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.ReadPdf.Resources.Blank.pdf", this.inputDirectory);
+			string blankPdfFile = ResourceHelpers.WriteResourceToFile("Twenty57.Linx.Components.Pdf.Tests.Read.Resources.Blank.pdf", this.inputDirectory);
 
-			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadPdfProvider>();
+			FunctionDesigner designer = ProviderHelpers.CreateDesigner<ReadProvider>();
 			designer.Properties[PropertyNames.ReadSignature].Value = true;
 			designer.Properties[PropertyNames.PdfFilePath].Value = blankPdfFile;
 			designer.Properties[PropertyNames.AuthenticationType].Value = AuthenticationType.None;
 
-			var tester = new FunctionTester<ReadPdfProvider>();
+			var tester = new FunctionTester<ReadProvider>();
 			FunctionResult result = tester.Execute(designer.GetProperties(), designer.GetParameters());
 
 			Assert.IsFalse(result.Value.Signatures.IsSigned);

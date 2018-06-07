@@ -13,11 +13,14 @@ namespace Twenty57.Linx.Components.Pdf
 		{
 			mappings = new HashSet<TypeMapping>
 			{
-				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdf, Twenty57.Linx.Components.Pdf", typeof(ReadPdf.ReadPdfProvider)),
+				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdf, Twenty57.Linx.Components.Pdf", typeof(Read.ReadProvider)),
+				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdf.ReadPdfProvider, Twenty57.Linx.Components.Pdf", typeof(Read.ReadProvider)),
 				new TypeMapping("Twenty57.Linx.Components.Pdf.InputPdfProperty+AuthenticationType, Twenty57.Linx.Components.Pdf", typeof(AuthenticationType)),
 				new TypeMapping("Twenty57.Linx.Components.Pdf.CertificateProperty+Source, Twenty57.Linx.Components.Pdf", typeof(CertificateSource)),
-				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdfShared+TextSplit, Twenty57.Linx.Components.Pdf", typeof(ReadPdf.TextSplit)),
-				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdfShared+FormExtraction, Twenty57.Linx.Components.Pdf", typeof(ReadPdf.FormExtraction)),
+				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdfShared+TextSplit, Twenty57.Linx.Components.Pdf", typeof(Read.TextSplit)),
+				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdfShared+FormExtraction, Twenty57.Linx.Components.Pdf", typeof(Read.FormExtraction)),
+				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdf.TextSplit, Twenty57.Linx.Components.Pdf", typeof(Read.TextSplit)),
+				new TypeMapping("Twenty57.Linx.Components.Pdf.ReadPdf.FormExtraction, Twenty57.Linx.Components.Pdf", typeof(Read.FormExtraction)),
 #pragma warning disable 0612
 				new TypeMapping("Twenty57.Linx.Components.Pdf.PdfOperations, Twenty57.Linx.Components.Pdf", typeof(PdfOperations.PdfOperationsProvider)),
 #pragma warning restore 0612

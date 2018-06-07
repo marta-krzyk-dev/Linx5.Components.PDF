@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Twenty57.Linx.Plugin.Common.Validation;
 
-namespace Twenty57.Linx.Components.Pdf.ReadPdf.Validators
+namespace Twenty57.Linx.Components.Pdf.Read.Validators
 {
 	internal class PdfHasFieldsValidator : Validator
 	{

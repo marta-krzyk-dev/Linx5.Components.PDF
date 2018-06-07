@@ -5,26 +5,26 @@ using System.IO;
 using System.Linq;
 using Twenty57.Linx.Components.Pdf.Extensions;
 using Twenty57.Linx.Components.Pdf.Helpers;
-using Twenty57.Linx.Components.Pdf.ReadPdf.Validators;
+using Twenty57.Linx.Components.Pdf.Read.Validators;
 using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.Common.Types;
 using Twenty57.Linx.Plugin.Common.Validation;
 using Twenty57.Linx.Plugin.UI.Editors;
 
-namespace Twenty57.Linx.Components.Pdf.ReadPdf
+namespace Twenty57.Linx.Components.Pdf.Read
 {
-	internal class ReadPdfDesigner : FunctionDesigner
+	internal class ReadDesigner : FunctionDesigner
 	{
-		public ReadPdfDesigner(IDesignerContext context)
+		public ReadDesigner(IDesignerContext context)
 			: base(context)
 		{
-			Version = ReadPdfUpdater.Instance.CurrentVersion;
+			Version = ReadUpdater.Instance.CurrentVersion;
 
 			InitializeProperties();
 			BuildOutput();
 		}
 
-		public ReadPdfDesigner(IFunctionData data, IDesignerContext context)
+		public ReadDesigner(IFunctionData data, IDesignerContext context)
 			: base(data, context)
 		{ }
 

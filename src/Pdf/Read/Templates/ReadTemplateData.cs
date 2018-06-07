@@ -4,7 +4,7 @@ using Twenty57.Linx.Plugin.Common;
 using Twenty57.Linx.Plugin.Common.CodeGeneration;
 using Twenty57.Linx.Plugin.Common.Types;
 
-namespace Twenty57.Linx.Components.Pdf.ReadPdf.Templates
+namespace Twenty57.Linx.Components.Pdf.Read.Templates
 {
 	internal partial class ReadTemplate : ITemplate
 	{

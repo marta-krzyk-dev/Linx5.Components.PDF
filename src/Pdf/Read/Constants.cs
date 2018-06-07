@@ -1,4 +1,4 @@
-﻿namespace Twenty57.Linx.Components.Pdf.ReadPdf
+﻿namespace Twenty57.Linx.Components.Pdf.Read
 {
 	public static class PropertyNames
 	{

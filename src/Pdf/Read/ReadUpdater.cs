@@ -1,20 +1,20 @@
 ﻿using System;
 using Twenty57.Linx.Plugin.Common;
 
-namespace Twenty57.Linx.Components.Pdf.ReadPdf
+namespace Twenty57.Linx.Components.Pdf.Read
 {
-	internal class ReadPdfUpdater
+	internal class ReadUpdater
 	{
-		private static ReadPdfUpdater instance;
+		private static ReadUpdater instance;
 
 		public string CurrentVersion { get; } = "1";
 
-		public static ReadPdfUpdater Instance
+		public static ReadUpdater Instance
 		{
 			get
 			{
 				if (instance == null)
-					instance = new ReadPdfUpdater();
+					instance = new ReadUpdater();
 				return instance;
 			}
 		}
@@ -36,7 +36,7 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 
 		private IFunctionData UpdateToVersion1(IFunctionData data)
 		{
-			ReadPdfDesigner designer = new ReadPdfProvider().CreateDesigner(null) as ReadPdfDesigner;
+			ReadDesigner designer = new ReadProvider().CreateDesigner(null) as ReadDesigner;
 			UpdateInputFileProperties(designer, data);
 			UpdateReadTextProperties(designer, data);
 			UpdateReadFormDataProperties(designer, data);
@@ -44,7 +44,7 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 			return designer.GetFunctionData();
 		}
 
-		private void UpdateInputFileProperties(ReadPdfDesigner designer, IFunctionData data)
+		private void UpdateInputFileProperties(ReadDesigner designer, IFunctionData data)
 		{
 			designer.Properties[PropertyNames.PdfFilePath].Value = data.Properties["Pdf filename"].Value;
 
@@ -72,7 +72,7 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 			}
 		}
 
-		private void UpdateReadTextProperties(ReadPdfDesigner designer, IFunctionData data)
+		private void UpdateReadTextProperties(ReadDesigner designer, IFunctionData data)
 		{
 			bool readText = data.Properties["Read text"].GetValue<bool>();
 			designer.Properties[PropertyNames.ReadText].Value = readText;
@@ -80,7 +80,7 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 				designer.Properties[PropertyNames.SplitText].Value = data.Properties["Split text"].Value;
 		}
 
-		private void UpdateReadFormDataProperties(ReadPdfDesigner designer, IFunctionData data)
+		private void UpdateReadFormDataProperties(ReadDesigner designer, IFunctionData data)
 		{
 			bool readFormData = data.Properties["Read form data"].GetValue<bool>();
 			designer.Properties[PropertyNames.ReadFormData].Value = readFormData;
@@ -100,7 +100,7 @@ namespace Twenty57.Linx.Components.Pdf.ReadPdf
 			}
 		}
 
-		private void UpdateReadSignatureProperties(ReadPdfDesigner designer, IFunctionData data)
+		private void UpdateReadSignatureProperties(ReadDesigner designer, IFunctionData data)
 		{
 			designer.Properties[PropertyNames.ReadSignature].Value = data.Properties["Read signature"].Value;
 		}

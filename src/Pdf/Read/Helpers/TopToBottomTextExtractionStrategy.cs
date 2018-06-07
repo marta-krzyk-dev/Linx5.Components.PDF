@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Twenty57.Linx.Components.Pdf.ReadPdf.Helpers
+namespace Twenty57.Linx.Components.Pdf.Read.Helpers
 {
 	//http://cjhaas.com/blog/2013/03/13/itextsharp-slightly-smarter-text-extraction-strategy/
 	public class TopToBottomTextExtractionStrategy : ITextExtractionStrategy
