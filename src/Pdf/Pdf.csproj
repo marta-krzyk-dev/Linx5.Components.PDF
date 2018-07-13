@@ -54,11 +54,11 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
-    <Reference Include="Twenty57.Linx.Plugin.Common, Version=17.0.14.267, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.17.0.14.267\lib\net471\Twenty57.Linx.Plugin.Common.dll</HintPath>
+    <Reference Include="Twenty57.Linx.Plugin.Common, Version=17.0.16.271, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.Common.17.0.16.271\lib\net471\Twenty57.Linx.Plugin.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Twenty57.Linx.Plugin.UI, Version=17.0.14.267, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Twenty57.Linx.Plugin.UI.17.0.14.267\lib\net471\Twenty57.Linx.Plugin.UI.dll</HintPath>
+    <Reference Include="Twenty57.Linx.Plugin.UI, Version=17.0.16.271, Culture=neutral, PublicKeyToken=d7f03d358506bc3d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Twenty57.Linx.Plugin.UI.17.0.16.271\lib\net471\Twenty57.Linx.Plugin.UI.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
