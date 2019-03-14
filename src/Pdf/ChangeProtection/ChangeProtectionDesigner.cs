@@ -52,7 +52,7 @@ namespace Twenty57.Linx.Components.Pdf.ChangeProtection
 				ValueUseOption.DesignTime, AuthenticationType.None);
 			protection.Order = propertyOrder++;
 			protection.Description = "Method used to protect the PDF.";
-			protection.ValueChanged += updateVisibility;
+			protection.ValueChanged += updateVisibilitpry;
 
 			Property documentOpenPassword = Properties.AddOrRetrieve(PropertyNames.DocumentOpenPassword, 
 				typeof(string), ValueUseOption.RuntimeRead, string.Empty);
@@ -105,7 +105,7 @@ namespace Twenty57.Linx.Components.Pdf.ChangeProtection
 			Property encryption = Properties.AddOrRetrieve(PropertyNames.Encryption, typeof(Encryption), 
 				ValueUseOption.DesignTime, Encryption.AES128);
 			encryption.Order = propertyOrder++;
-			encryption.Description = "Encryption method used to proptect the PDF.";
+			encryption.Description = "Encryption method used to protect the PDF.";
 
 			Property dontEncryptMetadata = Properties.AddOrRetrieve(PropertyNames.DontEncryptMetadata, typeof(bool), 
 				ValueUseOption.DesignTime, false);
