@@ -105,7 +105,7 @@ namespace Twenty57.Linx.Components.Pdf.ChangeProtection
 			Property encryption = Properties.AddOrRetrieve(PropertyNames.Encryption, typeof(Encryption), 
 				ValueUseOption.DesignTime, Encryption.AES128);
 			encryption.Order = propertyOrder++;
-			encryption.Description = "Encryption method used to proptect the PDF.";
+			encryption.Description = "Encryption method used to protect the PDF.";
 
 			Property dontEncryptMetadata = Properties.AddOrRetrieve(PropertyNames.DontEncryptMetadata, typeof(bool), 
 				ValueUseOption.DesignTime, false);
